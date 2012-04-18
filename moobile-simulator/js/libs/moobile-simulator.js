@@ -221,6 +221,9 @@ Moobile.Simulator = new Class({
 
 		var parent = document.id(this.options.container) || document.body;
 
+		if (Browser.safari) document.id(document.body).addClass('safari');
+		if (Browser.chrome) document.id(document.body).addClass('chrome');
+
 		if (!Browser.safari && !Browser.chrome) {
 			this.notSupported(parent);
 			return;

@@ -48,6 +48,11 @@
 	width: 320px;
 }
 
+body.chrome .simulator .simulator-display {
+	overflow: visible;
+	position: static;
+}
+
 .simulator .simulator-content {
 	background: white;
 	-webkit-backface-visibility: hidden;

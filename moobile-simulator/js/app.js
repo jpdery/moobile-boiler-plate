@@ -51,7 +51,10 @@ new Unit({
 				var size = iframe.getSize();
 				var external = window.open(source, '_blank', 'height=' + size.y + ',width=' + size.x + ',location=no,menubar=no,scrollbars=no,status=no,titlebar=no,toolbar=no');
 				if (Browser.Platform.mac) {
-					external.resizeTo(size.x, size.y + 24);
+					(function() {
+						if (Browser.safari) external.resizeTo(size.x, size.y + 24);
+						if (Browser.chrome) external.resizeTo(size.x, size.y + 50);
+					}).delay(5);
 				}
 			}
 		}
