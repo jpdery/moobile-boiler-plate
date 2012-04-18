@@ -1,0 +1,54 @@
+/* Device
+-----------------------------------------------------------------------------*/
+
+.simulator {
+	background: url(ipad.jpg) no-repeat; /* Must be here, FF11 */
+	-webkit-background-size: 978px 1268px;
+	   -moz-background-size: 978px 1268px;
+	        background-size: 978px 1268px;
+	height: 1268px;
+	padding-top: 123px;
+	padding-bottom: 121px;
+	padding-left: 105px;
+	padding-right: 105px;
+	width: 978px;
+}
+
+.simulator .simulator-display-glare {
+	background: url(ipad-glare.png) no-repeat top right; /* Must be here, FF11 */
+	-webkit-background-size: 527px 1191px;
+	   -moz-background-size: 527px 1191px;
+	        background-size: 527px 1191px;
+	height: 1268px;
+	top: 10px;
+	right: 10px;
+	width: 978px;
+	z-index: 2000;
+}
+
+.simulator .simulator-display {
+	height: 1024px;
+	width: 768px;
+}
+
+.simulator.portrait .simulator-content {
+	height: 1024px;
+	width: 768px;
+}
+
+.simulator.landscape .simulator-content {
+	height: 768px;
+	margin-top: 128px;
+	margin-left: -128px;
+	width: 1024px;
+}
+
+.simulator.portrait .simulator-content iframe {
+	height: 1004px;
+	width: 768px;
+}
+
+.simulator.landscape .simulator-content iframe {
+	height: 748px;
+	width: 1024px;
+}

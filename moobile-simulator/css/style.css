@@ -1,0 +1,510 @@
+/* Reset
+-----------------------------------------------------------------------------*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+	line-height: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary {
+	display: block;
+}
+
+nav ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	wat1: '';
+	wat1: none;
+}
+
+a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+mark {
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #cccccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+input, select {
+	vertical-align: middle;
+}
+
+iframe {
+	border: none;
+}
+
+.clear {
+	clear: both;
+}
+
+/* Fonts
+-----------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: 'Museo500';
+	src: url('museo500-regular-webfont.eot');
+	src: url('museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('museo500-regular-webfont.woff') format('woff'),
+		 url('museo500-regular-webfont.ttf') format('truetype'),
+		 url('museo500-regular-webfont.svg#Museo500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+::-webkit-input-placeholder { text-align:center; }
+/* mozilla solution */
+input:-moz-placeholder { text-align:center; }
+
+/* Body
+-----------------------------------------------------------------------------*/
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-webkit-box-orient: vertical;
+	background: rgb(229, 229, 229);
+	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(255, 255, 255)), to(rgb(229, 229, 229)));
+	background: -webkit-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background:    -moz-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background:         radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	color: #222222;
+	display: -webkit-box;
+	font-family: 'Museo500', Georgia, Serif;
+	font-weight: 500;
+	font-size: 18px;
+	height: 100%;
+	width: 100%;
+}
+
+.clear {
+	clear: both;
+}
+
+/* Tools
+-----------------------------------------------------------------------------*/
+
+.toolbar {
+	-webkit-box-flex: 0;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	width: 980px;
+	z-index: 50;
+}
+
+.toolbar .tool {
+	-webkit-perspective: 800;
+	-webkit-transition: all 350ms;
+	float: left;
+	margin-left: 0px;
+	margin-right: 15px;
+}
+
+.toolbar .tool .title,
+.toolbar .tool .option {
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all 350ms;
+	background: #868686;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: 'Museo500';
+	font-weight: 500;
+	font-size: 14px;
+	list-style: none;
+	list-style-position: outside;
+	height: 30px;
+	margin-bottom: 5px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.toolbar .tool .option {
+	opacity: 0;
+}
+
+.toolbar .tool:not(.static):hover {
+	-webkit-transform: translateY(-35px);
+}
+
+.toolbar .tool:hover .title,
+.toolbar .tool:hover .option {
+	background: #45A5D2;
+	opacity: 1;
+}
+
+.toolbar .tool:not(.static):hover .title {
+	-webkit-transform: translateX(-50%);
+	-webkit-transform-origin: center center;
+	opacity: 0;
+}
+
+.toolbar .tool:hover .option:hover {
+	background: #59b6e2;
+}
+
+/* Device */
+
+/* Orientation */
+
+/* Options */
+
+/* Open */
+
+.toolbar .tool.open,
+.toolbar .tool.open-external {
+	float: right;
+}
+
+.toolbar .tool.open .title {
+	background: #4ab02f;
+}
+
+.toolbar .tool.open-external {
+	-webkit-transform: translateY(-100%);
+	-webkit-transform-origin: center center;
+	opacity: 0;
+}
+
+.toolbar .tool.open-external.visible {
+	-webkit-transform: translateY(0%);
+	opacity: 1;
+}
+
+.toolbar .tool.open-external .title {
+	background: #4ab02f;
+}
+
+/* Open
+-----------------------------------------------------------------------------*/
+
+.open-dialog {
+	-webkit-border-radius: 2px;
+	   -moz-border-radius: 2px;
+	        border-radius: 2px;
+	-webkit-box-align: center;
+	   -moz-box-align: center;
+	        box-align: center;
+	-webkit-box-pack: center;
+	   -moz-box-pack: center;
+	        box-pack: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+            box-sizing: border-box;
+	-webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	   -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	        box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	 -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility: hidden;
+	         backface-visibility: hidden;
+	-webkit-transform: rotateY(-180deg);
+	   -moz-transform: rotateY(-180deg);
+	        transform: rotateY(-180deg);
+	-webkit-transition: all 350ms;
+	   -moz-transition: all 350ms;
+	        transition: all 350ms;
+	background: url(../images/open-dialog-bg.png) no-repeat center center;
+	bottom: 0px;
+	display: -webkit-box;
+	left: 0px;
+	height: 320px;
+	margin: auto;
+	padding: 25px;
+	position: absolute;
+	pointer-events: none;
+	right: 0px;
+	top: 0px;
+	width: 480px;
+}
+
+.open-dialog.flipped {
+	-webkit-transform: rotateY(0deg);
+	   -moz-transform: rotateY(0deg);
+	        transform: rotateY(0deg);
+	pointer-events: auto;
+}
+
+.open-dialog input {
+	font-family: 'Museo500', Georgia, Serif;
+	font-weight: normal;
+	font-size: 24px;
+	letter-spacing: -1px;
+}
+
+.open-dialog-content {
+	width: 430px;
+}
+
+.open-dialog-content label {
+	color: #ffffff;
+	font-weight: normal;
+	font-size: 36px;
+	display: block;
+	letter-spacing: -1px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	text-shadow: 2px 2px 1px black;
+	text-align: center;
+}
+
+.open-dialog-content input {
+	-webkit-box-shadow: 2px 2px 1px black;
+	   -moz-box-shadow: 2px 2px 1px black;
+	        box-shadow: 2px 2px 1px black;
+	-webkit-box-sizing: border-box;
+	-webkit-box-flex: 0;
+	border: 1px solid #ffffff;
+	color: #444444;
+	margin-bottom: 15px;
+	outline: none;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
+	width: 100%;
+}
+
+.open-dialog .button.close {
+	-webkit-transition: all 350ms;
+	   -moz-transition: all 350ms;
+	        transition: all 350ms;
+	background: url(../images/open-dialog-close.png) no-repeat;
+	cursor: pointer;
+	height: 15px;
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	width: 15px;
+}
+
+.open-dialog .button.close:hover {
+	-webkit-transform: scale(1.25) rotate(180deg);
+}
+
+.open-dialog .button.open {
+	-webkit-transition: all 350ms;
+	   -moz-transition: all 350ms;
+	        transition: all 350ms;
+	background: #45A5D2;
+	border: none;
+	bottom: 0px;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: 'Museo500', Georgia, Serif;
+	font-weight: normal;
+	font-size: 24px;
+	margin: auto;
+	letter-spacing: -1px;
+	left: 0px;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	position: absolute;
+	right: 0px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	width: 150px;
+}
+
+.open-dialog .button.open:hover {
+	background: #59b6e2;
+}
+
+body.safari .open-dialog {
+
+	/*
+		This is a weird fix for safari, without this, the reflection under the
+		device is not in sync with the rotation of the device. I'm guessing
+		however this won't be required in the future
+	*/
+
+	-webkit-box-reflect:
+  		below 1px
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(transparent),
+  			color-stop(0.5, transparent),
+  			to(rgba(255, 255, 255, 0.0)));
+}
+
+/* Content
+-----------------------------------------------------------------------------*/
+
+.content {
+	-webkit-box-flex: 1;
+	   -moz-box-flex: 1;
+	        box-flex: 1;
+	-webkit-box-align: center;
+	   -moz-box-align: center;
+	        box-align: center;
+	-webkit-box-pack: center;
+	   -moz-box-pack: center;
+	        box-pack: center;
+	display: -webkit-box;
+	display:    -moz-box;
+	display:         box;
+	height: 100%;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	position: relative;
+	width: 100%;
+	z-index: 25;
+}
+
+/* Simulator
+-----------------------------------------------------------------------------*/
+
+.content .simulator {
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	 -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility: hidden;
+	         backface-visibility: hidden;
+	bottom: 0px;
+	left: 0px;
+	margin: auto;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.content .simulator.animated {
+	-webkit-transition: all 350ms;
+	   -moz-transition: all 350ms;
+	        transition: all 350ms;
+}
+
+.content .simulator.portrait.flipped {
+	-webkit-transform: rotateZ(0deg) rotateY(180deg) !important;
+	   -moz-transform: rotateZ(0deg) rotateY(180deg) !important;
+	        transform: rotateZ(0deg) rotateY(180deg) !important;
+}
+
+.content .simulator.landscape.flipped {
+	-webkit-transform: rotateZ(90deg) rotateX(180deg) !important;
+	   -moz-transform: rotateZ(90deg) rotateX(180deg) !important;
+	        transform: rotateZ(90deg) rotateX(180deg) !important;
+}
+
+
+body.safari .content .simulator {
+
+	/*
+		This is a weird fix for safari, without this, the reflection under the
+		device is not in sync with the rotation of the device. I'm guessing
+		however this won't be required in the future
+	*/
+
+	-webkit-box-reflect:
+  		below 1px
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(transparent),
+  			color-stop(0.5, transparent),
+  			to(rgba(255, 255, 255, 0.0)));
+}
+
+/* Reflection
+-----------------------------------------------------------------------------*/
+
+.reflection {
+	-webkit-perspective: 800;
+	   -moz-perspective: 800;
+	        perspective: 800;
+	-webkit-transition: all 350ms;
+	   -moz-transition: all 350ms;
+	        transition: all 350ms;
+	-webkit-transform: translate3d(0, 0, 0);
+	   -moz-transform: translate3d(0, 0, 0);
+	        transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	-webkit-box-reflect:
+		below 0px
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(transparent),
+			color-stop(0.5, transparent),
+			to(rgba(255, 255, 255, 0.5)));
+	width: 100%;
+}

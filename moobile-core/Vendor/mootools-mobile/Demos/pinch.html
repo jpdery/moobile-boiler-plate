@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MooTools Mobile</title>
+	<meta name = "viewport" content = "initial-scale=1.0; maximum-scale=1.0; user-scalable=no" /> 
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+	<link rel="stylesheet" media="all" type="text/css" href="demo.css" />
+
+	<style type="text/css">
+		div.box {
+			background: #4791d9;
+		}
+		
+		@media only screen and (max-device-width: 480px) {
+			div.box {
+				width: 8em;
+				height: 8em;
+
+				line-height: 8em;
+				font-size: 2.95em;
+			}
+		}
+	</style>
+	<script type="text/javascript" src="mootools-core.js"></script>
+	<script type="text/javascript" src="custom-event.js"></script>
+
+	<script type="text/javascript" src="../Source/Browser/Features.Touch.js"></script>
+
+	<script type="text/javascript" src="../Source/Touch/Pinch.js"></script>
+
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			var element = document.id('myElement'),
+				timer;
+
+			element.store('pinch:threshold', 0.4);
+			element.addEvent('pinch', function(event){
+				this.set('text', 'Pinch ' + event.pinch);
+
+				clearTimeout(timer);
+				timer = (function(){
+					this.set('text', 'Pinch');
+				}).delay(500, this);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="more">
+		<span>Demos</span>
+		<a href="index.html">Home</a>
+		<a href="swipe.html">Swipe</a>
+		<a href="pinch.html">Pinch</a>
+		<a href="touchhold.html">Touchhold</a>
+	</div>
+	<div id="myElement" class="box">
+		Pinch
+	</div>
+</body>
+</html>

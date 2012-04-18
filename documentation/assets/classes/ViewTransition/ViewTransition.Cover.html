@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+		<title>Moobile View Transitions</title>
+
+		<!-- default iOS styles -->
+		<link rel="stylesheet" href="../../shared/css/iOS.css" />
+
+		<!-- mootools -->
+		<script type="text/javascript" src="../../shared/js/libs/mootools-core-1.4.5.js"></script>
+		<script type="text/javascript" src="../../shared/js/libs/mootools-more-1.4.0.1.js"></script>
+		<script type="text/javascript" src="../../shared/js/libs/moobile-0.1.js"></script>
+
+	</head>
+	<body>
+
+		<style type="text/css">
+
+			.view > .view-content {
+				-webkit-box-align: center;
+				-webkit-box-pack: center;
+			}
+
+			.view > .view-content span {
+				-webkit-border-radius: 8px;
+				background: rgba(0, 0, 0, 0.75);
+				color: #ffffff;
+				display: block;
+				font-size: 18px;
+				padding: 10px;
+				text-align: center;
+				text-shadow: none;
+				width: 100px;
+			}
+
+			.view-one {
+				background: #ffffff url(../../shared/images/iphone-wallpaper-1.jpg)
+			}
+
+			.view-two {
+				background: #ffffff url(../../shared/images/iphone-wallpaper-2.jpg)
+			}
+
+		</style>
+
+		<script type="text/javascript">
+
+			var ViewControllerOne = new Class({
+
+				Extends: Moobile.ViewController,
+
+				loadView: function() {
+					this.view = new Moobile.View('<div class="view-one"><span>View One</span></div>');
+				},
+
+				viewDidEnter: function() {
+					(function() {
+						this.getViewControllerStack().pushViewController(new ViewControllerTwo, new Moobile.ViewTransition.Cover);
+					}).delay(1500, this);
+				}
+			});
+
+			var ViewControllerTwo = new Class({
+
+				Extends: Moobile.ViewController,
+
+				loadView: function() {
+					this.view = new Moobile.View('<div class="view-two"><span>View Two</span></div>');
+				},
+
+				viewDidEnter: function() {
+					(function() {
+						this.getViewControllerStack().popViewController();
+					}).delay(1500, this);
+				}
+			});
+
+			window.addEvent('ready', function() {
+
+				var rootViewController = new Moobile.ViewControllerStack();
+
+				new Moobile.WindowController()
+					.setRootViewController(rootViewController)
+					.getRootViewController()
+					.pushViewController(new ViewControllerOne);
+			});
+
+		</script>
+
+	</body>
+</html>

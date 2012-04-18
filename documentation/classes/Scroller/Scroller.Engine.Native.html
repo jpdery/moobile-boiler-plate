@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Scroller.Engine.Native | Moobile 0.1</title><base href="../../"><link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/style.css"><script src="js/libs/modernizr-2.5.3.min.js"></script><script src="js/libs/prettify.js"></script><script src="js/libs/mootools-core-1.4.5.min.js"></script><script src="js/libs/mootools-more-1.4.0.1.min.js"></script><script src="js/libs/moobile-simulator.js"></script><script src="js/plugins.js"></script><script src="js/script.js"></script><script type="text/javascript">
+		Moobile.Simulator.setResourcePath('assets/shared/resources');
+	</script></head><body>
+
+	<div id="sidebar" class="sidebar">
+		<h1>Guides</h1>
+
+		<ul class="file-list"><li><a href="guides/GettingStarted.html">Getting Started</a></li>
+			<li><a href="guides/HelloWorld.html">Hello World</a></li>
+			<li><a href="guides/UsingTransitions.html">Using Transitions</a></li>
+		</ul><h1>Classes</h1>
+
+		<h2>Component</h2>
+		<ul class="file-list"><li><a href="classes/Component/Component.html"><span>Moobile.</span>Component</a></li>
+		</ul><h2>Control</h2>
+		<ul class="file-list"><li><a href="classes/Control/ActivityIndicator.html"><span>Moobile.</span>ActivityIndicator</a></li>
+			<li><a href="classes/Control/Bar.html"><span>Moobile.</span>Bar</a></li>
+			<li><a href="classes/Control/BarItem.html"><span>Moobile.</span>BarItem</a></li>
+			<li><a href="classes/Control/Button.html"><span>Moobile.</span>Button</a></li>
+			<li><a href="classes/Control/ButtonGroup.html"><span>Moobile.</span>ButtonGroup</a></li>
+			<li><a href="classes/Control/Control.html"><span>Moobile.</span>Control</a></li>
+			<li><a href="classes/Control/Image.html"><span>Moobile.</span>Image</a></li>
+			<li><a href="classes/Control/List.html"><span>Moobile.</span>List</a></li>
+			<li><a href="classes/Control/ListItem.html"><span>Moobile.</span>ListItem</a></li>
+			<li><a href="classes/Control/NavigationBar.html"><span>Moobile.</span>NavigationBar</a></li>
+			<li><a href="classes/Control/NavigationBarItem.html"><span>Moobile.</span>NavigationBarItem</a></li>
+			<li><a href="classes/Control/Slider.html"><span>Moobile.</span>Slider</a></li>
+			<li><a href="classes/Control/Text.html"><span>Moobile.</span>Text</a></li>
+		</ul><h2>Dialog</h2>
+		<ul class="file-list"><li><a href="classes/Dialog/Alert.html"><span>Moobile.</span>Alert</a></li>
+		</ul><h2>Event</h2>
+		<ul class="file-list"><li><a href="classes/Event/EventFirer.html"><span>Moobile.</span>EventFirer</a></li>
+		</ul><h2>View</h2>
+		<ul class="file-list"><li><a href="classes/View/View.html"><span>Moobile.</span>View</a></li>
+			<li><a href="classes/View/ScrollView.html"><span>Moobile.</span>ScrollView</a></li>
+		</ul><h2>ViewController</h2>
+		<ul class="file-list"><li><a href="classes/ViewController/ViewController.html"><span>Moobile.</span>ViewController</a></li>
+			<li><a href="classes/ViewController/ViewControllerStack.html"><span>Moobile.</span>ViewControllerStack</a></li>
+		</ul><h2>ViewTransition</h2>
+		<ul class="file-list"><li><a href="classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
+		</ul></div>
+	<div id="content" class="content"><h1>Moobile.Scroller.Engine.Native</h1>
+
+<h5>Extends <code>Moobile.Scroller.Engine.Navive</code></h5>
+
+<p>Provides an engine that uses the native scroller overflow.</p>
+
+<h2 id="initialization">Initialization</h2>
+
+<h2 id="methods">Methods</h2>
+
+<h3>initialize(content, options)</h3>
+
+<p>Initializes this scroller engine.</p>
+
+<p>This method will creates a <code>wrapper</code> element and wrap it around the
+given <code>content</code> element.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>content</code> <em>Optional</em></td>
+  <td>Element</td>
+  <td>The Element, element id or string.</td>
+</tr><tr><td><code>options</code> <em>Optional</em></td>
+  <td>Object</td>
+  <td>The options.</td>
+</tr></tbody></table><hr><h3>destroy()</h3>
+
+<p>Destroys this scroller engine.</p>
+
+<p>This method will remove the wrapper without removing the content
+element.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Moobile.Scroller.Engine.Navive</code> This scroller engine.</li>
+</ul><hr><h3>scrollTo(x, y, time)</h3>
+
+<p>Scrolls to a set of coordinates.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>x</code> <em>Optional</em></td>
+  <td>Number</td>
+  <td>The x coordinate.</td>
+</tr><tr><td><code>y</code> <em>Optional</em></td>
+  <td>Number</td>
+  <td>The y coordinate.</td>
+</tr><tr><td><code>time</code> <em>Optional</em></td>
+  <td>Number</td>
+  <td>The duration of the scroll.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Scroller.Engine.Navive</code> This scroller engine.</li>
+</ul><hr><h3>scrollToElement(element, time)</h3>
+
+<p>Scrolls to an element.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>element</code> <em>Optional</em></td>
+  <td>Element</td>
+  <td>The element to scroll to.</td>
+</tr><tr><td><code>time</code> <em>Optional</em></td>
+  <td>Number</td>
+  <td>The duration of the scroll.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Scroller.Engine.Navive</code> This scroller engine.</li>
+</ul><hr><h3>refresh()</h3>
+
+<p>Refreshes this scroller engine.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Moobile.Scroller.Engine.Navive</code> This scroller engine.</li>
+</ul><hr><h3>getSize()</h3>
+
+<p>Returns the size.</p>
+
+<p>This method will return the wrapper's size as an object with two keys,
+<code>x</code> which indicates the width and <code>y</code> which indicates the height.</p>
+
+<h4>Returns:</h4>
+
+<ul><li>Object The size.</li>
+</ul><hr><h3>getScroll()</h3>
+
+<p>Returns the current scroll position.</p>
+
+<p>This method will return the current scroll position as an object
+with two keys, <code>x</code> which indicates the horizontal scroll and <code>y</code> which
+indicates the vertical scroll of this entity.</p>
+
+<h4>Returns:</h4>
+
+<ul><li>Object The scroll position.</li>
+</ul><hr><h3>getScrollSize()</h3>
+
+<p>Returns size including the scrolling area.</p>
+
+<p>This method will return the content's size as an object with two keys,
+<code>x</code> which indicates the width and <code>y</code> which indicates the height.</p>
+
+<h4>Returns:</h4>
+
+<ul><li>Object The size including the scrolling area.</li>
+</ul><hr><h2 id="members">Members</h2>
+
+<h2 id="events">Events</h2>
+</div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialization">Initialization</a></li><li><a href="#methods">Methods</a><ul><li><a href="#">initialize</a></li><li><a href="#">destroy</a></li><li><a href="#">scrollTo</a></li><li><a href="#">scrollToElement</a></li><li><a href="#">refresh</a></li><li><a href="#">getSize</a></li><li><a href="#">getScroll</a></li><li><a href="#">getScrollSize</a></li></ul></li><li><a href="#members">Members</a></li><li><a href="#events">Events</a></li></ul></div>
+
+</body></html>

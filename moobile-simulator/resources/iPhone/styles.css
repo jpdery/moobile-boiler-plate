@@ -1,0 +1,193 @@
+/* Device
+-----------------------------------------------------------------------------*/
+
+.simulator {
+	background: url(iphone.png) no-repeat; /* Must be here, FF11 */
+	-webkit-border-radius: 58px;
+	   -moz-border-radius: 58px;
+	        border-radius: 58px;
+	-webkit-background-size: 382px 744px;
+	   -moz-background-size: 382px 744px;
+	        background-size: 382px 744px;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-family: "Helvetica Neue", "Helvetica", Sans-Serif;
+	font-weight: normal;
+	height: 744px;
+	padding-top: 132px;
+	padding-bottom: 132px;
+	padding-left: 31px;
+	padding-right: 31px;
+	position: relative;
+	width: 382px;
+}
+
+.simulator .simulator-display-glare {
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	background: url(iphone-glare.png)  no-repeat; /* Must be here, FF11 */
+	-webkit-background-size: 360px 726px;
+	   -moz-background-size: 360px 726px;
+	        background-size: 360px 726px;
+	height: 726px;
+	opacity: 0.5;
+	position: absolute;
+	pointer-events: none;
+	top: 8px;
+	right: 6px;
+	width: 360px;
+	z-index: 2000;
+}
+
+.simulator .simulator-display {
+	height: 480px;
+	overflow: hidden;
+	position: relative;
+	width: 320px;
+}
+
+.simulator .simulator-content {
+	background: white;
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	-webkit-transform-origin: center center;
+	   -moz-transform-origin: center center;
+	        transform-origin: center center;
+	-webkit-transform: translate3d(0, 0, 0);
+	   -moz-transform: translate3d(0, 0, 0);
+	        transform: translate3d(0, 0, 0);
+	position: relative;
+}
+
+.simulator.animate .simulator-content,
+.simulator.animate .simulator-content iframe {
+	-webkit-transition: -webkit-transform 350ms cubic-bezier(0.5, 0.1, 0.5, 1.0), margin 0ms, width 0ms, height 0ms;
+	   -moz-transition:    -moz-transform 350ms cubic-bezier(0.5, 0.1, 0.5, 1.0), margin 0ms, width 0ms, height 0ms;
+	        transition:         transform 350ms cubic-bezier(0.5, 0.1, 0.5, 1.0), margin 0ms, width 0ms, height 0ms;
+	-webkit-transition-delay: 350ms;
+   	   -moz-transition-delay: 350ms;
+	        transition-delay: 350ms;
+}
+
+.simulator.portrait .simulator-content {
+	height: 480px;
+	width: 320px;
+}
+
+.simulator.landscape .simulator-content {
+	height: 320px;
+	margin-top: 80px;
+	margin-left: -80px;
+	width: 480px;
+}
+
+.simulator .simulator-content iframe {
+	border: none;
+}
+
+.simulator.portrait .simulator-content iframe {
+	height: 460px;
+	width: 320px;
+}
+
+.simulator.landscape .simulator-content iframe {
+	height: 300px;
+	width: 480px;
+}
+
+/* Status Bar
+-----------------------------------------------------------------------------*/
+
+.simulator .simulator-status-bar {
+	background: url(status-bar.png) repeat-x;
+	-webkit-background-size: 320px 20px;
+	   -moz-background-size: 320px 20px;
+	        background-size: 320px 20px;
+	color: #000000;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	height: 20px;
+	line-height: 19px;
+	top: 0px;
+	text-shadow: 0px 1px 1px #ffffff;
+	text-transform: uppercase;
+	width: 100%;
+	z-index: 10;
+}
+
+.simulator .simulator-status-bar.dark {
+	background: url(status-bar-dark.png) repeat-x;
+	color: #ffffff;
+	text-shadow: 0px 1px 0px #000000;
+}
+
+.simulator .simulator-status-bar-network,
+.simulator .simulator-status-bar-battery,
+.simulator .simulator-status-bar-time {
+	-webkit-font-smoothing: antialiased;
+	height: 20px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+}
+
+.simulator .simulator-status-bar-network {
+	background: url(status-bar-network.png) no-repeat center left;
+	-webkit-background-size: 50px 20px;
+	   -moz-background-size: 50px 20px;
+	        background-size: 50px 20px;
+	font-size: 13px;
+	left: 4px;
+	padding-left: 21px;
+}
+
+.simulator .simulator-status-bar.dark .simulator-status-bar-network {
+	background: url(status-bar-network-dark.png) no-repeat center left;
+}
+
+.simulator .simulator-status-bar-battery {
+	background: url(status-bar-battery.png) no-repeat center right;
+	-webkit-background-size: 38px 20px;
+	   -moz-background-size: 38px 20px;
+	        background-size: 38px 20px;
+	right: 3px;
+}
+
+.simulator .simulator-status-bar.dark .simulator-status-bar-battery {
+	background: url(status-bar-battery-dark.png) no-repeat center right;
+}
+
+.simulator .simulator-status-bar-time {
+	text-align: center;
+}
+
+/* Button Bar
+-----------------------------------------------------------------------------*/
+
+.simulator .simulator-button-bar {
+	display: none;
+	height: 64px;
+	width: 100%;
+}
+
+.simulator.portrait .button-bar {
+	background: url(button-bar-portrait.png);
+	-webkit-background-size: 320px 44px;
+	   -moz-background-size: 320px 44px;
+	        background-size: 320px 44px;
+}
+
+.simulator.landscape .button-bar {
+	background: url(button-bar-landscape.png);
+	-webkit-background-size: 480px 44px;
+	   -moz-background-size: 480px 44px;
+	        background-size: 480px 44px;
+}
+
+.simulator.with-button-bar .button-bar {
+	display: block;
+}

@@ -1,0 +1,17 @@
+name: "App"
+
+exports: "app.js"
+
+web: ""
+
+description: ""
+
+license: ""
+
+copyright: ""
+
+authors: ""
+
+sources:
+
+  - "Source/ViewController/ViewController.Home.js"

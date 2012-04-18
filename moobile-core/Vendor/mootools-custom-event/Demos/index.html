@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom-Event for MooTools</title>
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+	
+	<script type="text/javascript" src="mootools-core.js"></script>
+	
+	<script type="text/javascript" src="../Source/Element.defineCustomEvent.js"></script>
+	
+	<script type="text/javascript">
+		(function(){
+
+		Element.defineCustomEvent('control', {
+
+			base: 'keydown',
+
+			condition: function(event){
+				return !!event.control;
+			},
+
+			onSetup: function(fn, name){
+				console.log('setup: ' + name);
+			},
+
+			onTeardown: function(fn, name){
+				console.log('teardown: ' + name);
+			}
+
+		});
+
+
+		var isEnabled = true;
+		Element.defineCustomEvent('control+alt', {
+
+			base: 'control',
+			
+			condition: function(event){
+				return isEnabled && !!event.alt;
+			},
+
+			onSetup: function(fn, name){
+				console.log('-setup: ' + name);
+			},
+
+			onEnable: function(){
+				console.log('enabling control+alt');
+				isEnabled = true;
+			},
+
+			onDisable: function(){
+				console.log('disabling control+alt');
+				isEnabled = false;
+			}
+
+		});
+		
+		var name = 'control+alt';
+		var empty = function(){};
+		var calls = 0, listener = function(){
+			console.log('fired ' + name);
+			
+			if (++calls == 5){
+				document.removeEvent(name, listener);
+				(function(){
+					document.removeEvent(name, empty);
+
+					// More fancy testing
+					(function(){
+						document.addEvent(name, empty).removeEvent(name, empty);
+					}).delay(1000);
+				}).delay(1000);
+			}
+		};
+		
+		document.addEvent(name, empty);
+		document.addEvent(name, listener);
+
+		Element.defineCustomEvent('control+alt+shift', {
+
+			base: 'control+alt',
+
+			condition: function(event){
+				return !!event.shift;
+			},
+
+			onAdd: function(fn, name){
+				console.log('+adding ' + name);
+			},
+
+			onSetup: function(fn, name){
+				console.log('+addfirst ' + name);
+			}
+
+		});
+		
+		var subName = 'control+alt+shift';
+		document.addEvent(subName, function(){
+			console.log('+firing ' + subName);
+		});
+
+		Element.defineCustomEvent('shift', {
+
+			base: 'keydown',
+			
+			condition: function(event){
+				return !!event.shift;
+			},
+			
+			onAdd: function(fn, name){
+				console.log('~adding ' + name);
+			}
+
+		});
+
+		document.addEvent('shift', function(){
+			console.log('~firing: shift');
+		});
+
+		window.addEvent('load', function(){
+			var toggle = document.id('toggleEvents');
+
+			var text = ['Disable control+alt', 'Enable control+alt'];
+
+			var disable = function(){
+				Element.disableCustomEvents();
+				this.set('text', text[1]).removeEvent('click', disable).addEvent('click', enable);
+			};
+
+			var enable = function(){
+				Element.enableCustomEvents();
+				this.set('text', text[0]).removeEvent('click', enable).addEvent('click', disable);
+			};
+
+			enable.call(toggle);
+		});
+
+		})();
+	</script>
+</head>
+<body>
+<div>
+	<div>Open your console (Firebug, Web Inspector, ...) and press either alt+control, alt+control+shift or shift to see some fancy output.</div>
+	<button id="toggleEvents"></button>
+</div>
+</body>
+</html>

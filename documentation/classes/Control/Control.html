@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Control | Moobile 0.1</title><base href="../../"><link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/style.css"><script src="js/libs/modernizr-2.5.3.min.js"></script><script src="js/libs/prettify.js"></script><script src="js/libs/mootools-core-1.4.5.min.js"></script><script src="js/libs/mootools-more-1.4.0.1.min.js"></script><script src="js/libs/moobile-simulator.js"></script><script src="js/plugins.js"></script><script src="js/script.js"></script><script type="text/javascript">
+		Moobile.Simulator.setResourcePath('assets/shared/resources');
+	</script></head><body>
+
+	<div id="sidebar" class="sidebar">
+		<h1>Guides</h1>
+
+		<ul class="file-list"><li><a href="guides/GettingStarted.html">Getting Started</a></li>
+			<li><a href="guides/HelloWorld.html">Hello World</a></li>
+			<li><a href="guides/UsingTransitions.html">Using Transitions</a></li>
+		</ul><h1>Classes</h1>
+
+		<h2>Component</h2>
+		<ul class="file-list"><li><a href="classes/Component/Component.html"><span>Moobile.</span>Component</a></li>
+		</ul><h2>Control</h2>
+		<ul class="file-list"><li><a href="classes/Control/ActivityIndicator.html"><span>Moobile.</span>ActivityIndicator</a></li>
+			<li><a href="classes/Control/Bar.html"><span>Moobile.</span>Bar</a></li>
+			<li><a href="classes/Control/BarItem.html"><span>Moobile.</span>BarItem</a></li>
+			<li><a href="classes/Control/Button.html"><span>Moobile.</span>Button</a></li>
+			<li><a href="classes/Control/ButtonGroup.html"><span>Moobile.</span>ButtonGroup</a></li>
+			<li><a href="classes/Control/Control.html"><span>Moobile.</span>Control</a></li>
+			<li><a href="classes/Control/Image.html"><span>Moobile.</span>Image</a></li>
+			<li><a href="classes/Control/List.html"><span>Moobile.</span>List</a></li>
+			<li><a href="classes/Control/ListItem.html"><span>Moobile.</span>ListItem</a></li>
+			<li><a href="classes/Control/NavigationBar.html"><span>Moobile.</span>NavigationBar</a></li>
+			<li><a href="classes/Control/NavigationBarItem.html"><span>Moobile.</span>NavigationBarItem</a></li>
+			<li><a href="classes/Control/Slider.html"><span>Moobile.</span>Slider</a></li>
+			<li><a href="classes/Control/Text.html"><span>Moobile.</span>Text</a></li>
+		</ul><h2>Dialog</h2>
+		<ul class="file-list"><li><a href="classes/Dialog/Alert.html"><span>Moobile.</span>Alert</a></li>
+		</ul><h2>Event</h2>
+		<ul class="file-list"><li><a href="classes/Event/EventFirer.html"><span>Moobile.</span>EventFirer</a></li>
+		</ul><h2>View</h2>
+		<ul class="file-list"><li><a href="classes/View/View.html"><span>Moobile.</span>View</a></li>
+			<li><a href="classes/View/ScrollView.html"><span>Moobile.</span>ScrollView</a></li>
+		</ul><h2>ViewController</h2>
+		<ul class="file-list"><li><a href="classes/ViewController/ViewController.html"><span>Moobile.</span>ViewController</a></li>
+			<li><a href="classes/ViewController/ViewControllerStack.html"><span>Moobile.</span>ViewControllerStack</a></li>
+		</ul><h2>ViewTransition</h2>
+		<ul class="file-list"><li><a href="classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
+		</ul></div>
+	<div id="content" class="content"><h1>Moobile.Control</h1>
+
+<h5>Extends <a href="../Component/Component.html">Moobile.Component</a></h5>
+
+<p>Provides the base class for controls such has buttons and lists.</p>
+
+<h4>Syntax:</h4>
+
+<pre class="prettyprint"><code>var control = new Moobile.Control([element], [options], [name]);
+</code></pre>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>element</code> <em>Optional</em></td>
+  <td>Element</td>
+  <td>The control's element, element id or html string.</td>
+</tr><tr><td><code>options</code> <em>Optional</em></td>
+  <td>Object</td>
+  <td>The control's options, see below.</td>
+</tr><tr><td><code>name</code>    <em>Optional</em></td>
+  <td>String</td>
+  <td>The control's name.</td>
+</tr></tbody></table><h4>Options:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>className</code></td>
+  <td>String</td>
+  <td>The control's extended CSS class name, defaults to <code>null</code>.</td>
+</tr><tr><td><code>styleName</code></td>
+  <td>String</td>
+  <td>The control's default style, defaults to <code>null</code>.</td>
+</tr><tr><td><code>tagName</code></td>
+  <td>String</td>
+  <td>The control's element tag name, defaults to <code>div</code>.</td>
+</tr></tbody></table><h4>Subclassing Notes:</h4>
+
+<p>Don't instantiate this class. Instead, extend it by creating subclasses for your own implementation.</p>
+
+<p>This class overrides the following method:</p>
+
+<ul><li><code>shouldFireEvent</code>: Returns <code>false</code> if the control is disabled.</li>
+</ul><h2 id="methods">Methods</h2>
+
+<h3 id="setDisabled">setDisabled(value)</h3>
+
+<p>Sets whether this control is disabled. The CSS class <code>is-disabled</code> is added to the control element upon being disabled.</p>
+
+<p>Events won't be fired when a control is disabled.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>value</code></td>
+  <td>Boolean</td>
+  <td>Whether this control is disabled.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Control</code> This Moobile.Control instance.</li>
+</ul><hr><h3 id="isDisabled">isDisabled()</h3>
+
+<p>Indicate whether this control is disabled.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Boolean</code> Whether this control is disabled.</li>
+</ul><hr><h3 id="setSelected">setSelected(value)</h3>
+
+<p>Sets whether this control is selected. The CSS class <code>is-selected</code> is added to the control element upon being disabled.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>value</code></td>
+  <td>Boolean</td>
+  <td>Whether this control is selected.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Control</code> This Moobile.Control instance.</li>
+</ul><hr><h3 id="isSelected">isSelected()</h3>
+
+<p>Indicates whether this control is selected.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Boolean</code> Whether this control is selected.</li>
+</ul><hr><h3 id="setHighlighted">setHighlighted(value)</h3>
+
+<p>Sets whether this control is selected. The CSS class <code>is-highlighted</code> is added to the control element upon being highlighted.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>value</code></td>
+  <td>Boolean</td>
+  <td>Whether this control is highlighted.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Control</code> This Moobile.Control instance.</li>
+</ul><hr><h3 id="isHighlighted">isHighlighted()</h3>
+
+<p>Indicate whether this control is highlighted.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Boolean</code> Whether this control is highlighted.</li>
+</ul><hr><h3 id="willChangeState">willChangeState(state)</h3>
+
+<p>Tell this control it's about to change state.</p>
+
+<p>Override this method to provide your own implementation.</p>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>state</code></td>
+  <td>String</td>
+  <td>The state that will be set.</td>
+</tr></tbody></table><hr><h3 id="didChangeState">didChangeState(state)</h3>
+
+<p>Tell this control it has changed state.</p>
+
+<p>Override this method to provide your own implementation.</p>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>state</code></td>
+  <td>String</td>
+  <td>The state that will be set.</td>
+</tr></tbody></table><hr><h3 id="shouldAllowState">shouldAllowState(state)</h3>
+
+<p>Indicate whether the specified state is applicable to this control.</p>
+
+<p>Override this method if you wish to limit the states that can be applied to this control.</p>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>state</code></td>
+  <td>String</td>
+  <td>The state.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Boolean</code> Whether the state can be applied to this control.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var SpecialControl = new Class({
+    Extends: Moobile.Control,
+    shouldAllowState: function(state) {
+        return state !== 'highlighted'
+    }
+});
+var specialControl = new SpecialControl();
+specialControl.setDisabled(true); // works
+specialControl.setSelected(true); // works
+specialControl.setHighlighted(true); // does not work
+</code></pre>
+</div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#methods">Methods</a><ul><li><a href="#setDisabled">setDisabled</a></li><li><a href="#isDisabled">isDisabled</a></li><li><a href="#setSelected">setSelected</a></li><li><a href="#isSelected">isSelected</a></li><li><a href="#setHighlighted">setHighlighted</a></li><li><a href="#isHighlighted">isHighlighted</a></li><li><a href="#willChangeState">willChangeState</a></li><li><a href="#didChangeState">didChangeState</a></li><li><a href="#shouldAllowState">shouldAllowState</a></li></ul></li></ul></div>
+
+</body></html>

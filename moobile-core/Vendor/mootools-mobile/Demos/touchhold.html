@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MooTools Mobile</title>
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+	<link rel="stylesheet" media="all" type="text/css" href="demo.css" />
+
+	<style type="text/css">
+		body {
+			-webkit-user-select: none;
+		}
+	</style>
+	<script type="text/javascript" src="mootools-core.js"></script>
+	<script type="text/javascript" src="custom-event.js"></script>
+
+	<script type="text/javascript" src="../Source/Browser/Features.Touch.js"></script>
+	<script type="text/javascript" src="../Source/Desktop/Mouse.js"></script>
+
+	<script type="text/javascript" src="../Source/Touch/Touchhold.js"></script>
+
+	<script type="text/javascript">
+		window.addEvent('domready', function(){
+			var element = document.id('myElement'),
+				timer;
+
+			element.store('touchhold:delay', 700);
+			element.addEvent('touchhold', function(event){
+				this.set('text', 'Touchhold fired');
+
+				clearTimeout(timer);
+				timer = (function(){
+					this.set('text', 'Touchhold');
+				}).delay(500, this);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="more">
+		<span>Demos</span>
+		<a href="index.html">Home</a>
+		<a href="swipe.html">Swipe</a>
+		<a href="pinch.html">Pinch</a>
+		<a href="touchhold.html">Touchhold</a>
+	</div>
+	<div id="myElement" class="box">
+		Touchhold
+	</div>
+</body>
+</html>

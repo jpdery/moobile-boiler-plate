@@ -1,0 +1,21 @@
+name: "Class-Extras"
+
+exports: "mootools-class-extras.js"
+
+web: "[cpojer.net](http://cpojer.net)"
+
+description: "Provides useful additions to Class."
+
+license: "[MIT License](http://mootools.net/license.txt)"
+
+copyright: "&copy; [Christoph Pojer](http://cpojer.net/)"
+
+author: "cpojer"
+authors: "[Christoph Pojer](http://cpojer.net)"
+category: Utilities
+tags: [class, singleton, instantiation, class.binds, binds]
+
+sources:
+    - "Source/Class.Binds.js"
+    - "Source/Class.Instantiate.js"
+    - "Source/Class.Singleton.js"

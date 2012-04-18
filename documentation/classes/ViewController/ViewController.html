@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ViewController | Moobile 0.1</title><base href="../../"><link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/style.css"><script src="js/libs/modernizr-2.5.3.min.js"></script><script src="js/libs/prettify.js"></script><script src="js/libs/mootools-core-1.4.5.min.js"></script><script src="js/libs/mootools-more-1.4.0.1.min.js"></script><script src="js/libs/moobile-simulator.js"></script><script src="js/plugins.js"></script><script src="js/script.js"></script><script type="text/javascript">
+		Moobile.Simulator.setResourcePath('assets/shared/resources');
+	</script></head><body>
+
+	<div id="sidebar" class="sidebar">
+		<h1>Guides</h1>
+
+		<ul class="file-list"><li><a href="guides/GettingStarted.html">Getting Started</a></li>
+			<li><a href="guides/HelloWorld.html">Hello World</a></li>
+			<li><a href="guides/UsingTransitions.html">Using Transitions</a></li>
+		</ul><h1>Classes</h1>
+
+		<h2>Component</h2>
+		<ul class="file-list"><li><a href="classes/Component/Component.html"><span>Moobile.</span>Component</a></li>
+		</ul><h2>Control</h2>
+		<ul class="file-list"><li><a href="classes/Control/ActivityIndicator.html"><span>Moobile.</span>ActivityIndicator</a></li>
+			<li><a href="classes/Control/Bar.html"><span>Moobile.</span>Bar</a></li>
+			<li><a href="classes/Control/BarItem.html"><span>Moobile.</span>BarItem</a></li>
+			<li><a href="classes/Control/Button.html"><span>Moobile.</span>Button</a></li>
+			<li><a href="classes/Control/ButtonGroup.html"><span>Moobile.</span>ButtonGroup</a></li>
+			<li><a href="classes/Control/Control.html"><span>Moobile.</span>Control</a></li>
+			<li><a href="classes/Control/Image.html"><span>Moobile.</span>Image</a></li>
+			<li><a href="classes/Control/List.html"><span>Moobile.</span>List</a></li>
+			<li><a href="classes/Control/ListItem.html"><span>Moobile.</span>ListItem</a></li>
+			<li><a href="classes/Control/NavigationBar.html"><span>Moobile.</span>NavigationBar</a></li>
+			<li><a href="classes/Control/NavigationBarItem.html"><span>Moobile.</span>NavigationBarItem</a></li>
+			<li><a href="classes/Control/Slider.html"><span>Moobile.</span>Slider</a></li>
+			<li><a href="classes/Control/Text.html"><span>Moobile.</span>Text</a></li>
+		</ul><h2>Dialog</h2>
+		<ul class="file-list"><li><a href="classes/Dialog/Alert.html"><span>Moobile.</span>Alert</a></li>
+		</ul><h2>Event</h2>
+		<ul class="file-list"><li><a href="classes/Event/EventFirer.html"><span>Moobile.</span>EventFirer</a></li>
+		</ul><h2>View</h2>
+		<ul class="file-list"><li><a href="classes/View/View.html"><span>Moobile.</span>View</a></li>
+			<li><a href="classes/View/ScrollView.html"><span>Moobile.</span>ScrollView</a></li>
+		</ul><h2>ViewController</h2>
+		<ul class="file-list"><li><a href="classes/ViewController/ViewController.html"><span>Moobile.</span>ViewController</a></li>
+			<li><a href="classes/ViewController/ViewControllerStack.html"><span>Moobile.</span>ViewControllerStack</a></li>
+		</ul><h2>ViewTransition</h2>
+		<ul class="file-list"><li><a href="classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
+		</ul></div>
+	<div id="content" class="content"><h1>Moobile.ViewController</h1>
+
+<h5>Extends <a href="../Event/EventFirer.html">Moobile.EventFirer</a></h5>
+
+<p>Provides an object for managing a view and its view controller hierarchy.</p>
+
+<h2 id="initialize">Initialization</h2>
+
+<h4>Syntax:</h4>
+
+<pre class="prettyprint"><code>var viewController = new Moobile.ViewController([options], [name]);
+</code></pre>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>options</code> <em>Optional</em></td>
+  <td>Object</td>
+  <td>The view controller's options.</td>
+</tr><tr><td><code>name</code>    <em>Optional</em></td>
+  <td>String</td>
+  <td>The view controller's name.</td>
+</tr></tbody></table><h4>Subclassing Notes:</h4>
+
+<p>Don't instantiate this class. Instead, extend it by creating subclasses for your own implementation.</p>
+
+<h4>Example</h4>
+
+<p>File at /templates/say-hello-view.html:</p>
+
+<pre class="prettyprint"><code>&lt;div class="say-hello-view"&gt;
+    &lt;h2&gt;Tap the button&lt;/h2&gt;
+    &lt;div data-role="button" data-name="tap-me-button"&gt;Tap me!&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>The view controller:</p>
+
+<pre class="prettyprint"><code>var SayHelloViewController = new Class({
+
+    Extends: Moobile.ViewController,
+
+    tapMeButton: null,
+
+    loadView: function() {
+        this.view = Moobile.View.at('/templates/say-hello-view.html');
+    },
+
+    viewDidLoad: function() {
+        this.tapMeButton = this.view.getChildComponent('tap-me-button');
+        this.tapMeButton.addEvent('tap', this.bound('onTapMeButtonTap'));
+    },
+
+    destroy: function() {
+        this.tapMeButton.removeEvent('tap', this.bound('onTapMeButtonTap'));
+        this.tapMeButton = null;
+        this.parent();
+    },
+
+    onTapMeButtonTap: function(e, sender) {
+        alert('Mooooooooo!');
+    }
+});
+</code></pre>
+
+<h2 id="members">Members</h2>
+
+<h3 id="view">view</h3>
+
+<p>The view managed by the current view controller. Must be initialized using the <code>loadView</code> method.</p>
+
+<h4>Type:</h4>
+
+<ul><li><a href="../View/View.html">Moobile.View</a></li>
+</ul><h2 id="methods">Methods</h2>
+
+<h3 id="loadView">loadView()</h3>
+
+<p>Creates the view managed by this view controller. Override this method and assign a view instance to the <code>view</code> member of this class. Do not call the parent method as it could overwrite your view.</p>
+
+<h4>Note:</h4>
+
+<p>Do not call the parent method when overriding this method, this would overwrite the current view.</p>
+
+<h4>Example</h4>
+
+<h5>Loading a view:</h5>
+
+<pre class="prettyprint"><code>var MyViewController = new Class({
+    Extends: Moobile.ViewController,
+    loadView: function() {
+        var element = new Element('div.my-view').grab(new Element('h1').set('html', 'This is my view'));
+        this.view = new Moobile.View(element);
+    }
+});
+</code></pre>
+
+<h5>Loading a view from a file:</h5>
+
+<p>The content of the file at <code>/templates/my-view.html</code>:</p>
+
+<pre class="prettyprint"><code>&lt;div class="my-view"&gt;
+    &lt;h1&gt;This is my view&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>The view controller:</p>
+
+<pre class="prettyprint"><code>var MyViewController = new Class({
+    Extends: Moobile.ViewController,
+    loadView: function() {
+        this.view = Moobile.View.at('/templates/my-view.html');
+    }
+});
+</code></pre>
+
+<hr><h3 id="addChildViewController">addChildViewController(viewController)</h3>
+
+<p>Adds the specified view controller at the bottom this view controller hierarchy.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to add to the hierarchy.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+</code></pre>
+
+<hr><h3 id="addChildViewControllerAfter">addChildViewControllerAfter(viewController, after)</h3>
+
+<p>Adds the specified view controller to the view controller hierarchy after a specified view controller. The specified view controller's view is added after the second view controller's view.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to add to the hierarchy.</td>
+</tr><tr><td><code>after</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller used as a context to put the specified view controller after.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+var viewControllerThree = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.addChildViewControllerAfter(viewControllerThree, viewControllerTwo); // viewControllerThree is after viewControllerTwo
+</code></pre>
+
+<hr><h3 id="addChildViewControllerBefore">addChildViewControllerBefore(viewController, before)</h3>
+
+<p>Adds specified view controller to the view controller hierarchy before a specified view controller. The specified view controller's view is added before the given second controller's view.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to add to the hierarchy.</td>
+</tr><tr><td><code>before</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller used as a context to put the child view controller before.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+var viewControllerThree = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.addChildViewControllerBefore(viewControllerThree, viewControllerTwo); // viewControllerThree is before viewControllerTwo
+</code></pre>
+
+<hr><h3 id="getChildViewController">getChildViewController(name)</h3>
+
+<p>Returns a child view controller matching a specified name.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>name</code></td>
+  <td>String</td>
+  <td>The child view controller name.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> The child view controller or <code>null</code> if no child view controllers were found.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController(null, 'me');
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.getChildViewController('me'); // returns viewControllerTwo
+</code></pre>
+
+<hr><h3 id="getChildViewControllerAt">getChildViewControllerAt(index)</h3>
+
+<p>Returns a child view controller at a specified index.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>index</code></td>
+  <td>String</td>
+  <td>The child view controller index.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> The child view controller or <code>null</code> if no child view controllers exist at the given index.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.getChildViewControllerAt(0); // returns viewControllerTwo
+</code></pre>
+
+<hr><h3 id="getChildViewControllerIndex">getChildViewControllerIndex(index)</h3>
+
+<p>Returns the index of a specified view controller.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to look up.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><em>Number</em> The child view controller index or <code>-1</code> if the given child view controller is not in this view controller's hierarchy.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.getChildViewControllerIndex(viewControllerTwo); // returns 0
+</code></pre>
+
+<hr><h3 id="getChildViewControllers">getChildViewControllers()</h3>
+
+<p>Return an array containing all child view controllers.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><em>Array</em> Array containing all children view controllers.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+var viewControllerThree = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.addChildViewController(viewControllerThree);
+viewControllerOne.getChildViewControllers(); // returns [viewControllerTwo, viewControllerThree]
+</code></pre>
+
+<hr><h3 id="hasChildViewController">hasChildViewController(viewController)</h3>
+
+<p>Indicates whether the given viewController is a child of the current instance.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to look up.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><em>Boolean</em> Whether the given view controller is a child of this view controller.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.hasChildViewController(viewControllerTwo); // returns true
+</code></pre>
+
+<hr><h3 id="removeChildViewController">removeChildViewController(viewController, [destroy])</h3>
+
+<p>Removes the given viewController from the child view controllers. If <code>destroy</code> is <code>true</code>, the given viewController will also be destroyed.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to remove.</td>
+</tr><tr><td><code>destroy</code> <em>Optional</em></td>
+  <td>Boolean</td>
+  <td>Whether or not to destroy the view controller upon removal.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.removeChildViewController(viewControllerTwo); // removes viewControllerTwo
+</code></pre>
+
+<hr><h3 id="removeChildViewControllers">removeChildViewControllers([destroy])</h3>
+
+<p>Removes all child view controllers. If <code>destroy</code> is <code>true</code>, All child view controllers will also be destroyed.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
+  <td>Boolean</td>
+  <td>Whether or not to destroy the view controller upon removal.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+var viewControllerThree = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerOne.addChildViewController(viewControllerThree);
+viewControllerOne.removeChildViewControllers(); // viewControllerTwo and viewControllerThree are removed
+</code></pre>
+
+<hr><h3 id="removeFromParentViewController">removeFromParentViewController([destroy])</h3>
+
+<p>Removes the current instance from its parent.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
+  <td>Boolean</td>
+  <td>Whether or not to destroy the view controller upon removal.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.addChildViewController(viewControllerTwo);
+viewControllerTwo.removeFromParentViewController(); // viewControllerTwo is removed
+</code></pre>
+
+<hr><h3 id="presentModalViewController">presentModalViewController(viewController, [viewTransition])</h3>
+
+<p>Displays a child view controller over this view controller using a specified transition. The view controller presented as modal will only have a reference to its parent view controller and will use it to dismiss the modal view controller.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller.</td>
+</tr><tr><td><code>viewTransition</code> <em>Optional</em></td>
+  <td><a href="../ViewTransition/ViewTransition.html">Moobile.ViewTransition</a></td>
+  <td>The view transition.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.presentModalViewController(viewControllerTwo); // the viewControllerTwo's view is presented over the viewControllerOne's view
+</code></pre>
+
+<hr><h3 id="dismissModalViewController">dismissModalViewController()</h3>
+
+<p>Dismisses the current modal view controller and destroy it.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewControllerOne = new Moobile.ViewController();
+var viewControllerTwo = new Moobile.ViewController();
+viewControllerOne.presentModalViewController(viewControllerTwo);
+viewControllerOne.dismissModalViewController(); // the viewControllerTwo's view is removed
+</code></pre>
+
+<hr><h3 id="getName">getName()</h3>
+
+<p>Returns the view controller name.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><em>String</em> The name.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewController = new Moobile.ViewController(null, 'me');
+viewController.getName(); // returns 'me'
+</code></pre>
+
+<hr><h3 id="setTitle">setTitle(title)</h3>
+
+<p>Sets the title using either a string or a <code>Moobile.Label</code> instance. When provided with a string, this method creates a <code>Moobile.Label</code> instance and assign the given string as its text.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>title</code></td>
+  <td>Mixed</td>
+  <td>The title as a string or as a <code>Moobile.Label</code> instance.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewController = new Moobile.ViewController();
+viewController.setTitle('Moo');
+</code></pre>
+
+<hr><h3 id="getTitle">getTitle()</h3>
+
+<p>Returns the title.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../Control/Text.html">Moobile.Text</a> The title.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewController = new Moobile.ViewController();
+viewController.setTitle('Moo');
+viewController.getTitle(); // returns 'Moo'
+</code></pre>
+
+<hr><h3 id="setImage">setImage(image)</h3>
+
+<p>Sets the image using either a string or a <code>Moobile.Image</code> instance. When provided with a string, this method creates a <code>Moobile.Image</code> instance and assign the given string as its source.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>image</code></td>
+  <td>Mixed</td>
+  <td>The image as a string or a <code>Moobile.Image</code> instance.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewController = new Moobile.ViewController();
+viewController.setImage('path/to/an-image.png');
+</code></pre>
+
+<hr><h3 id="getImage">getImage()</h3>
+
+<p>Returns the image.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../Control/Image.html">Moobile.Image</a> The image.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var viewController = new Moobile.ViewController();
+viewController.setImage('path/to/an-image.png');
+viewController.getImage(); // returns a Moobile.Image instance.
+</code></pre>
+
+<hr><h3 id="setModal">setModal(modal)</h3>
+
+<p>Sets whether the current instance is being presented as the modal view controller of another view controller. You should rarely use this method as it's handled by the <code>Moobile.ViewController</code> class.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>modal</code></td>
+  <td>Boolean</td>
+  <td>Whether this view controller is modal.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><hr><h3 id="isModal">isModal()</h3>
+
+<p>Indicates whether the current instance is being presented as a modal view controller of another view controller.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><em>Boolean</em> Whether this view controller is modal.</li>
+</ul><hr><h3 id="isViewReady">isViewReady()</h3>
+
+<p>Indicates whether the managed view is ready.</p>
+
+<p>The view is considered <em>ready</em> when it's a child of a <code>Moobile.Window</code> instance in the DOM. Upon being ready, the view can be, for instance, measured.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><em>Boolean</em> Whether the managed view is ready.</li>
+</ul><hr><h3 id="getView">getView()</h3>
+
+<p>Returns the managed view.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../View/View.html">Moobile.View</a> The managed view.</li>
+</ul><hr><h3 id="setViewTransition">setViewTransition(viewTransition)</h3>
+
+<p>Sets the view transition used to push or present a view controller. You should rarely use this method as the <code>Moobile.ViewController</code> class handles it.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewTransition</code></td>
+  <td><a href="../ViewTransition/ViewTransition.html">Moobile.ViewTransition</a></td>
+  <td>The view transition.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><hr><h3 id="getViewTransition">getViewTransition()</h3>
+
+<p>Returns the view transition.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../ViewTransition/ViewTransition.html">Moobile.ViewTransition</a> The view transition.</li>
+</ul><hr><h3 id="setViewControllerPanel">setViewControllerPanel(viewControllerPanel)</h3>
+
+<p>Sets the view controller panel containing this view controller. You should rarely use this method as the <code>Moobile.ViewController</code> class handles it.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewControllerPanel</code></td>
+  <td><a href="../ViewController/ViewControllerPanel.html">Moobile.ViewControllerPanel</a></td>
+  <td>The view controller panel.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><hr><h3 id="getViewControllerPanel">getViewControllerPanel()</h3>
+
+<p>Returns the view controller panel containing this view controller.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../ViewController/ViewControllerPanel.html">Moobile.ViewControllerPanel</a> The view controller panel or <code>null</code> if this view controller is not within the hierarchy of a view controller panel.</li>
+</ul><hr><h3 id="setParentViewController">setParentViewController(parentViewController)</h3>
+
+<p>Sets the parent view controller. You should rarely use this method as the <code>Moobile.ViewController</code> class handles it.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>parentViewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The parent view controller.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul><hr><h3 id="getParentViewController">getParentViewController()</h3>
+
+<p>Returns the parent view controller.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> The parent view controller or <code>null</code> if this view controller is not within the hierarchy of another view controller.</li>
+</ul><hr><h3 id="willAddChildViewController">willAddChildViewController(viewController)</h3>
+
+<p>Tells this view controller a child view controller is about to be added. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The view controller to be added.</td>
+</tr></tbody></table><hr><h3 id="didAddChildViewController">didAddChildViewController(viewController)</h3>
+
+<p>Tells this view controller a child view controller has been added. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The added child view controller.</td>
+</tr></tbody></table><hr><h3 id="willRemoveChildViewController">willRemoveChildViewController(viewController)</h3>
+
+<p>Tells this view controller a child view controller is about to be removed. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The child view controller about to be removed.</td>
+</tr></tbody></table><hr><h3 id="didRemoveChildViewController">didRemoveChildViewController(viewController)</h3>
+
+<p>Tells this view controller a child view controller has been removed. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>The removed child view controller.</td>
+</tr></tbody></table><hr><h3 id="parentViewControllerWillChange">parentViewControllerWillChange(viewController)</h3>
+
+<p>Tells this view controller its parent view controller is about to change. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>This view controller's parent view controller.</td>
+</tr></tbody></table><hr><h3 id="parentViewControllerDidChange">parentViewControllerDidChange(viewController)</h3>
+
+<p>Tells this view controller its parent view controller has changed. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>viewController</code></td>
+  <td><code>Moobile.ViewController</code></td>
+  <td>This view controller's parent view controller.</td>
+</tr></tbody></table><hr><h3 id="willPresentModalViewController">willPresentModalViewController()</h3>
+
+<p>Tells this view controller its about to present a modal view controller. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="didPresentModalViewController">didPresentModalViewController()</h3>
+
+<p>Tells this view controller it has presented a modal view controller. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="willDismissModalViewController">willDismissModalViewController()</h3>
+
+<p>Tells this view controller its about to dismiss the current modal view controller. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="didDismissModalViewController">didDismissModalViewController()</h3>
+
+<p>Tells this view controller it has dismissed the current modal view controller. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="didRotate">didRotate(orientation)</h3>
+
+<p>Tells this view controller the device orientation changed. Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>orientation</code></td>
+  <td>String</td>
+  <td>The orientation, <code>portrait</code> or <code>landscape</code>.</td>
+</tr></tbody></table><hr><h3 id="viewDidLoad">viewDidLoad()</h3>
+
+<p>Tells this view controller its managed view was loaded. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="viewDidBecomeReady">viewDidBecomeReady()</h3>
+
+<p>Tells this view controller its managed view became ready. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="viewWillEnter">viewWillEnter()</h3>
+
+<p>Tells this view controller its managed view is about to enter the screen and become visible. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="viewDidEnter">viewDidEnter()</h3>
+
+<p>Tells this view controller its managed view enterd the screen and became visible. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="viewWillLeave">viewWillLeave()</h3>
+
+<p>Tells this view controller its managed view is about to leave the screen and become hidden. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="viewDidLeave">viewDidLeave()</h3>
+
+<p>Tells this view controller its managed view is left the screen and became hidden. Override this method to provide your own implementation.</p>
+
+<hr><h3 id="destroy">destroy()</h3>
+
+<p>Destroys this view controller's view controller hierarchy as well as the view it manages. Override this method to provide your own implementation.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
+</ul></div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#view">view</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#loadView">loadView</a></li><li><a href="#addChildViewController">addChildViewController</a></li><li><a href="#addChildViewControllerAfter">addChildViewControllerAfter</a></li><li><a href="#addChildViewControllerBefore">addChildViewControllerBefore</a></li><li><a href="#getChildViewController">getChildViewController</a></li><li><a href="#getChildViewControllerAt">getChildViewControllerAt</a></li><li><a href="#getChildViewControllerIndex">getChildViewControllerIndex</a></li><li><a href="#getChildViewControllers">getChildViewControllers</a></li><li><a href="#hasChildViewController">hasChildViewController</a></li><li><a href="#removeChildViewController">removeChildViewController</a></li><li><a href="#removeChildViewControllers">removeChildViewControllers</a></li><li><a href="#removeFromParentViewController">removeFromParentViewController</a></li><li><a href="#presentModalViewController">presentModalViewController</a></li><li><a href="#dismissModalViewController">dismissModalViewController</a></li><li><a href="#getName">getName</a></li><li><a href="#setTitle">setTitle</a></li><li><a href="#getTitle">getTitle</a></li><li><a href="#setImage">setImage</a></li><li><a href="#getImage">getImage</a></li><li><a href="#setModal">setModal</a></li><li><a href="#isModal">isModal</a></li><li><a href="#isViewReady">isViewReady</a></li><li><a href="#getView">getView</a></li><li><a href="#setViewTransition">setViewTransition</a></li><li><a href="#getViewTransition">getViewTransition</a></li><li><a href="#setViewControllerPanel">setViewControllerPanel</a></li><li><a href="#getViewControllerPanel">getViewControllerPanel</a></li><li><a href="#setParentViewController">setParentViewController</a></li><li><a href="#getParentViewController">getParentViewController</a></li><li><a href="#willAddChildViewController">willAddChildViewController</a></li><li><a href="#didAddChildViewController">didAddChildViewController</a></li><li><a href="#willRemoveChildViewController">willRemoveChildViewController</a></li><li><a href="#didRemoveChildViewController">didRemoveChildViewController</a></li><li><a href="#parentViewControllerWillChange">parentViewControllerWillChange</a></li><li><a href="#parentViewControllerDidChange">parentViewControllerDidChange</a></li><li><a href="#willPresentModalViewController">willPresentModalViewController</a></li><li><a href="#didPresentModalViewController">didPresentModalViewController</a></li><li><a href="#willDismissModalViewController">willDismissModalViewController</a></li><li><a href="#didDismissModalViewController">didDismissModalViewController</a></li><li><a href="#didRotate">didRotate</a></li><li><a href="#viewDidLoad">viewDidLoad</a></li><li><a href="#viewDidBecomeReady">viewDidBecomeReady</a></li><li><a href="#viewWillEnter">viewWillEnter</a></li><li><a href="#viewDidEnter">viewDidEnter</a></li><li><a href="#viewWillLeave">viewWillLeave</a></li><li><a href="#viewDidLeave">viewDidLeave</a></li><li><a href="#destroy">destroy</a></li></ul></li></ul></div>
+
+</body></html>

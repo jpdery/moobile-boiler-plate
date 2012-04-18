@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ListItem | Moobile 0.1</title><base href="../../"><link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/style.css"><script src="js/libs/modernizr-2.5.3.min.js"></script><script src="js/libs/prettify.js"></script><script src="js/libs/mootools-core-1.4.5.min.js"></script><script src="js/libs/mootools-more-1.4.0.1.min.js"></script><script src="js/libs/moobile-simulator.js"></script><script src="js/plugins.js"></script><script src="js/script.js"></script><script type="text/javascript">
+		Moobile.Simulator.setResourcePath('assets/shared/resources');
+	</script></head><body>
+
+	<div id="sidebar" class="sidebar">
+		<h1>Guides</h1>
+
+		<ul class="file-list"><li><a href="guides/GettingStarted.html">Getting Started</a></li>
+			<li><a href="guides/HelloWorld.html">Hello World</a></li>
+			<li><a href="guides/UsingTransitions.html">Using Transitions</a></li>
+		</ul><h1>Classes</h1>
+
+		<h2>Component</h2>
+		<ul class="file-list"><li><a href="classes/Component/Component.html"><span>Moobile.</span>Component</a></li>
+		</ul><h2>Control</h2>
+		<ul class="file-list"><li><a href="classes/Control/ActivityIndicator.html"><span>Moobile.</span>ActivityIndicator</a></li>
+			<li><a href="classes/Control/Bar.html"><span>Moobile.</span>Bar</a></li>
+			<li><a href="classes/Control/BarItem.html"><span>Moobile.</span>BarItem</a></li>
+			<li><a href="classes/Control/Button.html"><span>Moobile.</span>Button</a></li>
+			<li><a href="classes/Control/ButtonGroup.html"><span>Moobile.</span>ButtonGroup</a></li>
+			<li><a href="classes/Control/Control.html"><span>Moobile.</span>Control</a></li>
+			<li><a href="classes/Control/Image.html"><span>Moobile.</span>Image</a></li>
+			<li><a href="classes/Control/List.html"><span>Moobile.</span>List</a></li>
+			<li><a href="classes/Control/ListItem.html"><span>Moobile.</span>ListItem</a></li>
+			<li><a href="classes/Control/NavigationBar.html"><span>Moobile.</span>NavigationBar</a></li>
+			<li><a href="classes/Control/NavigationBarItem.html"><span>Moobile.</span>NavigationBarItem</a></li>
+			<li><a href="classes/Control/Slider.html"><span>Moobile.</span>Slider</a></li>
+			<li><a href="classes/Control/Text.html"><span>Moobile.</span>Text</a></li>
+		</ul><h2>Dialog</h2>
+		<ul class="file-list"><li><a href="classes/Dialog/Alert.html"><span>Moobile.</span>Alert</a></li>
+		</ul><h2>Event</h2>
+		<ul class="file-list"><li><a href="classes/Event/EventFirer.html"><span>Moobile.</span>EventFirer</a></li>
+		</ul><h2>View</h2>
+		<ul class="file-list"><li><a href="classes/View/View.html"><span>Moobile.</span>View</a></li>
+			<li><a href="classes/View/ScrollView.html"><span>Moobile.</span>ScrollView</a></li>
+		</ul><h2>ViewController</h2>
+		<ul class="file-list"><li><a href="classes/ViewController/ViewController.html"><span>Moobile.</span>ViewController</a></li>
+			<li><a href="classes/ViewController/ViewControllerStack.html"><span>Moobile.</span>ViewControllerStack</a></li>
+		</ul><h2>ViewTransition</h2>
+		<ul class="file-list"><li><a href="classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
+			<li><a href="classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
+		</ul></div>
+	<div id="content" class="content"><h1>Moobile.ListItem</h1>
+
+<h5>Extends <a href="../Control/Control.html">Moobile.Control</a></h5>
+
+<p>Provides a list item control used inside a <a href="../Control/List.html">Moobile.List</a> control.</p>
+
+<h2 id="initialize">Initialization</h2>
+
+<h4>Syntax:</h4>
+
+<pre class="prettyprint"><code>var item = new Moobile.ListItem([element], [options], [name]);
+</code></pre>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>element</code> <em>Optional</em></td>
+  <td>Element</td>
+  <td>The list item's element, element id or html string.</td>
+</tr><tr><td><code>options</code> <em>Optional</em></td>
+  <td>Object</td>
+  <td>The list item's options, see below.</td>
+</tr><tr><td><code>name</code>    <em>Optional</em></td>
+  <td>String</td>
+  <td>The list item's name.</td>
+</tr></tbody></table><h4>Options:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>className</code></td>
+  <td>String</td>
+  <td>The list item's extended CSS class name, defaults to <code>null</code>.</td>
+</tr><tr><td><code>styleName</code></td>
+  <td>String</td>
+  <td>The list item's default style, defaults to <code>null</code>.</td>
+</tr><tr><td><code>tagName</code></td>
+  <td>String</td>
+  <td>The list item's element tag name, defaults to <code>li</code>.</td>
+</tr></tbody></table><h4>Generates:</h4>
+
+<pre class="prettyprint"><code>&lt;li class="list-item"&gt;
+    &lt;img data-role="image" class="list-item-image" /&gt;
+    &lt;div data-role="label" class="list-item-label"&gt;&lt;/div&gt;
+    &lt;div data-role="detail" class="list-item-detail"&gt;&lt;/div&gt;
+&lt;/li&gt;
+</code></pre>
+
+<h4>Notes:</h4>
+
+<p>Upon initialization, this control creates its label with a <a href="../Control/BarItem.html">Moobile.Text</a> instance using the list item element's content. For instance, if you create a list item like this:</p>
+
+<pre class="prettyprint"><code>&lt;li class="list-item"&gt;
+    &lt;div class="element-one"&gt;&lt;/div&gt;
+    &lt;div class="element-two"&gt;&lt;/div&gt;
+&lt;/li&gt;
+</code></pre>
+
+<p>The result will be:</p>
+
+<pre class="prettyprint"><code>&lt;li class="list-item"&gt;
+    &lt;img data-role="image" class="list-item-image" /&gt;
+    &lt;div data-role="label" class="list-item-label"&gt;
+        &lt;div class="element-one"&gt;&lt;/div&gt;
+        &lt;div class="element-two"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div data-role="detail" class="list-item-detail"&gt;&lt;/div&gt;
+&lt;/li&gt;
+</code></pre>
+
+<p>If you wish to put elements outside of the list item's label, you will have to specify which element has the <code>label</code> role:</p>
+
+<pre class="prettyprint"><code>&lt;li class="list-item"&gt;
+    &lt;div class="element-one"&gt;&lt;/div&gt;
+    &lt;div data-role="label"&gt;&lt;/div&gt;
+    &lt;div class="element-two"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h4>Subclassing Notes:</h4>
+
+<p>This class overrides the following method:</p>
+
+<ul><li><code>willBuild</code>: Call the parent method at the <code>top</code> of your implementation if you override this method.</li>
+<li><code>destroy</code>  : Call the parent method at the <code>bottom</code> of your implementation if you override this method.</li>
+</ul><h4>Defined roles:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Description</th>
+  <th>Applies to</th>
+  <th>Note</th>
+</tr></thead><tbody><tr><td><code>list-item</code></td>
+  <td>Defines an element acting a <code>Moobile.ListItem</code> control</td>
+  <td><code>Moobile.List</code> control</td>
+  <td>Use the <code>data-list-item</code> attribute to specify a subclass instead</td>
+</tr><tr><td><code>label</code></td>
+  <td>Defines the element acting as the list item label</td>
+  <td><a href="../Control/Moobile.ListItem.html">Moobile.ListItem</a> controls</td>
+  <td>If unspecified, the contents of the list item's element will act as its label.</td>
+</tr><tr><td><code>image</code></td>
+  <td>Defines the element acting as the list item image</td>
+  <td><a href="../Control/Moobile.ListItem.html">Moobile.ListItem</a> controls</td>
+  <td></td>
+</tr><tr><td><code>detail</code></td>
+  <td>Defines the element acting as the list item detail text</td>
+  <td><a href="../Control/Moobile.ListItem.html">Moobile.ListItem</a> controls</td>
+  <td></td>
+</tr></tbody></table><h4>Examples:</h4>
+
+<h5>Specifying an element that acts a list item control using the <code>data-role</code> attribute:</h5>
+
+<pre class="prettyprint"><code>&lt;ul data-role="list"&gt;
+    &lt;li data-role="list-item"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h5>Specifying an element that acts a list item control subclass using the <code>data-role</code> attribute:</h5>
+
+<pre class="prettyprint"><code>&lt;ul data-role="list"&gt;
+    &lt;li data-role="list-item" data-list-item="MyListItem" /&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="setLabel">setLabel(label)</h3>
+
+<p>Sets the label using either a string or a <code>Moobile.Text</code> instance. When provided with a string, this method creates a <code>Moobile.Text</code> object and assign the given string as its text.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>label</code></td>
+  <td>Mixed</td>
+  <td>The label as a string or a <code>Moobile.Text</code> instance.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ListItem</code> This Moobile.ListItem instance</li>
+</ul><h4>Examples:</h4>
+
+<h5>Setting the label using a string:</h5>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setLabel('Moo');
+</code></pre>
+
+<h5>Setting the label using a <a href="../Control/Moobile.Text">Moobile.Text</a> instance</h5>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setLabel(new Moobile.Text().setText('Moo'));
+</code></pre>
+
+<hr><h3 id="getLabel">getLabel()</h3>
+
+<p>Returns the label.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../Control/Text.html">Moobile.Text</a> The label.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setLabel('Moo');
+listItem.getLabel(); // returns a Moobile.Text instance
+</code></pre>
+
+<hr><h3 id="setImage">setImage(image)</h3>
+
+<p>Sets the image using either a string or a <code>Moobile.Image</code> instance. When provided with a string, this method creates a <code>Moobile.Image</code> object and assign the given string as its source.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>image</code></td>
+  <td>Mixed</td>
+  <td>The image as a string or a <code>Moobile.Image</code> instance.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ListItem</code> This Moobile.ListItem instance</li>
+</ul><h4>Examples:</h4>
+
+<h5>Setting the image using a string:</h5>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setImage('path/to/an-image.png');
+</code></pre>
+
+<h5>Setting the image using a <a href="../Control/Moobile.Image">Moobile.Image</a> instance</h5>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setImage(new Moobile.Image().setSource('path/to/an-image.png'));
+</code></pre>
+
+<hr><h3 id="getImage">getImage()</h3>
+
+<p>Returns the image.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../Control/Image.html">Moobile.Image</a> The image.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setImage('path/to/an-image.png');
+listItem.getImage(); // returns a Moobile.Image instance
+</code></pre>
+
+<hr><h3 id="setDetail">setDetail(detail)</h3>
+
+<p>Sets the detail text using either a string or a <code>Moobile.Text</code> instance. When provided with a string, this method creates a <code>Moobile.Text</code> object and assign the given string as its text.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>detail</code></td>
+  <td>Mixed</td>
+  <td>The detail text as a string or a <code>Moobile.Text</code> instance.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ListItem</code> This Moobile.ListItem instance</li>
+</ul><h4>Examples:</h4>
+
+<h5>Setting the detail text using a string:</h5>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setLabel('Moo');
+</code></pre>
+
+<h5>Setting the detail text using a <a href="../Control/Moobile.Text">Moobile.Text</a> instance</h5>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setLabel(new Moobile.Text().setText('Moo'));
+</code></pre>
+
+<hr><h3 id="getDetail">getDetail()</h3>
+
+<p>Returns the detail label.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><a href="../Control/Text.html">Moobile.Text</a> The detail label.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
+listItem.setDetail('Moo');
+listItem.getDetail(); // returns a Moobile.Text instance
+</code></pre>
+
+<h2 id="styles">Styles</h2>
+
+<h3>checked</h3>
+
+<p><img src="assets/classes/Control/list-item-style-checked.png" class="component-style"></p>
+
+<h3>disclosed</h3>
+
+<p><img src="assets/classes/Control/list-item-style-disclosed.png" class="component-style"></p>
+
+<h3>detailed</h3>
+
+<p><img src="assets/classes/Control/list-item-style-detailed.png" class="component-style"></p>
+</div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#methods">Methods</a><ul><li><a href="#setLabel">setLabel</a></li><li><a href="#getLabel">getLabel</a></li><li><a href="#setImage">setImage</a></li><li><a href="#getImage">getImage</a></li><li><a href="#setDetail">setDetail</a></li><li><a href="#getDetail">getDetail</a></li></ul></li><li><a href="#styles">Styles</a><ul><li><a href="#">checked</a></li><li><a href="#">disclosed</a></li><li><a href="#">detailed</a></li></ul></li></ul></div>
+
+</body></html>

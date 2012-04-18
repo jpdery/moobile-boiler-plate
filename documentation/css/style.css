@@ -1,0 +1,532 @@
+/* Fonts
+-----------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: 'Museo500';
+	src: url('../fonts/museo500-regular-webfont.eot');
+	src: url('../fonts/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/museo500-regular-webfont.woff') format('woff'),
+		 url('../fonts/museo500-regular-webfont.ttf') format('truetype'),
+		 url('../fonts/museo500-regular-webfont.svg#Museo500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Body
+-----------------------------------------------------------------------------*/
+
+body {
+	-webkit-font-smoothing: antialiased;
+	background: rgb(229, 229, 229);
+	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(255, 255, 255)), to(rgb(229, 229, 229)));
+	background: -webkit-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background:    -moz-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background:      -o-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background:         radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	color: #555555;
+	font-family: "Helvetica Neue", Arial, Sans-Serif;
+	font-weight: 400;
+	font-size: 16px;
+	min-height: 740px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+/* Typography
+-----------------------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Museo500', Georgia, Serif;
+	font-weight: 500;
+	color: #222222;
+	margin: 0px;
+}
+
+/* Button
+-----------------------------------------------------------------------------*/
+
+.button {
+	background: #ffffff;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: 'Museo500', Georgia, Serif;
+	font-weight: 500;
+	font-size: 24px;
+	list-style: none;
+	list-style-position: outside;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.button a {
+	font-size: 18px;
+	color: #ffffff;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 0px;
+	padding-right: 30px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+}
+
+/* Sidebar
+-----------------------------------------------------------------------------*/
+
+.sidebar {
+	-webkit-overflow-scrolling: touch;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #2c2f32;
+	bottom: 25px;
+	color: #ffffff;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 20px;
+	position: fixed;
+	top: 25px;
+	left: 25px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+	width: 250px;
+}
+
+.sidebar h1 {
+	color: #ffffff;
+	background: #373a3c;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: auto;
+	margin: 0px;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: 20px;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.sidebar h2 {
+	border-bottom: 1px dotted #626669;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: auto;
+	margin: 0px;
+	margin-bottom: 10px;
+	padding: 0px;
+	padding-bottom: 5px;
+}
+
+.sidebar ul {
+	margin: 0px;
+	margin-bottom: 20px;
+	padding: 0px;
+}
+
+.sidebar ul:last-child {
+	margin-bottom: 0px !important;
+}
+
+.sidebar li {
+	font-size: 14px;
+	font-weight: 400;
+	list-style: none;
+	list-style-position: outside;
+	margin: 0px;
+	margin-left: -20px;
+	margin-right: -20px;
+}
+
+.sidebar li:last-child {
+	margin-bottom: 0px !important;
+}
+
+.sidebar li a {
+	display: block;
+	text-decoration: none;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.sidebar li a,
+.sidebar li a:link,
+.sidebar li a:visited {
+	color: #ffffff;
+}
+
+.sidebar li a:hover,
+.sidebar li a.current {
+	background: #45A5D2;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* File List */
+
+.sidebar ul.file-list {
+	margin-top: 0px;
+}
+
+.sidebar ul.file-list li a span {
+	font-size: 75%;
+	opacity: 0.5;
+}
+
+.sidebar ul.file-list li a:hover span,
+.sidebar ul.file-list li a.current span {
+	opacity: 1;
+}
+
+/* Guide List */
+
+.sidebar ul.guide-list li {
+	margin-bottom: 10px;
+}
+
+.sidebar ul.guide-list li .descr {
+	display: none;
+}
+
+/* Content
+-----------------------------------------------------------------------------*/
+
+.content {
+	-webkit-overflow-scrolling: touch;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+	   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+	        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+	background: white;
+	bottom: 25px;
+	left: 305px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	right: 250px;
+	padding: 40px;
+	position: fixed;
+	top: 25px;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.content.full {
+	right: 25px;
+}
+
+.content.intro {
+	background-image: url(../images/logo.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.content a {
+	color: #45a5d2;
+}
+
+/* Paragraphs */
+
+.content p {
+	font-size: 15px;
+	line-height: 125%;
+	margin: 15px 0px;
+}
+
+.content h1 + p,
+.content h2 + p,
+.content h3 + p,
+.content h4 + p,
+.content h5 + p,
+.content h6 + p {
+	margin-top: 0px;
+}
+
+/* Headers */
+
+.content h1 {
+	color: #383838;
+	font-size: 38px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.content h1 + h5 {
+	color: #888888;
+	font-family: "Helvetica Neue", Arial, Sans-Serif;
+	font-size: 15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.content h1 + h5 + p {
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.content h2 {
+	background: #45a5d2;
+	color: #ffffff;
+	display: inline-block;
+	font-size: 28px;
+	letter-spacing: -1px;
+	margin: 25px;
+	margin-left: -40px;
+	margin-right: -40px;
+	padding: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+	min-width: 250px;
+}
+
+.content h2:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.content h3 {
+	color: #222222;
+	font-size: 26px;
+	margin-bottom: 20px;
+}
+
+.content h4 {
+	color: #333333;
+	font-size: 18px;
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+.content h5 {
+	font-size: 15px;
+	margin-bottom: 10px;
+	color: #444444;
+}
+
+/* Pre */
+
+.content a {
+	font-family: Monospace;
+}
+
+.content code {
+	color: #111111;
+}
+
+.content pre {
+	border: 1px solid #dddddd;
+	background: #fdfdfd;
+	color: #222222;
+	font-family: Monospace;
+	font-size: 14px;
+	margin-top: 0px;
+	margin-bottom: 25px;
+	padding: 10px;
+}
+
+.content pre code {
+	color: #222222;
+	border: none;
+	background: none;
+	padding: 0px;
+}
+
+/* Table */
+
+.content table {
+	margin-top: 0px;
+	margin-bottom: 25px;
+}
+
+.content table tr:nth-child(2n) {
+	background-color: #F8F8F8;
+}
+
+.content table thead tr {
+	background: #2C2F32;
+}
+
+.content table thead tr th {
+	color: white;
+	font-family: 'Museo500', Georgia, Serif;
+	font-weight: 500;
+	font-size: 15px;
+	border: none;
+	padding: 10px;
+	text-shadow: none;
+}
+
+.content table th,
+.content table td {
+	font-size: 15px;
+	padding: 10px;
+	text-align: left;
+}
+
+.content table th {
+	border: 1px solid #2C2F32;
+}
+
+.content table td {
+	border: 1px solid #cccccc;
+}
+
+/* List */
+
+.content li {
+	font-size: 15px;
+}
+
+/* HR */
+
+.content hr {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+/* Important */
+
+.content .important {
+	display: block;
+	font-size: 16px;
+	border: 1px solid #dddddd;
+	background: #fdfdfd;
+	padding: 20px;
+}
+
+.content .simulated-example {
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	display: -webkit-box;
+	width: 100%;
+}
+
+/* Simulator
+-----------------------------------------------------------------------------*/
+
+.content.with-simulator h1,
+.content.with-simulator h2,
+.content.with-simulator h3,
+.content.with-simulator h4,
+.content.with-simulator h5,
+.content.with-simulator p,
+.content.with-simulator pre {
+	margin-right: 420px;
+}
+
+.content .simulator-wrapper {
+	clear: right;
+	float: right;
+	padding-left: 40px;
+	padding-right: 0px;
+	width: 385px;
+}
+
+.content .simulator-wrapper .simulator {
+		-webkit-box-reflect:
+		below 0px
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(transparent),
+			color-stop(0.5, transparent),
+			to(rgba(255, 255, 255, 0.5)));
+}
+
+/* Table of Contents
+-----------------------------------------------------------------------------*/
+
+.table-of-contents {
+	-webkit-box-sizing: border-box;
+	color: #333333;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	bottom: 30px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	position: fixed;
+	top: 25px;
+	right: 25px;
+	width: 225px;
+}
+
+.table-of-contents a {
+	color: #555555;
+	text-decoration: none;
+}
+
+.table-of-contents h2 {
+	background: rgba(0, 0, 0, 0.15);
+	color: #333333;
+	font-size: 16px;
+	margin: 0px;
+	margin-left: -10px;
+	padding: 10px;
+	padding-bottom: 8px;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+.table-of-contents ul {
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.table-of-contents ul li {
+	color: #333333;
+	font-size: 15px;
+	font-weight: 500;
+	list-style: none;
+	list-style-position: outside;
+	margin-left: 0px;
+	margin-bottom: 5px;
+}
+
+.table-of-contents ul li li {
+	font-size: 13px;
+	font-weight: 400;
+	margin-left: -10px;
+	padding-left: 20px;
+}
+
+.table-of-contents ul li li:hover {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+/* Google Prettify Bootstrat Theme
+-----------------------------------------------------------------------------*/
+
+.com { color: #93a1a1; }
+.lit { color: #195f91; }
+.pun, .opn, .clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+.str, .atv { color: #D14; }
+.kwd, .linenums .tag { color: #1e347b; }
+.typ, .atn, .dec, .var { color: teal; }
+.pln { color: #48484c; }
+
+.prettyprint {
+    text-shadow: 0px 1px 0px #ffffff;
+}
+
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 33px; /* IE indents via margin-left */
+}
+
+ol.linenums li {
+  color: #bebec5;
+  line-height: 18px;
+  padding-left: 12px;
+  text-shadow: 0 1px 0 #fff;
+}
