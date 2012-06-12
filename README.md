@@ -20,4 +20,4 @@ From a terminal, use at the root of the project:
 From a terminal in the `tools` folder the project:
 
  java -jar yuicompressor-2.4.7.jar ../www/js/libs/moobile-0.1.js -o ../www/js/libs/moobile-0.1.min.js
- java -jar yuicompressor-2.4.7.jar ../www/js/app.js -o ../www/js/app.js
+ java -jar yuicompressor-2.4.7.jar ../www/js/app.js -o ../www/js/app.min.js

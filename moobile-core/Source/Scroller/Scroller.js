@@ -326,7 +326,7 @@ Moobile.Scroller = new Class({
 	 */
 	_onDragStart: function() {
 		this._startScroll = this.getScroll();
-		this._startPage = this.getPage();
+		this._startPage = Object.clone(this.getPage());
 		this._startTime = Date.now();
 		this.fireEvent('dragstart');
 	},
@@ -373,10 +373,10 @@ window.addEvent('domready', function(e) {
 
 	document.addEvent('touchmove', function(e) {
 
-		if (e.target.getParent('.scroll') === null) {
+		if (!e.target.hasClass('scroll') &&
+			!e.target.getParent('.scroll')) {
 			e.preventDefault();
 		} else {
-
 			//
 			// TODO
 			// This part has to be improved, right now only a pure horizontal

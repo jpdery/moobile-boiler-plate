@@ -1,0 +1,1782 @@
+
+/* Body
+-----------------------------------------------------------------------------*/
+
+
+body {
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+input, select, textarea {
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+/* Header Text
+-----------------------------------------------------------------------------*/
+
+h1 {
+	color: #4c596e;
+	font-size: 17px;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+
+h2 {
+	color: #4c596e;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+
+p {
+	margin-bottom: 12px;
+}
+
+p small {
+	font-size: 12px;
+}
+
+/* Window
+-----------------------------------------------------------------------------*/
+
+.window {
+	background: black;
+}
+
+/* Screen Landscape */
+@media screen and (width: 480px) and (height: 300px) {
+	.window {
+		height: 300px;
+		width: 480px;
+	}
+	.window-input-mask {
+		height: 300px;
+		width: 480px;
+	}
+}
+
+/* iPhone Safari Mobile Portrait */
+@media screen and (width:320px) and (height: 356px) {
+	.window {
+		height: 416px;
+		width: 320px;
+	}
+}
+
+/* iPhone Safari Mobile Landscape */
+@media screen and (width: 480px) and (height: 208px) {
+	.window {
+		height: 268px;
+		width: 480px;
+	}
+}
+
+/* iPad Safari Mobile Portrait */
+@media screen and (width:768px) and (height: 946px) {
+	.window {
+		height: 946px;
+		width: 768px;
+	}
+}
+
+/* iPad Safari Mobile Landscape */
+@media screen and (width:1024px) and (height: 690px) {
+	.window {
+		height: 690px;
+		width: 1024px;
+	}
+}
+
+/* View
+-----------------------------------------------------------------------------*/
+
+.view {
+	background: #ffffff url(../images/background-striped.png);
+	color: #4c596e;
+	font-size: 15px;
+	font-weight: normal;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+/* View Stack
+-----------------------------------------------------------------------------*/
+
+.view.view-stack {
+	background: transparent;
+}
+
+/* ScrollView
+-----------------------------------------------------------------------------*/
+
+/* View Stack
+-----------------------------------------------------------------------------*/
+
+/* View Panel
+-----------------------------------------------------------------------------*/
+
+.view.view-panel .side-panel {
+	border-right: 1px solid black;
+	width: 300px;
+}
+
+.view.view-panel .main-panel {
+	width: auto;                                                /* Important */
+}
+
+/* Bar
+-----------------------------------------------------------------------------*/
+
+.bar {
+	background: url(../images/bar.png) repeat-x 0px 0px;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
+	height: 44px;
+	padding-left: 7px;
+	padding-right: 7px;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark */
+
+.bar.style-dark {
+	background-position: 0px -88px;
+	color: #ffffff;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Bar (Retina Display)
+-----------------------------------------------------------------------------*/
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2) {
+
+	.bar {
+		background-image: url(../images/bar-2x.png);
+		background-size: 100px 176px
+	}
+
+	.bar.style-dark {
+		background-position: 0px -88px;
+	}
+}
+
+/* Navigation Bar
+-----------------------------------------------------------------------------*/
+
+.bar.navigation-bar {
+	height: 44px;
+}
+
+.bar.navigation-bar > .bar-item > .bar-title {
+	margin-top: -1px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* Button Group
+-----------------------------------------------------------------------------*/
+
+/* Button
+-----------------------------------------------------------------------------*/
+
+.button {
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	    -ms-border-radius: 10px;
+	     -o-border-radius: 10px;
+	        border-radius: 10px;
+	background: #fff;
+	border: 1px solid #bbb;
+	color: #000;
+	font-size: 17px;
+	font-weight: bold;
+	height: 45px;
+	padding: 0px 10px;
+	text-align: center;
+}
+
+.button.is-disabled {
+	color: rgba(0, 0, 0, 0.25);
+}
+
+.button.is-selected,
+.button.is-highlighted {
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6));
+	background:    -moz-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6));
+	background:     -ms-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6));
+	background:      -o-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6));
+	background:         gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6));
+	color: #ffffff;
+	text-shadow: none;
+}
+
+/* Inside a Group (Horizontal) */
+
+.button-group .button {
+	-webkit-border-radius: 0px;
+	   -moz-border-radius: 0px;
+	    -ms-border-radius: 0px;
+	     -o-border-radius: 0px;
+	        border-radius: 0px;
+	border-left-width: 0px;
+}
+
+.button-group .button:first-child {
+	-webkit-border-top-left-radius: 10px;
+ 	   -moz-border-top-left-radius: 10px;
+	    -ms-border-top-left-radius: 10px;
+	     -o-border-top-left-radius: 10px;
+	        border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	   -moz-border-bottom-left-radius: 10px;
+	    -ms-border-bottom-left-radius: 10px;
+	     -o-border-bottom-left-radius: 10px;
+	        border-bottom-left-radius: 10px;
+	border-left-width: 1px;
+}
+
+.button-group .button:last-child {
+	-webkit-border-top-right-radius: 10px;
+	   -moz-border-top-right-radius: 10px;
+	    -ms-border-top-right-radius: 10px;
+	     -o-border-top-right-radius: 10px;
+	        border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	   -moz-border-bottom-right-radius: 10px;
+	    -ms-border-bottom-right-radius: 10px;
+	     -o-border-bottom-right-radius: 10px;
+	        border-bottom-right-radius: 10px;
+}
+
+/* Inside a Group (Vertical) */
+
+.button-group.style-vertical .button {
+	-webkit-border-radius: 0px;
+	   -moz-border-radius: 0px;
+	    -ms-border-radius: 0px;
+	     -o-border-radius: 0px;
+	        border-radius: 0px;
+	border-width: 1px;
+	border-top-width: 0px;
+}
+
+.button-group.style-vertical .button:first-child {
+	-webkit-border-top-left-radius: 10px;
+	   -moz-border-top-left-radius: 10px;
+	    -ms-border-top-left-radius: 10px;
+	     -o-border-top-left-radius: 10px;
+	        border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	   -moz-border-top-right-radius: 10px;
+	    -ms-border-top-right-radius: 10px;
+	     -o-border-top-right-radius: 10px;
+	        border-top-right-radius: 10px;
+	border-top-width: 1px;
+}
+
+.button-group.style-vertical .button:last-child {
+	-webkit-border-bottom-left-radius: 10px;
+	   -moz-border-bottom-left-radius: 10px;
+	    -ms-border-bottom-left-radius: 10px;
+	     -o-border-bottom-left-radius: 10px;
+	        border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	   -moz-border-bottom-right-radius: 10px;
+	    -ms-border-bottom-right-radius: 10px;
+	     -o-border-bottom-right-radius: 10px;
+	        border-bottom-right-radius: 10px;
+}
+
+/* Inside a Bar */
+
+.bar .button {
+	-webkit-border-image: url(../images/bar-button.png) 0 5 1970 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 0 5 1970 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 0 5 1970 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 0 5 1970 stretch stretch;
+	        border-image: url(../images/bar-button.png) 0 5 1970 stretch stretch;
+	-webkit-border-radius: 0px;
+	   -moz-border-radius: 0px;
+	    -ms-border-radius: 0px;
+	     -o-border-radius: 0px;
+	        border-radius: 0px;
+	background: none;
+	border-width: 0px 5px;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	margin: 7px 0px;
+	padding: 0px 4px;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.bar .button.is-selected,
+.bar .button.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 30 5 1940 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 30 5 1940 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 30 5 1940 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 30 5 1940 stretch stretch;
+	        border-image: url(../images/bar-button.png) 30 5 1940 stretch stretch;
+	background-image: none;
+	color: #ffffff;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Inside a Bar (Dark) */
+
+.bar.style-dark .button {
+	-webkit-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+	        border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+}
+
+.bar.style-dark .button.is-selected,
+.bar.style-dark .button.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+	        border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+}
+
+/* Inside a Bar + Back */
+
+.bar .button.style-back {
+	-webkit-border-image: url(../images/bar-button.png) 240 5 1730 13 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 240 5 1730 13 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 240 5 1730 13 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 240 5 1730 13 stretch stretch;
+	        border-image: url(../images/bar-button.png) 240 5 1730 13 stretch stretch;
+	border-left-width: 13px;
+	padding-left: 0px;
+}
+
+.bar .button.style-back.is-selected,
+.bar .button.style-back.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 270 5 1700 13 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 270 5 1700 13 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 270 5 1700 13 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 270 5 1700 13 stretch stretch;
+	        border-image: url(../images/bar-button.png) 270 5 1700 13 stretch stretch;
+}
+
+/* Inside a Bar (Dark) + Back */
+
+.bar.style-dark .button.style-back {
+	-webkit-border-image: url(../images/bar-button.png) 600 5 1370 13 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 600 5 1370 13 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 600 5 1370 13 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 600 5 1370 13 stretch stretch;
+	        border-image: url(../images/bar-button.png) 600 5 1370 13 stretch stretch;
+	border-left-width: 13px;
+	padding-left: 0px;
+}
+
+.bar.style-dark .button.style-back.is-selected,
+.bar.style-dark .button.style-back.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 630 5 1340 13 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 630 5 1340 13 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 630 5 1340 13 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 630 5 1340 13 stretch stretch;
+	        border-image: url(../images/bar-button.png) 630 5 1340 13 stretch stretch;
+}
+
+/* Inside a Bar + Forward */
+
+.bar .button.style-forward {
+	-webkit-border-image: url(../images/bar-button.png) 300 13 1670 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 300 13 1670 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 300 13 1670 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 300 13 1670 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 300 13 1670 5 stretch stretch;
+	border-right-width: 13px;
+	padding-right: 0px;
+}
+
+.bar .button.style-forward.is-selected,
+.bar .button.style-forward.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 330 13 1640 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 330 13 1640 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 330 13 1640 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 330 13 1640 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 330 13 1640 5 stretch stretch;
+}
+
+/* Inside a Bar (Dark) + Forward */
+
+.bar.style-dark .button.style-forward {
+	-webkit-border-image: url(../images/bar-button.png) 660 13 1310 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 660 13 1310 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 660 13 1310 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 660 13 1310 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 660 13 1310 5 stretch stretch;
+	border-right-width: 13px;
+	padding-right: 0px;
+}
+
+.bar.style-dark .button.style-forward.is-selected,
+.bar.style-dark .button.style-forward.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 690 13 1280 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 690 13 1280 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 690 13 1280 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 690 13 1280 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 690 13 1280 5 stretch stretch;
+}
+
+/* Inside a Bar + Active */
+
+.bar .button.style-active {
+	-webkit-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+	        border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+}
+
+.bar .button.style-active.is-selected,
+.bar .button.style-active.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+	        border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+}
+
+/* Inside a Bar + Warning */
+
+.bar .button.style-warning {
+	-webkit-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+	        border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+}
+
+.bar .button.style-warning.is-selected,
+.bar .button.style-warning.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+	        border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+}
+
+/* Inside a Bar + Grouped */
+
+.bar .button-group .button {
+	-webkit-border-image: url(../images/bar-button.png) 60 1 1910 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 60 1 1910 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 60 1 1910 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 60 1 1910 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 60 1 1910 1 stretch stretch;
+	border-width: 0px 1px 0px 0px;
+	padding-left: 9px;
+	padding-right: 8px;
+}
+
+.bar .button-group .button:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 90 1 1880 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 90 1 1880 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 90 1 1880 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 90 1 1880 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 90 1 1880 5 stretch stretch;
+	border-width: 0px 1px 0px 5px;
+	padding-left: 4px;
+}
+
+.bar .button-group .button:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 120 5 1850 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 120 5 1850 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 120 5 1850 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 120 5 1850 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 120 5 1850 1 stretch stretch;
+	border-width: 0px 5px 0px 0px;
+	padding-right: 4px;
+}
+
+.bar .button-group .button.is-selected,
+.bar .button-group .button.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 150 1 1820 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 150 1 1820 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 150 1 1820 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 150 1 1820 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 150 1 1820 1 stretch stretch;
+}
+
+.bar .button-group .button.is-selected:first-child,
+.bar .button-group .button.is-highlighted:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 180 1 1790 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 180 1 1790 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 180 1 1790 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 180 1 1790 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 180 1 1790 5 stretch stretch;
+}
+
+.bar .button-group .button.is-selected:last-child,
+.bar .button-group .button.is-highlighted:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 210 5 1760 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 210 5 1760 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 210 5 1760 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 210 5 1760 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 210 5 1760 1 stretch stretch;
+}
+
+/* Inside a Bar (Dark) + Grouped */
+
+.bar.style-dark .button-group .button {
+	-webkit-border-image: url(../images/bar-button.png) 420 1 1550 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 420 1 1550 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 420 1 1550 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 420 1 1550 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 420 1 1550 1 stretch stretch;
+}
+
+.bar.style-dark .button-group .button:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 450 1 1520 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 450 1 1520 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 450 1 1520 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 450 1 1520 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 450 1 1520 5 stretch stretch;
+}
+
+.bar.style-dark .button-group .button.style-dark:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 480 5 1490 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 480 5 1490 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 480 5 1490 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 480 5 1490 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 480 5 1490 1 stretch stretch;
+}
+
+.bar.style-dark .button-group .button.is-selected,
+.bar.style-dark .button-group .button.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 510 1 1460 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 510 1 1460 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 510 1 1460 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 510 1 1460 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 510 1 1460 1 stretch stretch;
+}
+
+.bar.style-dark .button-group .button.is-selected:first-child,
+.bar.style-dark .button-group .button.is-highlighted:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 540 1 1430 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 540 1 1430 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 540 1 1430 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 540 1 1430 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 540 1 1430 5 stretch stretch;
+}
+
+.bar.style-dark .button-group .button.is-selected:last-child,
+.bar.style-dark .button-group .button.is-highlighted:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 570 5 1400 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 570 5 1400 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 570 5 1400 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 570 5 1400 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 570 5 1400 1 stretch stretch;
+}
+
+/* Inside a Bar + Grouped + Active */
+
+.bar .button-group .button.style-active {
+	-webkit-border-image: url(../images/bar-button.png) 780 1 1190 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 780 1 1190 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 780 1 1190 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 780 1 1190 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 780 1 1190 1 stretch stretch;
+	border-width: 0px 1px 0px 0px;
+	padding-left: 9px;
+	padding-right: 8px;
+}
+
+.bar .button-group .button.style-active:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 810 1 1160 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 810 1 1160 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 810 1 1160 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 810 1 1160 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 810 1 1160 5 stretch stretch;
+	border-width: 0px 1px 0px 5px;
+	padding-left: 4px;
+}
+
+.bar .button-group .button.style-active:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 840 5 1130 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 840 5 1130 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 840 5 1130 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 840 5 1130 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 840 5 1130 1 stretch stretch;
+	border-width: 0px 5px 0px 0px;
+	padding-right: 4px;
+}
+
+.bar .button-group .button.style-active.is-selected,
+.bar .button-group .button.style-active.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 870 1 1100 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 870 1 1100 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 870 1 1100 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 870 1 1100 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 870 1 1100 1 stretch stretch;
+}
+
+.bar .button-group .button.style-active.is-selected:first-child,
+.bar .button-group .button.style-active.is-highlighted:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 900 1 1070 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 900 1 1070 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 900 1 1070 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 900 1 1070 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 900 1 1070 5 stretch stretch;
+}
+
+.bar .button-group .button.style-active.is-selected:last-child,
+.bar .button-group .button.style-active.is-highlighted:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 930 5 1040 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 930 5 1040 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 930 5 1040 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 930 5 1040 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 930 5 1040 1 stretch stretch;
+}
+
+/* Inside a Bar + Grouped + Warning */
+
+.bar .button-group .button.style-warning {
+	-webkit-border-image: url(../images/bar-button.png) 1020 1 950 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 1020 1 950 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 1020 1 950 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 1020 1 950 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 1020 1 950 1 stretch stretch;
+	border-width: 0px 1px 0px 0px;
+	padding-left: 9px;
+	padding-right: 8px;
+}
+
+.bar .button-group .button.style-warning:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 1050 1 920 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 1050 1 920 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 1050 1 920 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 1050 1 920 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 1050 1 920 5 stretch stretch;
+	border-width: 0px 1px 0px 5px;
+	padding-left: 4px;
+}
+
+.bar .button-group .button.style-warning:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 1080 5 890 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 1080 5 890 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 1080 5 890 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 1080 5 890 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 1080 5 890 1 stretch stretch;
+	border-width: 0px 5px 0px 0px;
+	padding-right: 4px;
+}
+
+.bar .button-group .button.style-warning.is-selected,
+.bar .button-group .button.style-warning.is-highlighted {
+	-webkit-border-image: url(../images/bar-button.png) 1110 1 860 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 1110 1 860 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 1110 1 860 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 1110 1 860 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 1110 1 860 1 stretch stretch;
+}
+
+.bar .button-group .button.style-warning.is-selected:first-child,
+.bar .button-group .button.style-warning.is-highlighted:first-child {
+	-webkit-border-image: url(../images/bar-button.png) 1140 1 830 5 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 1140 1 830 5 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 1140 1 830 5 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 1140 1 830 5 stretch stretch;
+	        border-image: url(../images/bar-button.png) 1140 1 830 5 stretch stretch;
+}
+
+.bar .button-group .button.style-warning.is-selected:last-child,
+.bar .button-group .button.style-warning.is-highlighted:last-child {
+	-webkit-border-image: url(../images/bar-button.png) 1170 5 800 1 stretch stretch;
+	   -moz-border-image: url(../images/bar-button.png) 1170 5 800 1 stretch stretch;
+	    -ms-border-image: url(../images/bar-button.png) 1170 5 800 1 stretch stretch;
+	     -o-border-image: url(../images/bar-button.png) 1170 5 800 1 stretch stretch;
+	        border-image: url(../images/bar-button.png) 1170 5 800 1 stretch stretch;
+}
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2) {
+
+	/* Inside a Bar */
+
+	.bar .button {
+		-webkit-border-image: url(../images/bar-button-2x.png) 0 10 3940 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 0 10 3940 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 0 10 3940 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 0 10 3940 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 0 10 1970 stretch stretch;
+	}
+
+	.bar .button.is-selected,
+	.bar .button.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 60 10 3880 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 60 10 3880 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 60 10 3880 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 60 10 3880 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 60 10 3880 stretch stretch;
+	}
+
+	/* Inside a Bar (Dark) */
+
+	.bar.style-dark .button {
+		-webkit-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+		   -moz-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+		    -ms-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+		     -o-border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+		        border-image: url(../images/bar-button.png) 360 5 1610 stretch stretch;
+	}
+
+	.bar.style-dark .button.is-selected,
+	.bar.style-dark .button.is-highlighted {
+		-webkit-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+		   -moz-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+		    -ms-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+		     -o-border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+		        border-image: url(../images/bar-button.png) 390 5 1580 stretch stretch;
+	}
+
+	/* Inside a Bar + Back */
+
+	.bar .button.style-back {
+		-webkit-border-image: url(../images/bar-button-2x.png) 480 10 3460 26 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 480 10 3460 26 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 480 10 3460 26 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 480 10 3460 26 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 480 10 3460 26 stretch stretch;
+	}
+
+	.bar .button.style-back.is-selected,
+	.bar .button.style-back.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 540 10 3400 26 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 540 10 3400 26 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 540 10 3400 26 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 540 10 3400 26 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 540 10 3400 26 stretch stretch;
+	}
+
+	/* Inside a Bar (Dark) + Back */
+
+	.bar.style-dark .button.style-back {
+		-webkit-border-image: url(../images/bar-button-2x.png) 1200 10 2740 26 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 1200 10 2740 26 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 1200 10 2740 26 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 1200 10 2740 26 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 1200 10 2740 26 stretch stretch;
+	}
+
+	.bar.style-dark .button.style-back.is-selected,
+	.bar.style-dark .button.style-back.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 1260 10 2680 26 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 1260 10 2680 26 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 1260 10 2680 26 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 1260 10 2680 26 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 1260 10 2680 26 stretch stretch;
+	}
+
+	/* Inside a Bar + Forward */
+
+	.bar .button.style-forward {
+		-webkit-border-image: url(../images/bar-button-2x.png) 600 26 3340 10 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 600 26 3340 10 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 600 26 3340 10 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 600 26 3340 10 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 600 26 3340 10 stretch stretch;
+	}
+
+	.bar .button.style-forward.is-selected,
+	.bar .button.style-forward.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 660 26 3280 10 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 660 26 3280 10 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 660 26 3280 10 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 660 26 3280 10 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 660 26 3280 10 stretch stretch;
+	}
+
+	/* Inside a Bar (Dark) + Forward */
+
+	.bar.style-dark .button.style-forward {
+		-webkit-border-image: url(../images/bar-button-2x.png) 1320 26 2620 10 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 1320 26 2620 10 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 1320 26 2620 10 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 1320 26 2620 10 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 1320 26 2620 10 stretch stretch;
+	}
+
+	.bar.style-dark .button.style-forward.is-selected,
+	.bar.style-dark .button.style-forward.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 1380 26 2560 10 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 1380 26 2560 10 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 1380 26 2560 10 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 1380 26 2560 10 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 1380 26 2560 10 stretch stretch;
+	}
+
+	/* Inside a Bar + Active */
+
+	.bar .button.style-active {
+		-webkit-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+		   -moz-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+		    -ms-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+		     -o-border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+		        border-image: url(../images/bar-button.png) 720 5 1250 stretch stretch;
+	}
+
+	.bar .button.style-active.is-selected,
+	.bar .button.style-active.is-highlighted {
+		-webkit-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+		     -o-border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+		        border-image: url(../images/bar-button.png) 750 5 1220 stretch stretch;
+	}
+
+	/* Inside a Bar + Warning */
+
+	.bar .button.style-warning {
+		-webkit-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+		   -moz-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+		    -ms-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+		     -o-border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+		        border-image: url(../images/bar-button.png) 960 5 1010 stretch stretch;
+	}
+
+	.bar .button.style-warning.is-selected,
+	.bar .button.style-warning.is-highlighted {
+		-webkit-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+		   -moz-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+		    -ms-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+		     -o-border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+		        border-image: url(../images/bar-button.png) 990 5 980 stretch stretch;
+	}
+
+	/* Inside a Bar + Grouped */
+
+	.bar .button-group .button {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.is-selected,
+	.bar .button-group .button.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.is-selected:first-child,
+	.bar .button-group .button.is-highlighted:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.is-selected:last-child,
+	.bar .button-group .button.is-highlighted:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	/* Inside a Bar (Dark) + Grouped */
+
+	.bar.style-dark .button-group .button {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar.style-dark .button-group .button:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar.style-dark .button-group .button.style-dark:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar.style-dark .button-group .button.is-selected,
+	.bar.style-dark .button-group .button.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar.style-dark .button-group .button.is-selected:first-child,
+	.bar.style-dark .button-group .button.is-highlighted:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar.style-dark .button-group .button.is-selected:last-child,
+	.bar.style-dark .button-group .button.is-highlighted:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	/* Inside a Bar + Grouped + Active */
+
+	.bar .button-group .button.style-active {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		border-width: 0px 1px 0px 0px;
+		padding-left: 9px;
+		padding-right: 8px;
+	}
+
+	.bar .button-group .button.style-active:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		border-width: 0px 1px 0px 5px;
+		padding-left: 4px;
+	}
+
+	.bar .button-group .button.style-active:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		border-width: 0px 5px 0px 0px;
+		padding-right: 4px;
+	}
+
+	.bar .button-group .button.style-active.is-selected,
+	.bar .button-group .button.style-active.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-active.is-selected:first-child,
+	.bar .button-group .button.style-active.is-highlighted:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-active.is-selected:last-child,
+	.bar .button-group .button.style-active.is-highlighted:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	/* Inside a Bar + Grouped + Warning */
+
+	.bar .button-group .button.style-warning {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-warning:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-warning:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-warning.is-selected,
+	.bar .button-group .button.style-warning.is-highlighted {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-warning.is-selected:first-child,
+	.bar .button-group .button.style-warning.is-highlighted:first-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+
+	.bar .button-group .button.style-warning.is-selected:last-child,
+	.bar .button-group .button.style-warning.is-highlighted:last-child {
+		-webkit-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		   -moz-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		    -ms-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		     -o-border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+		        border-image: url(../images/bar-button-2x.png) 720 10 3220 stretch stretch;
+	}
+}
+
+/* List
+-----------------------------------------------------------------------------*/
+
+.list {
+	background: #ffffff;
+	border-left: none;
+	border-right: none;
+}
+
+/* Grouped Style */
+
+.list.style-grouped {
+	-webkit-border-radius: 8px;
+	   -moz-border-radius: 8px;
+	    -ms-border-radius: 8px;
+	     -o-border-radius: 8px;
+	        border-radius: 8px;
+	-webkit-background-clip: padding-box;
+	   -moz-background-clip: padding-box;
+	    -ms-background-clip: padding-box;
+	     -o-background-clip: padding-box;
+	        background-clip: padding-box;
+	margin-bottom: 24px;
+}
+
+.list.style-grouped .list-item {
+	background: #ffffff;
+	border: 1px solid #bbbbbb;
+	border-bottom: none;
+}
+
+.list.style-grouped .list-item:first-child {
+	-webkit-border-top-left-radius: 8px;
+	   -moz-border-top-left-radius: 8px;
+	    -ms-border-top-left-radius: 8px;
+	     -o-border-top-left-radius: 8px;
+	        border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	   -moz-border-top-right-radius: 8px;
+	    -ms-border-top-right-radius: 8px;
+	     -o-border-top-right-radius: 8px;
+	        border-top-right-radius: 8px;
+}
+
+.list.style-grouped .list-item:last-child {
+	-webkit-border-bottom-left-radius: 8px;
+	   -moz-border-bottom-left-radius: 8px;
+	    -ms-border-bottom-left-radius: 8px;
+	     -o-border-bottom-left-radius: 8px;
+	        border-bottom-left-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	   -moz-border-bottom-right-radius: 8px;
+	    -ms-border-bottom-right-radius: 8px;
+	     -o-border-bottom-right-radius: 8px;
+	        border-bottom-right-radius: 8px;
+	border: 1px solid #bbbbbb;
+}
+
+/* List Item
+-----------------------------------------------------------------------------*/
+
+.list-item {
+	background: #fff;
+	border-top: 1px solid #bbb;
+	color: #000;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 13px 15px;
+}
+
+.list-item:last-child {
+	border-bottom: 1px solid #bbbbbb;
+}
+
+.list-item > .list-item-image {
+	-webkit-background-clip: padding-box;
+	   -moz-background-clip: padding-box;
+	    -ms-background-clip: padding-box;
+	     -o-background-clip: padding-box;
+	        background-clip: padding-box;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	    -ms-border-radius: 4px;
+	     -o-border-radius: 4px;
+	        border-radius: 4px;
+	height: 29px;
+	margin: -6px 10px -6px -6px;
+	width: 29px;
+}
+
+.list-item > .list-item-detail {
+	color: #395587;
+	font-size: 17px;
+	font-weight: normal;
+}
+
+.list-item.is-selected,
+.list-item.is-highlighted {
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6)) !important;
+	background:    -moz-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6)) !important;
+	background:     -ms-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6)) !important;
+	background:      -o-gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6)) !important;
+	background:         gradient(linear, left bottom, left top, color-stop(0, #058DF5), color-stop(1, #0160E6)) !important;
+	color: #ffffff;
+	text-shadow: none;
+}
+
+.list-item.is-selected    .list-item-detail,
+.list-item.is-highlighted .list-item-detail {
+	color: #ffffff;
+}
+
+.list-item .list-item-detail:after {
+	width: 30px;
+}
+
+ /* Checked, Detailed, Disclosed */
+
+.list-item.style-checked   > .list-item-detail,
+.list-item.style-detailed  > .list-item-detail,
+.list-item.style-disclosed > .list-item-detail {
+	padding-right: 35px;
+}
+
+.list-item.style-checked   > .list-item-detail:after,
+.list-item.style-detailed  > .list-item-detail:after,
+.list-item.style-disclosed > .list-item-detail:after {
+	background-image: url(../images/list-item-style-icon.png);
+	background-repeat: no-repeat;
+}
+
+/* Checked */
+
+.list-item.style-checked > .list-item-detail:after {
+	background-position: -60px center;
+}
+
+.list-item.style-checked.is-selected    > .list-item-detail:after,
+.list-item.style-checked.is-highlighted > .list-item-detail:after {
+	background-position: -90px center;
+}
+
+/* Detailed */
+
+.list-item.style-detailed > .list-item-detail:after {
+	background-position: -120px center;
+}
+
+.list-item.style-detailed.is-selected    > .list-item-detail:after,
+.list-item.style-detailed.is-highlighted > .list-item-detail:after {
+	background-position: -120px center;
+}
+
+/* Disclosed */
+
+.list-item.style-disclosed > .list-item-detail:after {
+	background-position: 0px center;
+}
+
+.list-item.style-disclosed.is-selected    > .list-item-detail:after,
+.list-item.style-disclosed.is-highlighted > .list-item-detail:after {
+	background-position: -30px center;
+}
+
+/* List Item (Retina)
+-----------------------------------------------------------------------------*/
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2) {
+
+    /* Checked, Detailed, Disclosed */
+
+	.list-item.style-checked   > .list-item-detail:after,
+	.list-item.style-detailed  > .list-item-detail:after,
+	.list-item.style-disclosed > .list-item-detail:after {
+		background-image: url(../images/list-item-style-icon-2x.png);
+		background-size: 150px 30px;
+	}
+}
+
+/* Overlay
+-----------------------------------------------------------------------------*/
+
+.overlay {
+	background: rgba(0, 0, 0, 0.30);
+}
+
+/* Style Radial */
+
+.overlay.style-radial {
+	background: -webkit-gradient(radial, center center, 0, center center, 250, from(rgba(0, 0, 0, 0.10)), to(rgba(0, 0, 0, 0.30)));
+}
+
+
+/* Alert
+-----------------------------------------------------------------------------*/
+
+.alert {
+	color: #ffffff;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.8);
+}
+
+.alert .alert-wrapper {
+	-webkit-box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.45);
+	   -moz-box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.45);
+	    -ms-box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.45);
+	     -o-box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.45);
+	        box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.45);
+	-webkit-border-image: url(../images/alert.png) 35 15 15 15 stretch;
+	   -moz-border-image: url(../images/alert.png) 35 15 15 15 stretch;
+	    -ms-border-image: url(../images/alert.png) 35 15 15 15 stretch;
+	     -o-border-image: url(../images/alert.png) 35 15 15 15 stretch;
+	        border-image: url(../images/alert.png) 35 15 15 15 stretch;
+	-webkit-border-radius: 12px;
+	   -moz-border-radius: 12px;
+	    -ms-border-radius: 12px;
+	     -o-border-radius: 12px;
+	        border-radius: 12px;
+	border-width: 15px;
+	border-top-width: 35px;
+	width: 280px;
+}
+
+.alert .alert-header {
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: -19px;
+	margin-bottom: 11px;
+	text-align: center;
+}
+
+.alert .alert-content {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 20px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.alert .alert-footer {
+	-webkit-box-orient: vertical;                                /* Important */
+	   -moz-box-orient: vertical;                                /* Important */
+	    -ms-box-orient: vertical;                                /* Important */
+	     -o-box-orient: vertical;                                /* Important */
+	        box-orient: vertical;                                /* Important */
+	display: -webkit-box;                                        /* Important */
+	display:    -moz-box;                                        /* Important */
+	display:     -ms-box;                                        /* Important */
+	display:      -o-box;                                        /* Important */
+	display:         box;                                        /* Important */
+	margin-left: -5px;
+	margin-right: -5px;
+	margin-bottom: -5px;
+}
+
+.alert .alert-footer .button {
+	-webkit-box-flex: 1;                                         /* Important */
+	   -moz-box-flex: 1;                                         /* Important */
+	    -ms-box-flex: 1;                                         /* Important */
+	     -o-box-flex: 1;                                         /* Important */
+	        box-flex: 1;                                         /* Important */
+	-webkit-border-image: url(../images/alert-button.png) 0 5 86 5 stretch stretch;
+	   -moz-border-image: url(../images/alert-button.png) 0 5 86 5 stretch stretch;
+	    -ms-border-image: url(../images/alert-button.png) 0 5 86 5 stretch stretch;
+	     -o-border-image: url(../images/alert-button.png) 0 5 86 5 stretch stretch;
+	        border-image: url(../images/alert-button.png) 0 5 86 5 stretch stretch;
+	-webkit-border-radius: 0px;
+	   -moz-border-radius: 0px;
+	    -ms-border-radius: 0px;
+	     -o-border-radius: 0px;
+	        border-radius: 0px;
+	background: none;
+	border-width: 0px 5px;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	height: 43px;
+	line-height: 42px;
+	margin-bottom: 5px;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.8);
+	text-align: center;
+}
+
+.alert .alert-footer .button:last-child {
+	margin-bottom: 0px;
+}
+
+.alert .alert-footer .button.default {
+	-webkit-border-image: url(../images/alert-button.png) 43 5 43 5 stretch stretch;
+	   -moz-border-image: url(../images/alert-button.png) 43 5 43 5 stretch stretch;
+	    -ms-border-image: url(../images/alert-button.png) 43 5 43 5 stretch stretch;
+	     -o-border-image: url(../images/alert-button.png) 43 5 43 5 stretch stretch;
+	        border-image: url(../images/alert-button.png) 43 5 43 5 stretch stretch;
+}
+
+.alert .alert-footer .button.is-selected,
+.alert .alert-footer .button.is-highlighted {
+	-webkit-border-image: url(../images/alert-button.png) 86 5 0 5 stretch stretch;
+	   -moz-border-image: url(../images/alert-button.png) 86 5 0 5 stretch stretch;
+	    -ms-border-image: url(../images/alert-button.png) 86 5 0 5 stretch stretch;
+	     -o-border-image: url(../images/alert-button.png) 86 5 0 5 stretch stretch;
+	        border-image: url(../images/alert-button.png) 86 5 0 5 stretch stretch;
+}
+
+/* Show Animation */
+
+@-webkit-keyframes anim-show-alert-ios {
+	0%   { -webkit-transform: scale(0.6); opacity: 0; }
+	45%  { -webkit-transform: scale(1.1); opacity: 1; }
+	75%  { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1.0); }
+}
+@-moz-keyframes anim-show-alert-ios {
+	0%   { -webkit-transform: scale(0.6); opacity: 0; }
+	45%  { -webkit-transform: scale(1.1); opacity: 1; }
+	75%  { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1.0); }
+}
+@-ms-keyframes anim-show-alert-ios {
+	0%   { -webkit-transform: scale(0.6); opacity: 0; }
+	45%  { -webkit-transform: scale(1.1); opacity: 1; }
+	75%  { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1.0); }
+}
+@-o-keyframes anim-show-alert-ios {
+	0%   { -webkit-transform: scale(0.6); opacity: 0; }
+	45%  { -webkit-transform: scale(1.1); opacity: 1; }
+	75%  { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1.0); }
+}
+@keyframes anim-show-alert-ios {
+	0%   { -webkit-transform: scale(0.6); opacity: 0; }
+	45%  { -webkit-transform: scale(1.1); opacity: 1; }
+	75%  { -webkit-transform: scale(0.9); }
+	100% { -webkit-transform: scale(1.0); }
+}
+
+.alert.show-animated .alert-wrapper {
+	-webkit-animation: anim-show-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	   -moz-animation: anim-show-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	    -ms-animation: anim-show-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	     -o-animation: anim-show-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	        animation: anim-show-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}
+
+/* Hide Animation */
+
+@-webkit-keyframes anim-hide-alert-ios {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@-moz-keyframes anim-hide-alert-ios {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@-ms-keyframes anim-hide-alert-ios {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@-o-keyframes anim-hide-alert-ios {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@keyframes anim-hide-alert-ios {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+
+.alert.hide-animated .alert-wrapper {
+	-webkit-animation: anim-hide-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1) 1;
+	   -moz-animation: anim-hide-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1) 1;
+	    -ms-animation: anim-hide-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1) 1;
+	     -o-animation: anim-hide-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1) 1;
+	        animation: anim-hide-alert-ios 400ms cubic-bezier(0.5, 0.1, 0.5, 1) 1;
+}
+
+/* Horizontal Button Layout */
+
+.alert.button-layout-horizontal .alert-footer {
+	-webkit-box-orient: horizontal;
+	   -moz-box-orient: horizontal;
+	    -ms-box-orient: horizontal;
+	     -o-box-orient: horizontal;
+	        box-orient: horizontal;
+}
+
+.alert.button-layout-horizontal .alert-footer .button {
+	margin: 0px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.alert.button-layout-horizontal .alert-footer .button:first-child { margin-left: 0px; }
+.alert.button-layout-horizontal .alert-footer .button:last-child  { margin-right: 0px; }
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2) {
+
+	.alert .alert-wrapper {
+		-webkit-border-image: url(../images/alert-2x.png) 70 30 30 30 stretch;
+		   -moz-border-image: url(../images/alert-2x.png) 70 30 30 30 stretch;
+		    -ms-border-image: url(../images/alert-2x.png) 70 30 30 30 stretch;
+		     -o-border-image: url(../images/alert-2x.png) 70 30 30 30 stretch;
+		        border-image: url(../images/alert-2x.png) 70 30 30 30 stretch;
+	}
+
+	.alert .alert-footer .button {
+		-webkit-border-image: url(../images/alert-button-2x.png) 0 10 173 10 stretch stretch;
+		   -moz-border-image: url(../images/alert-button-2x.png) 0 10 173 10 stretch stretch;
+		    -ms-border-image: url(../images/alert-button-2x.png) 0 10 173 10 stretch stretch;
+		     -o-border-image: url(../images/alert-button-2x.png) 0 10 173 10 stretch stretch;
+		        border-image: url(../images/alert-button-2x.png) 0 10 173 10 stretch stretch;
+	}
+
+	.alert .alert-footer .button.default {
+		-webkit-border-image: url(../images/alert-button-2x.png) 86 10 87 10 stretch stretch;
+		   -moz-border-image: url(../images/alert-button-2x.png) 86 10 87 10 stretch stretch;
+		    -ms-border-image: url(../images/alert-button-2x.png) 86 10 87 10 stretch stretch;
+		     -o-border-image: url(../images/alert-button-2x.png) 86 10 87 10 stretch stretch;
+		        border-image: url(../images/alert-button-2x.png) 86 10 87 10 stretch stretch;
+	}
+
+	.alert .alert-footer .button.is-selected,
+	.alert .alert-footer .button.is-highlighted {
+		-webkit-border-image: url(../images/alert-button-2x.png) 173 10 0 10 stretch stretch;
+		   -moz-border-image: url(../images/alert-button-2x.png) 173 10 0 10 stretch stretch;
+		    -ms-border-image: url(../images/alert-button-2x.png) 173 10 0 10 stretch stretch;
+		     -o-border-image: url(../images/alert-button-2x.png) 173 10 0 10 stretch stretch;
+		        border-image: url(../images/alert-button-2x.png) 173 10 0 10 stretch stretch;
+	}
+}
+
+/* Activity Indicator
+-----------------------------------------------------------------------------*/
+
+.activity-indicator {
+	-webkit-transform-origin: 50% 50%;
+	   -moz-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+	     -o-transform-origin: 50% 50%;
+	        transform-origin: 50% 50%;
+	background: url(../images/activity-indicator.png);
+	height: 21px;
+	width: 21px;
+}
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2) {
+
+	.activity-indicator {
+		background-image: url(../images/activity-indicator-2x.png);
+		background-size: 21px 20px;
+	}
+}
+
+/* Slider
+-----------------------------------------------------------------------------*/
+
+.slider-track {
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	    -ms-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+	background: url(../images/slider-track.png) 0px 0px;
+	height: 9px;
+}
+
+.slider-thumb {
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	    -ms-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+	background: url(../images/slider-thumb.png) no-repeat center center;
+	height: 24px;
+	position: absolute;
+	margin-top: -6px;
+	width: 24px;
+}
+
+@media
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   -moz-min-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2) {
+
+	.slider-track {
+		background-image: url(../images/slider-track-2x.png);
+		background-size: 2048px 9px;
+	}
+
+	.slider-thumb {
+		background-image: url(../images/slider-thumb-2x.png);
+		background-size: 24px 24px;
+	}
+}
+
+/* Transition Slide (Enter)
+-----------------------------------------------------------------------------*/
+
+.transition-slide-enter .transition-view-to-show {
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	     -o-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+.transition-slide-enter .transition-view-to-hide {
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	     -o-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+/* Enter Navigation Bar */
+
+@-webkit-keyframes transition-slide-enter-bar-to-show {
+	from { -webkit-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+	to   { -webkit-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+}
+@-moz-keyframes transition-slide-enter-bar-to-show {
+	from { -moz-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+	to   { -moz-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+}
+@-ms-keyframes transition-slide-enter-bar-to-show {
+	from { -ms-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+	to   { -ms-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+}
+@-o-keyframes transition-slide-enter-bar-to-show {
+	from { -o-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+	to   { -o-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+}
+@keyframes transition-slide-enter-bar-to-show {
+	from { transform: translateX(-75%) translateZ(10px); opacity: 0; }
+	to   { transform: translateX(0%) translateZ(10px);   opacity: 1; }
+}
+
+@-webkit-keyframes transition-slide-enter-bar-to-hide {
+	from { -webkit-transform: translateX(0%) translateZ(10px); opacity: 1; }
+	to   { -webkit-transform: translateX(75%) translateZ(10px); opacity: 0; }
+}
+@-moz-keyframes transition-slide-enter-bar-to-hide {
+	from { -moz-transform: translateX(0%) translateZ(10px); opacity: 1; }
+	to   { -moz-transform: translateX(75%) translateZ(10px); opacity: 0; }
+}
+@-ms-keyframes transition-slide-enter-bar-to-hide {
+	from { -ms-transform: translateX(0%) translateZ(10px); opacity: 1; }
+	to   { -ms-transform: translateX(75%) translateZ(10px); opacity: 0; }
+}
+@-o-keyframes transition-slide-enter-bar-to-hide {
+	from { -o-transform: translateX(0%) translateZ(10px); opacity: 1; }
+	to   { -o-transform: translateX(75%) translateZ(10px); opacity: 0; }
+}
+@keyframes transition-slide-enter-bar-to-hide {
+	from { transform: translateX(0%) translateZ(10px); opacity: 1; }
+	to   { transform: translateX(75%) translateZ(10px); opacity: 0; }
+}
+
+.transition-slide-enter .transition-view-to-show .bar > .bar-item {
+	-webkit-animation: transition-slide-enter-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	   -moz-animation: transition-slide-enter-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	    -ms-animation: transition-slide-enter-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	     -o-animation: transition-slide-enter-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	        animation: transition-slide-enter-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	-webkit-transform: translateZ(10px);                         /* Important */
+	   -moz-transform: translateZ(10px);                         /* Important */
+	    -ms-transform: translateZ(10px);                         /* Important */
+	     -o-transform: translateZ(10px);                         /* Important */
+	        transform: translateZ(10px);                         /* Important */
+}
+
+.transition-slide-enter .transition-view-to-hide .bar > .bar-item {
+	-webkit-animation: transition-slide-enter-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	   -moz-animation: transition-slide-enter-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	    -ms-animation: transition-slide-enter-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	     -o-animation: transition-slide-enter-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	        animation: transition-slide-enter-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	-webkit-transform: translateZ(10px);                         /* Important */
+	   -moz-transform: translateZ(10px);                         /* Important */
+	    -ms-transform: translateZ(10px);                         /* Important */
+	     -o-transform: translateZ(10px);                         /* Important */
+	        transform: translateZ(10px);                         /* Important */
+}
+
+/* Transition Slide (Leave)
+-----------------------------------------------------------------------------*/
+
+.transition-slide-leave .transition-view-to-show {
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	     -o-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+.transition-slide-leave .transition-view-to-hide {
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+	    -ms-transform-style: preserve-3d;
+	     -o-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+}
+
+/* Leave Navigation Bar View */
+
+@-webkit-keyframes transition-slide-leave-bar-to-show {
+	from { -webkit-transform: translateX(75%) translateZ(10px); opacity: 0; }
+	to   { -webkit-transform: translateX(0%) translateZ(10px);  opacity: 1; }
+}
+@-moz-keyframes transition-slide-leave-bar-to-show {
+	from { -moz-transform: translateX(75%) translateZ(10px); opacity: 0; }
+	to   { -moz-transform: translateX(0%) translateZ(10px);  opacity: 1; }
+}
+@-ms-keyframes transition-slide-leave-bar-to-show {
+	from { -ms-transform: translateX(75%) translateZ(10px); opacity: 0; }
+	to   { -ms-transform: translateX(0%) translateZ(10px);  opacity: 1; }
+}
+@-o-keyframes transition-slide-leave-bar-to-show {
+	from { -o-transform: translateX(75%) translateZ(10px); opacity: 0; }
+	to   { -o-transform: translateX(0%) translateZ(10px);  opacity: 1; }
+}
+@keyframes transition-slide-leave-bar-to-show {
+	from { transform: translateX(75%) translateZ(10px); opacity: 0; }
+	to   { transform: translateX(0%) translateZ(10px);  opacity: 1; }
+}
+
+@-webkit-keyframes transition-slide-leave-bar-to-hide {
+	from { -webkit-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+	to   { -webkit-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+}
+@-moz-keyframes transition-slide-leave-bar-to-hide {
+	from { -moz-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+	to   { -moz-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+}
+@-ms-keyframes transition-slide-leave-bar-to-hide {
+	from { -ms-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+	to   { -ms-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+}
+@-o-keyframes transition-slide-leave-bar-to-hide {
+	from { -o-transform: translateX(0%) translateZ(10px);   opacity: 1; }
+	to   { -o-transform: translateX(-75%) translateZ(10px); opacity: 0; }
+}
+@keyframes transition-slide-leave-bar-to-hide {
+	from { transform: translateX(0%) translateZ(10px);   opacity: 1; }
+	to   { transform: translateX(-75%) translateZ(10px); opacity: 0; }
+}
+
+.transition-slide-leave .transition-view-to-show .bar > .bar-item {
+	-webkit-transform: translateZ(10px);
+	   -moz-transform: translateZ(10px);
+	    -ms-transform: translateZ(10px);
+	     -o-transform: translateZ(10px);
+	        transform: translateZ(10px);
+	-webkit-animation: transition-slide-leave-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	   -moz-animation: transition-slide-leave-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	    -ms-animation: transition-slide-leave-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	     -o-animation: transition-slide-leave-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	        animation: transition-slide-leave-bar-to-show 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+}
+
+.transition-slide-leave .transition-view-to-hide .bar > .bar-item {
+	-webkit-transform: translateZ(10px);
+	   -moz-transform: translateZ(10px);
+	    -ms-transform: translateZ(10px);
+	     -o-transform: translateZ(10px);
+	        transform: translateZ(10px);
+	-webkit-animation: transition-slide-leave-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	   -moz-animation: transition-slide-leave-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	    -ms-animation: transition-slide-leave-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	     -o-animation: transition-slide-leave-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+	        animation: transition-slide-leave-bar-to-hide 400ms 1 cubic-bezier(0.5, 0.1, 0.5, 1.0);
+}
+
+/* Transition Cover Page (Enter)
+-----------------------------------------------------------------------------*/
+
+.transition-cover-page-foreground-view {
+	-webkit-box-shadow: 0px 0px 10px #000000;
+	   -moz-box-shadow: 0px 0px 10px #000000;
+	    -ms-box-shadow: 0px 0px 10px #000000;
+	     -o-box-shadow: 0px 0px 10px #000000;
+	        box-shadow: 0px 0px 10px #000000;
+	margin-left: auto;
+	margin-right: auto;
+	width: 768px;
+}

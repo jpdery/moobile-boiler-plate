@@ -397,32 +397,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content .simulated-example {
-	-webkit-box-align: center;
+/*	-webkit-box-align: center;
 	-webkit-box-pack: center;
-	display: -webkit-box;
+	display: -webkit-box;*/
 	width: 100%;
 }
 
 /* Simulator
 -----------------------------------------------------------------------------*/
-
-.content.with-simulator h1,
-.content.with-simulator h2,
-.content.with-simulator h3,
-.content.with-simulator h4,
-.content.with-simulator h5,
-.content.with-simulator p,
-.content.with-simulator pre {
-	margin-right: 420px;
-}
-
-.content .simulator-wrapper {
-	clear: right;
-	float: right;
-	padding-left: 40px;
-	padding-right: 0px;
-	width: 385px;
-}
 
 .content .simulator-wrapper .simulator {
 		-webkit-box-reflect:

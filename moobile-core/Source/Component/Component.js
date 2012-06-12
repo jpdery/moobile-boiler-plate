@@ -107,7 +107,7 @@ Moobile.Component = new Class({
 
 		this.element = Element.from(element);
 		if (this.element === null) {
-			this.element = new Element(this.options.tagName);
+			this.element = document.createElement(this.options.tagName);
 		}
 
 		this._name = name || this.element.get('data-name');
@@ -148,6 +148,8 @@ Moobile.Component = new Class({
 	 */
 	build: function() {
 
+		// TODO Clone and replace
+
 		var className = this.options.className;
 		if (className) this.addClass(className);
 
@@ -164,12 +166,34 @@ Moobile.Component = new Class({
 	 */
 	addEvent: function(type, fn, internal) {
 
-		if (Moobile.Component.hasNativeEvent(type))
-			this.element.addEvent(type, function(e) {
-				this.fireEvent(type, e);
-			}.bind(this), internal);
+		var name = type.split(':')[0];
 
-		return this.parent(type, fn, internal);
+		if (Moobile.Component.hasNativeEvent(name)) {
+
+			var self = this;
+			this.element.addEvent(type, function(e) {
+
+				//
+				// This part duplicates code from the EventFirer class. A better
+				// solution needs to be found. Previously, I was calling
+				// fireEvent directly but found out it was multiplying the calls
+				// made to the event listener.
+				//
+
+				var args = Array.from(e).include(self);
+				if (self.shouldFireEvent(name, args)) {
+					self.willFireEvent(name, args);
+					fn.apply(self, args);
+					self.didFireEvent(name, args);
+				}
+			}, internal);
+
+		}
+
+		// also needs to be added here
+		this.parent(type, fn, internal);
+
+		return this;
 	},
 
 	/**
@@ -380,6 +404,20 @@ Moobile.Component = new Class({
 	},
 
 	/**
+	 * @see    http://moobilejs.com/doc/0.1.1/Component/Component#getDescendantComponent
+	 * @author Tin LE GALL (imbibinebe@gmail.com)
+	 * @since  0.1.1
+	 */
+	getDescendantComponent: function(name) {
+	    var component = null;
+	    var comparator = function(child) {
+	        if (child.getName() === name) {component = child;return true;} else if (child.getChildComponents().length > 0) {return child.getChildComponents().find(comparator);} else return false;
+	    }
+	    this._children.find(comparator);
+	    return component;
+	},
+
+	/**
 	 * @see    http://moobilejs.com/doc/0.1/Component/Component#replaceChildComponent
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
 	 * @since  0.1
@@ -411,10 +449,6 @@ Moobile.Component = new Class({
 
 		this.willRemoveChildComponent(component);
 
-		component.setParentComponent(null);
-		component.setWindow(null);
-		component.setReady(false);
-
 		var element = component.getElement();
 		if (element) {
 			element.dispose();
@@ -422,11 +456,14 @@ Moobile.Component = new Class({
 
 		this._children.erase(component);
 
+		component.setParentComponent(null);
+		component.setWindow(null);
+		component.setReady(false);
+
 		this.didRemoveChildComponent(component);
 
 		if (destroy) {
 			component.destroy();
-			component = null;
 		}
 
 		return this;
@@ -450,7 +487,7 @@ Moobile.Component = new Class({
 
 		this._children.filter(function(child) {
 			return child instanceof type;
-		}).invoke('removeFromParent', destroy);
+		}).invoke('removeFromParentComponent', destroy);
 
 		return this;
 	},
@@ -511,7 +548,9 @@ Moobile.Component = new Class({
 		if (this._window === window)
 			return this;
 
+		this.windowWillChange(window);
 		this._window = window;
+		this.windowDidChange(window);
 
 		this._children.invoke('setWindow', window);
 
@@ -817,6 +856,24 @@ Moobile.Component = new Class({
 	},
 
 	/**
+	 * @see    http://moobilejs.com/doc/0.1/Component/Component#windowWillChange
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2
+	 */
+	windowWillChange: function(window) {
+
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/0.1/Component/Component#windowDidChange
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2
+	 */
+	windowDidChange: function(window) {
+
+	},
+
+	/**
 	 * @see    http://moobilejs.com/doc/0.1/Component/Component#willShow
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
 	 * @since  0.1
@@ -858,15 +915,12 @@ Moobile.Component = new Class({
 	 * @since  0.1
 	 */
 	destroy: function() {
-
-		this.removeFromParentComponent();
 		this.removeAllChildComponents(true);
-
+		this.removeFromParentComponent();
 		this.element.destroy();
 		this.element = null;
 		this._window = null;
 		this._parent = null;
-
 		return this;
 	},
 

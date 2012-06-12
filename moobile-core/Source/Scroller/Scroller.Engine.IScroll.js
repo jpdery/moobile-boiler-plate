@@ -29,7 +29,7 @@ iScroll.prototype._checkDOMChanges = function() {
 
 	_checkDOMChanges.call(this);
 
-	var size = this.wrapper.getSize();
+	var size = this.wrapper.getScrollSize();
 	if (this._currentSize.x != size.x || this._currentSize.y != size.y) {
 		this._currentSize = size;
 		this.refresh();
@@ -79,7 +79,10 @@ Moobile.Scroller.Engine.IScroll = new Class({
 			checkDOMChanges: true,
 			snap: false,
 			onScrollMove: this.bound('_onScrollMove'),
-			onScrollEnd: this.bound('_onScrollEnd')
+			onScrollEnd: this.bound('_onScrollEnd'),
+			onBeforeScrollStart: function (e) {
+				e.preventDefault(); // This fixes an Android issue where the content would not scroll
+			}
 		};
 
 		this.scroller = new iScroll(this.wrapperElement, options);
@@ -109,7 +112,8 @@ Moobile.Scroller.Engine.IScroll = new Class({
 	 * @since  0.1.0
 	 */
 	scrollTo: function(x, y, time) {
-		(function() { this.scroller.scrollTo(-x, -y, time); }).delay(5, this);
+		this.scroller.refresh();
+		this.scroller.scrollTo(-x, -y, time);
 		return this;
 	},
 

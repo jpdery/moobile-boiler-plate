@@ -50,6 +50,7 @@ Moobile.ScrollView = new Class({
 	 * @since  0.1
 	 */
 	options: {
+		engine: ['Native', 'IScroll'],
 		momentum: true,
 		scrollX: false,
 		scrollY: true,
@@ -83,6 +84,7 @@ Moobile.ScrollView = new Class({
 		this.parent();
 
 		var options = {
+			engine: this.options.engine,
 			momentum: this.options.momentum,
 			scrollX: this.options.scrollX,
 			scrollY: this.options.scrollY,
@@ -210,8 +212,7 @@ Moobile.ScrollView = new Class({
 		this.parent();
 		var offset = this.options.offset;
 		if (offset.x >= 0 || offset.y >= 0) {
-			// disable untill the flick issue is fixed
-			// this._scroller.scrollTo(offset.x, offset.y);
+			this._scroller.scrollTo(offset.x, offset.y);
 		}
 	},
 
