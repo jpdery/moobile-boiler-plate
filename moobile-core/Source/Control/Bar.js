@@ -20,9 +20,10 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Control/Bar
+ * @see    http://moobilejs.com/doc/latest/Control/Bar
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
 Moobile.Bar = new Class({
 
@@ -31,24 +32,24 @@ Moobile.Bar = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_item: null,
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 
 		this.parent();
 
-		this.element.addClass('bar');
+		this.addClass('bar');
 
-		var item = this.element.getRoleElement('item');
+		var item = this.getRoleElement('item');
 		if (item === null) {
-			item = new Element('div');
+			item = document.createElement('div');
 			item.ingest(this.element);
 			item.inject(this.element);
 			item.setRole('item');
@@ -58,7 +59,7 @@ Moobile.Bar = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	destroy: function() {
 		this._item = null;
@@ -66,9 +67,9 @@ Moobile.Bar = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Bar#setItem
+	 * @see    http://moobilejs.com/doc/latest/Control/Bar#setItem
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setItem: function(item) {
 
@@ -88,9 +89,9 @@ Moobile.Bar = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Bar#getItem
+	 * @see    http://moobilejs.com/doc/latest/Control/Bar#getItem
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getItem: function() {
 		return this._item;
@@ -102,7 +103,7 @@ Moobile.Bar = new Class({
 // Roles
 //------------------------------------------------------------------------------
 
-Moobile.Component.defineRole('bar', null, function(element) {
+Moobile.Component.defineRole('bar', null, null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.Bar, element, 'data-bar'));
 });
 
@@ -110,7 +111,14 @@ Moobile.Component.defineRole('bar', null, function(element) {
 // Styles
 //------------------------------------------------------------------------------
 
+/* Dark Style - iOS - Android */
 Moobile.Component.defineStyle('dark', Moobile.Bar, {
 	attach: function(element) { element.addClass('style-dark'); },
 	detach: function(element) { element.removeClass('style-dark'); }
+});
+
+/* Light Style - iOS - Android */
+Moobile.Component.defineStyle('light', Moobile.Bar, {
+	attach: function(element) { element.addClass('style-light'); },
+	detach: function(element) { element.removeClass('style-light'); }
 });

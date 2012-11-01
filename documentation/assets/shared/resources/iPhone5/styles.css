@@ -1,0 +1,75 @@
+/* Device
+-----------------------------------------------------------------------------*/
+
+.simulator {
+	background: url(iphone.png) no-repeat;
+	background-size: 382px 802px;
+	height: 802px;
+	padding-top: 118px;
+	padding-bottom: 115px;
+	padding-left: 32px;
+	padding-right: 30px;
+	width: 382px;
+}
+
+.simulator .simulator-glare {
+	background: url(iphone-glare.png) no-repeat;
+	background-size: 382px 802px;
+	height: 802px;
+	width: 382px;
+}
+
+.simulator .simulator-facade {
+	height: 568px;
+	width: 320px;
+}
+
+.simulator.portrait .simulator-screen {
+	height: 568px;
+	width: 320px;
+}
+
+.simulator.landscape .simulator-screen {
+	height: 320px;
+	margin-top: 124px;
+	margin-left: -124px;
+	width: 568px;
+}
+
+.simulator.portrait .simulator-screen iframe {
+	height: 548px;
+	width: 320px;
+}
+
+.simulator.landscape .simulator-screen iframe {
+	height: 300px;
+	width: 568px;
+}
+
+/* Portrait With Safari Bar, With Button Bar */
+
+.simulator.portrait.with-button-bar .simulator-screen iframe { height: 504px; }
+.simulator.portrait.with-safari-bar .simulator-screen iframe {	height: 488px; }
+.simulator.portrait.with-button-bar.with-safari-bar .simulator-screen iframe { height: 444px; }
+
+/* Landscape With Safari Bar, With Button Bar */
+
+.simulator.landscape.with-button-bar .simulator-screen iframe { height: 268px; }
+.simulator.landscape.with-safari-bar .simulator-screen iframe { height: 240px; }
+.simulator.landscape.with-button-bar.with-safari-bar .simulator-screen iframe { height: 208px; }
+
+/* Safari Bar
+-----------------------------------------------------------------------------*/
+
+.simulator.landscape .simulator-safari-bar {
+	background: url(safari-bar-landscape.png);
+    background-size: 568px 60px;
+}
+
+/* Button Bar
+-----------------------------------------------------------------------------*/
+
+.simulator.landscape .simulator-button-bar {
+	background: url(button-bar-landscape.png);
+	background-size: 568px 32px;
+}

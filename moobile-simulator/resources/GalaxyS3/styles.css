@@ -1,0 +1,81 @@
+/* Device
+-----------------------------------------------------------------------------*/
+
+.simulator {
+	background: url(galaxys3.png) no-repeat;
+	background-size: 418px 812px;
+	height: 812px;
+	padding-top: 77px;
+	padding-bottom: 95px;
+	padding-left: 28px;
+	padding-right: 30px;
+	width: 418px;
+}
+
+.simulator .simulator-glare {
+	background: url(galaxys3-glare.png)  no-repeat;
+	background-size: 418px 812px;
+	height: 812px;
+	width: 418px;
+}
+
+.simulator.without-glare .simulator-glare {
+	display: none;
+}
+
+.simulator .simulator-facade {
+	height: 640px;
+	width: 360px;
+}
+
+.simulator.portrait .simulator-screen {
+	height: 640px;
+	width: 360px;
+}
+
+.simulator.landscape .simulator-screen {
+	height: 360px;
+	margin-top: 140px;
+	margin-left: -140px;
+	width: 640px;
+}
+
+.simulator.portrait .simulator-screen iframe {
+	height: 615px;
+	width: 360px;
+}
+
+.simulator.landscape .simulator-screen iframe {
+	height: 345px;
+	width: 640px;
+}
+
+/* Portrait With Safari Bar, With Button Bar */
+
+.simulator.portrait.with-button-bar .simulator-screen iframe { height: 416px; }
+.simulator.portrait.with-safari-bar .simulator-screen iframe {	height: 400px; }
+.simulator.portrait.with-button-bar.with-safari-bar .simulator-screen iframe { height: 356px; }
+
+/* Landscape With Safari Bar, With Button Bar */
+
+.simulator.landscape.with-button-bar .simulator-screen iframe { height: 268px; }
+.simulator.landscape.with-safari-bar .simulator-screen iframe { height: 240px; }
+.simulator.landscape.with-button-bar.with-safari-bar .simulator-screen iframe { height: 208px; }
+
+/* Status Bar
+-----------------------------------------------------------------------------*/
+
+.simulator .simulator-status-bar {
+	height: 25px;
+	width: 100%;
+}
+
+.simulator.portrait .simulator-status-bar {
+	background: url(status-bar-portrait.png) repeat-x;
+    background-size: 360px 25px;
+}
+
+.simulator.landscape .simulator-status-bar {
+	background: url(status-bar-landscape.png) repeat-x;
+    background-size: 640px 25px;
+}

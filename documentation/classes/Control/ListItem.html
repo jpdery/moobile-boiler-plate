@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ListItem | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ListItem | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -140,12 +142,16 @@
   <th>Note</th>
 </tr></thead><tbody><tr><td><code>list-item</code></td>
   <td>Defines an element acting a <code>Moobile.ListItem</code> control</td>
-  <td><code>Moobile.List</code> control</td>
-  <td>Use the <code>data-list-item</code> attribute to specify a subclass instead</td>
+  <td>Moobile.List control</td>
+  <td>Use the <code>data-list-item</code> attribute to specify a subclass instead.</td>
+</tr><tr><td><code>header</code></td>
+  <td>Defines an element acting a <code>Moobile.ListItem</code> control with the <code>header</code> style</td>
+  <td>Moobile.List control</td>
+  <td>Use the <code>data-list-item</code> attribute to specify a subclass instead.</td>
 </tr><tr><td><code>label</code></td>
   <td>Defines the element acting as the list item label</td>
   <td><a href="../Control/ListItem.html">Moobile.ListItem</a> controls</td>
-  <td>If unspecified, the contents of the list item's element will act as its label.</td>
+  <td>If omitted, the contents of the list item's element will act as its label.</td>
 </tr><tr><td><code>image</code></td>
   <td>Defines the element acting as the list item image</td>
   <td><a href="../Control/ListItem.html">Moobile.ListItem</a> controls</td>
@@ -159,14 +165,14 @@
 <h5>Specifying an element that acts a list item control using the <code>data-role</code> attribute:</h5>
 
 <pre class="prettyprint"><code>&lt;ul data-role="list"&gt;
-    &lt;li data-role="list-item"&gt;&lt;/li&gt;
+    &lt;li data-role="item"&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
 
 <h5>Specifying an element that acts a list item control subclass using the <code>data-role</code> attribute:</h5>
 
 <pre class="prettyprint"><code>&lt;ul data-role="list"&gt;
-    &lt;li data-role="list-item" data-list-item="MyListItem" /&gt;
+    &lt;li data-role="item" data-list-item="MyListItem" /&gt;
 &lt;/ul&gt;
 </code></pre>
 
@@ -183,7 +189,7 @@
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>label</code></td>
   <td>Mixed</td>
-  <td>The label as a string or a <code>Moobile.Text</code> instance.</td>
+  <td>The label as a string or a <a href="../Control/Text.html">Moobile.Text</a> instance.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ListItem</code> This Moobile.ListItem instance</li>
@@ -200,6 +206,10 @@ listItem.setLabel('Moo');
 <pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
 listItem.setLabel(new Moobile.Text().setText('Moo'));
 </code></pre>
+
+<h4>Note:</h4>
+
+<p>The CSS class <code>list-item-label-empty</code> is added to the root element when the label is empty.</p>
 
 <hr><h3 id="getLabel">getLabel()</h3>
 
@@ -226,7 +236,7 @@ listItem.getLabel(); // returns a Moobile.Text instance
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>image</code></td>
   <td>Mixed</td>
-  <td>The image as a string or a <code>Moobile.Image</code> instance.</td>
+  <td>The image as a string or a <a href="../Control/Image.html">Moobile.Image</a> instance.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ListItem</code> This Moobile.ListItem instance</li>
@@ -243,6 +253,10 @@ listItem.setImage('path/to/an-image.png');
 <pre class="prettyprint"><code>var listItem = new Moobile.ListItem();
 listItem.setImage(new Moobile.Image().setSource('path/to/an-image.png'));
 </code></pre>
+
+<h4>Note:</h4>
+
+<p>The CSS class <code>list-item-image-empty</code> is added to the root element when the image is empty.</p>
 
 <hr><h3 id="getImage">getImage()</h3>
 
@@ -287,6 +301,10 @@ listItem.setLabel('Moo');
 listItem.setLabel(new Moobile.Text().setText('Moo'));
 </code></pre>
 
+<h4>Note:</h4>
+
+<p>The CSS class <code>list-item-detail-empty</code> is added to the root element when the detail text is empty.</p>
+
 <hr><h3 id="getDetail">getDetail()</h3>
 
 <p>Returns the detail label.</p>
@@ -303,6 +321,10 @@ listItem.getDetail(); // returns a Moobile.Text instance
 
 <h2 id="styles">Styles</h2>
 
+<h3 id="header-style">header</h3>
+
+<p><img src="../../assets/classes/Control/list-item-style-header.png" class="component-style"></p>
+
 <h3 id="checked-style">checked</h3>
 
 <p><img src="../../assets/classes/Control/list-item-style-checked.png" class="component-style"></p>
@@ -315,7 +337,7 @@ listItem.getDetail(); // returns a Moobile.Text instance
 
 <p><img src="../../assets/classes/Control/list-item-style-detailed.png" class="component-style"></p>
 </div>
-	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#methods">Methods</a><ul><li><a href="#setLabel">setLabel</a></li><li><a href="#getLabel">getLabel</a></li><li><a href="#setImage">setImage</a></li><li><a href="#getImage">getImage</a></li><li><a href="#setDetail">setDetail</a></li><li><a href="#getDetail">getDetail</a></li></ul></li><li><a href="#styles">Styles</a><ul><li><a href="#checked-style">checked</a></li><li><a href="#disclosed-style">disclosed</a></li><li><a href="#detailed-style">detailed</a></li></ul></li></ul></div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#methods">Methods</a><ul><li><a href="#setLabel">setLabel</a></li><li><a href="#getLabel">getLabel</a></li><li><a href="#setImage">setImage</a></li><li><a href="#getImage">getImage</a></li><li><a href="#setDetail">setDetail</a></li><li><a href="#getDetail">getDetail</a></li></ul></li><li><a href="#styles">Styles</a><ul><li><a href="#header-style">header</a></li><li><a href="#checked-style">checked</a></li><li><a href="#disclosed-style">disclosed</a></li><li><a href="#detailed-style">detailed</a></li></ul></li></ul></div>
 
 	<script type="text/javascript">
 		if (document.location.protocol !== 'file:') {

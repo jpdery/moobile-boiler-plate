@@ -281,11 +281,11 @@ Moobile.Animation = new Class({
 	 */
 	attach: function() {
 
-		this.element.addEvent('animationend', this.bound('onAnimationEnd'));
+		this.element.addEvent('ownanimationend', this.bound('onAnimationEnd'));
 		this.element.addClass(this.animationClass);
 
 		Object.each(this.animationProperties, function(val, key) {
-			this.element.setStyle('-webkit-animation-' + key, val);
+			this.element.setStyle('animation-' + key, val);
 		}, this);
 
 		return this;
@@ -298,11 +298,11 @@ Moobile.Animation = new Class({
 	 */
 	detach: function() {
 
-		this.element.removeEvent('animationend', this.bound('onAnimationEnd'));
+		this.element.removeEvent('ownanimationend', this.bound('onAnimationEnd'));
 		this.element.removeClass(this.animationClass);
 
 		Object.each(this.animationProperties, function(val, key) {
-			this.element.setStyle('-webkit-animation-' + key, null);
+			this.element.setStyle('animation-' + key, null);
 		}, this);
 
 		return this;
@@ -317,7 +317,6 @@ Moobile.Animation = new Class({
 
 		if (this._running)
 			return this;
-
 
 		this._running = true;
 		this.fireEvent('start');
@@ -337,8 +336,8 @@ Moobile.Animation = new Class({
 			return this;
 
 		this._running = false;
-		this.detach();
 		this.fireEvent('stop');
+		this.detach();
 
 		return this;
 	},
@@ -368,8 +367,8 @@ Moobile.Animation = new Class({
 		e.stop();
 
 		this._running = false;
-		this.detach();
 		this.fireEvent('end');
+		this.detach();
 	}
 
 });

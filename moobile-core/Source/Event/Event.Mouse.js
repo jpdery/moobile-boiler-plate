@@ -3,7 +3,7 @@
 
 name: Event.Mouse
 
-description: Correctly translate the touchmove using mouse events.
+description: Correctly translate mouse events to touch events.
 
 license: MIT-style license.
 
@@ -11,7 +11,6 @@ author:
 	- Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
 
 requires:
-	- Mobile/Mouse
 
 provides:
 	- Event.Mouse
@@ -21,43 +20,82 @@ provides:
 
 if (!Browser.Features.Touch) (function() {
 
-var mouseDown = false;
+var target = null;
+var uniqid = null;
 
-var onMouseMoveStart = function(e) {
-	mouseDown = true;
+var redispatch = function(e) {
+
+	if (e.fake)
+		return;
+
+	var faked = document.createEvent('MouseEvent');
+	faked.fake = true;
+	faked.initMouseEvent(
+		e.type, true, true, window, 0,
+    	e.screenX, e.screenY,
+    	e.clientX, e.clientY,
+    	false, false, false, false, 0, null);
+
+	target.dispatchEvent(faked);
 };
 
-var onMouseMoveEnd = function(e) {
-	mouseDown = false;
+var onDocumentMouseDown = function(e) {
+	if (target === null) {
+		target = e.target;
+		uniqid = e.event.timeStamp;
+		redispatch(e.event);
+	}
 };
 
-Element.defineCustomEvent('touchmove', {
+var onDocumentMouseMove = function(e) {
+	if (target) redispatch(e.event);
+};
 
-	base: 'touchmove',
+var onDocumentMouseUp = function(e) {
+	if (target) {
+		redispatch(e.event);
+		target = null
+		uniqid = null;
+	}
+};
 
-	condition: function(e) {
+document.addEvent('mousedown', onDocumentMouseDown);
+document.addEvent('mousemove', onDocumentMouseMove);
+document.addEvent('mouseup', onDocumentMouseUp);
 
-		e.targetTouches = [];
-		e.changedTouches = e.touches = [{
-			pageX: e.page.x,
-			pageY: e.page.y,
-			clientX: e.client.x,
-			clientY: e.client.y
-		}];
+var condition = function(e) {
 
-		return mouseDown;
-	},
+	var touch = {
+		identifier: uniqid,
+		target: target,
+		pageX: e.page.x,
+		pageY: e.page.y,
+		clientX: e.client.x,
+		clientY: e.client.y
+	};
 
-	onSetup: function() {
-		this.addEvent('mousedown', onMouseMoveStart);
-		this.addEvent('mouseup', onMouseMoveEnd);
-	},
+	e.touches = e.targetTouches = e.changedTouches = [touch];
 
-	onTeardown: function() {
-		this.removeEvent('mousedown', onMouseMoveStart);
-		this.removeEvent('mouseup', onMouseMoveEnd);
+	if (e.event.fake) {
+		return true;
 	}
 
+	return false;
+};
+
+Element.defineCustomEvent('touchstart', {
+	base: 'mousedown',
+	condition: condition
+});
+
+Element.defineCustomEvent('touchmove', {
+	base: 'mousemove',
+	condition: condition
+});
+
+Element.defineCustomEvent('touchend', {
+	base: 'mouseup',
+	condition: condition
 });
 
 })();

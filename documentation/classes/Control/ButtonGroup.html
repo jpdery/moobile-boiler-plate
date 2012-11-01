@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ButtonGroup | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ButtonGroup | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -86,9 +88,12 @@
 </tr><tr><td><code>tagName</code></td>
   <td>String</td>
   <td>The button group's element tag name, defaults to <code>div</code>.</td>
-</tr><tr><td><code>deselectable</code></td>
+</tr><tr><td><code>layout</code></td>
+  <td>String</td>
+  <td>The button group's layout, either <code>horizontal</code> or <code>vertical</code>, defaults to <code>horizontal</code>.</td>
+</tr><tr><td><code>selectable</code></td>
   <td>Boolean</td>
-  <td>Whether a button can be deselected, defaults to <code>false</code>.</td>
+  <td>Whether a button can be selected, defaults to <code>true</code>.</td>
 </tr><tr><td><code>selectedButtonIndex</code></td>
   <td>Number</td>
   <td>The button group's default selected button index, defaults to <code>-1</code>.</td>
@@ -99,7 +104,7 @@
 
 <h4>Note:</h4>
 
-<p>Buttons can be added to the button group by adding elements with the <code>button</code> <code>data-role</code> attribute:</p>
+<p>Buttons can be added to this button group by adding elements with the <code>button</code> <code>data-role</code> attribute:</p>
 
 <pre class="prettyprint"><code>&lt;div data-role="button-group"&gt;
     &lt;div data-role="button"&gt;Button 1&lt;/div&gt;
@@ -275,7 +280,7 @@ buttonGroup.clearSelectedButton();
 
 <hr><h3 id="addButton">addButton(button, [where])</h3>
 
-<p>Adds the specified button at the <code>top</code> or <code>bottom</code> of this button group. If <code>where</code> is unspecified, the button will be added at the bottom of this button group.</p>
+<p>Adds the specified button at the <code>top</code> or <code>bottom</code> of this button group. If <code>where</code> is omitted, the button will be added at the bottom of this button group. The button may be a string. In this case, this method will create a <a href="../Control/Button.html">Moobile.Button</a> instance and set the specified string as its label.</p>
 
 <h4>Parameters:</h4>
 
@@ -283,8 +288,8 @@ buttonGroup.clearSelectedButton();
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>button</code></td>
-  <td><a href="../Control/Button.html">Moobile.Button</a></td>
-  <td>The button.</td>
+  <td>Mixed</td>
+  <td>The button as a string or a <a href="../Control/Button.html">Moobile.Button</a> instance.</td>
 </tr><tr><td><code>where</code> <em>Optional</em></td>
   <td>String</td>
   <td>The button's location, either <code>top</code> or <code>bottom</code>, defaults to <code>bottom</code>.</td>
@@ -300,7 +305,7 @@ buttonGroup.addButton(buttonOne);
 
 <hr><h3 id="addButtonAfter">addButtonAfter(button, after)</h3>
 
-<p>Adds the specified button after a button from this button group.</p>
+<p>Adds the specified button after a button from this button group. The button may be a string. In this case, this method will create a <a href="../Control/Button.html">Moobile.Button</a> instance and set the specified string as its label.</p>
 
 <h4>Parameters:</h4>
 
@@ -308,8 +313,8 @@ buttonGroup.addButton(buttonOne);
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>button</code></td>
-  <td><a href="../Control/Button.html">Moobile.Button</a></td>
-  <td>The button.</td>
+  <td>Mixed</td>
+  <td>The button as a string or a <a href="../Control/Button.html">Moobile.Button</a> instance.</td>
 </tr><tr><td><code>after</code></td>
   <td><a href="../Control/Button.html">Moobile.Button</a></td>
   <td>The button will be placed after this button.</td>
@@ -327,7 +332,7 @@ buttonGroup.addButtonAfter(buttonTwo, buttonOne); // buttonTwo is after buttonOn
 
 <hr><h3 id="addButtonBefore">addButtonBefore(button, before)</h3>
 
-<p>Adds the specified button before a button from this button group.</p>
+<p>Adds the specified button before a button from this button group. The button may be a string. In this case, this method will create a <a href="../Control/Button.html">Moobile.Button</a> instance and set the specified string as its label.</p>
 
 <h4>Parameters:</h4>
 
@@ -335,8 +340,8 @@ buttonGroup.addButtonAfter(buttonTwo, buttonOne); // buttonTwo is after buttonOn
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>button</code></td>
-  <td><a href="../Control/Button.html">Moobile.Button</a></td>
-  <td>The button.</td>
+  <td>Mixed</td>
+  <td>The button as a string or a <a href="../Control/Button.html">Moobile.Button</a> instance.</td>
 </tr><tr><td><code>after</code></td>
   <td><a href="../Control/Button.html">Moobile.Button</a></td>
   <td>The button will be placed before this button.</td>
@@ -350,6 +355,23 @@ var buttonOne = new Moobile.Button();
 var buttonTwo = new Moobile.Button();
 buttonGroup.addButton(buttonOne);
 buttonGroup.addButtonBefore(buttonTwo, buttonOne); // buttonTwo is before buttonOne
+</code></pre>
+
+<hr><h3 id="getButtons">getButtons()</h3>
+
+<p>Returns all buttons in this button group.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Array</code> An array of all buttons in this button group.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var buttonGroup = new Moobile.ButtonGroup();
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+buttonGroup.addButton(buttonOne);
+buttonGroup.addButton(buttonTwo);
+buttonGroup.getButtons(); // returns [buttonOne, buttonTwo]
 </code></pre>
 
 <hr><h3 id="getButton">getButton(name)</h3>
@@ -414,7 +436,7 @@ buttonGroup.getButtonAt(0); // returns buttonOne
   <td>The button to remove.</td>
 </tr><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the button upon removal.</td>
+  <td>Whether to destroy the button upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ButtonGroup</code> This Moobile.ButtonGroup instance.</li>
@@ -439,7 +461,7 @@ buttonGroup.removeButton(buttonOne); // the button group contains only buttonTwo
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the button upon removal.</td>
+  <td>Whether to destroy the buttons upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ButtonGroup</code> This Moobile.ButtonGroup instance.</li>
@@ -452,8 +474,31 @@ buttonGroup.addButton(buttonOne);
 buttonGroup.addButton(buttonTwo);
 buttonGroup.removeAllButtons(); // no buttons remains
 </code></pre>
-</div>
-	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#events">Events</a><ul><li><a href="#select-event">select</a></li><li><a href="#deselect-event">deselect</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#setSelectedButton">setSelectedButton</a></li><li><a href="#getSelectedButton">getSelectedButton</a></li><li><a href="#setSelectedButtonIndex">setSelectedButtonIndex</a></li><li><a href="#getSelectedButtonIndex">getSelectedButtonIndex</a></li><li><a href="#clearSelectedButton">clearSelectedButton</a></li><li><a href="#addButton">addButton</a></li><li><a href="#addButtonAfter">addButtonAfter</a></li><li><a href="#addButtonBefore">addButtonBefore</a></li><li><a href="#getButton">getButton</a></li><li><a href="#getButtonAt">getButtonAt</a></li><li><a href="#removeButton">removeButton</a></li><li><a href="#removeAllButtons">removeAllButtons</a></li></ul></li></ul></div>
+
+<hr><h3 id="setSelectable">setSelectable(selectable)</h3>
+
+<p>Sets whether buttons from this button group are selectable.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>selectable</code></td>
+  <td>Boolean</td>
+  <td>Whether buttons from this button group are selectable.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ButtonGroup</code> This Moobile.ButtonGroup instance.</li>
+</ul><hr><h3 id="isSelectable">isSelectable(selectable)</h3>
+
+<p>Indicates whether buttons from this button group are selectable.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Boolean</code> Whether buttons from this button group are selectable.</li>
+</ul></div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#events">Events</a><ul><li><a href="#select-event">select</a></li><li><a href="#deselect-event">deselect</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#setSelectedButton">setSelectedButton</a></li><li><a href="#getSelectedButton">getSelectedButton</a></li><li><a href="#setSelectedButtonIndex">setSelectedButtonIndex</a></li><li><a href="#getSelectedButtonIndex">getSelectedButtonIndex</a></li><li><a href="#clearSelectedButton">clearSelectedButton</a></li><li><a href="#addButton">addButton</a></li><li><a href="#addButtonAfter">addButtonAfter</a></li><li><a href="#addButtonBefore">addButtonBefore</a></li><li><a href="#getButtons">getButtons</a></li><li><a href="#getButton">getButton</a></li><li><a href="#getButtonAt">getButtonAt</a></li><li><a href="#removeButton">removeButton</a></li><li><a href="#removeAllButtons">removeAllButtons</a></li><li><a href="#setSelectable">setSelectable</a></li><li><a href="#isSelectable">isSelectable</a></li></ul></li></ul></div>
 
 	<script type="text/javascript">
 		if (document.location.protocol !== 'file:') {

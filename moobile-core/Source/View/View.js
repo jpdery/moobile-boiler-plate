@@ -21,48 +21,82 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/View/View
+ * @see    http://moobilejs.com/doc/latest/View/View
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
 Moobile.View = new Class({
 
 	Extends: Moobile.Component,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#content
+	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.2.0
+	 */
+	_layout: null,
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#contentElement
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	contentElement: null,
 
 	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#contentWrapperElement
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	contentWrapperElement: null,
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#options
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	options: {
+		layout: 'vertical'
+	},
+
+	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 
 		this.parent();
 
-		this.element.addClass('view');
+		this.addClass('view');
 
-		var content = this.element.getRoleElement('view-content');
+		var content = this.getRoleElement('content') /* <0.1-compat> */ || this.getRoleElement('view-content') /* </0.1-compat> */;
 		if (content === null) {
-			content = new Element('div');
+			content = document.createElement('div');
 			content.ingest(this.element);
 			content.inject(this.element);
-			content.setRole('view-content');
+			content.setRole('content');
+		}
+
+		var wrapper = this.getRoleElement('content-wrapper');
+		if (wrapper === null) {
+			wrapper = document.createElement('div');
+			wrapper.wraps(content);
+			wrapper.setRole('content-wrapper');
 		}
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didBuild: function() {
+
 		this.parent();
+
 		var classes = this.element.get('class');
 		if (classes) {
 			classes.split(' ').each(function(klass) {
@@ -70,12 +104,14 @@ Moobile.View = new Class({
 				if (klass) this.contentElement.addClass(klass + '-content');
 			}, this);
 		}
+
+		this.setLayout(this.options.layout);
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	destroy: function() {
 		this.contentElement = null;
@@ -83,29 +119,29 @@ Moobile.View = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#enableTouch
+	 * @see    http://moobilejs.com/doc/latest/View/View#enableTouch
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	enableTouch: function() {
-		this.element.removeClass('disable').addClass('enable');
+		this.removeClass('disable').addClass('enable');
 		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#disableTouch
+	 * @see    http://moobilejs.com/doc/latest/View/View#disableTouch
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	disableTouch: function() {
-		this.element.removeClass('enable').addClass('disable');
+		this.removeClass('enable').addClass('disable');
 		return this;
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	addChildComponent: function(component, where) {
 		if (where === 'header') return this.parent(component, 'top');
@@ -116,7 +152,7 @@ Moobile.View = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willAddChildComponent: function(component) {
 		this.parent(component);
@@ -126,7 +162,7 @@ Moobile.View = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willRemoveChildComponent: function(component) {
 		this.parent(component);
@@ -134,37 +170,67 @@ Moobile.View = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#setContentElement
+	 * @see    http://moobilejs.com/doc/latest/View/View#getContentElement
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
-	setContentElement: function(content) {
+	getContentElement: function() {
+		return this.contentElement;
+	},
 
-		if (this.contentElement === content)
+	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#getContentWrapperElement
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	getContentWrapperElement: function() {
+		return this.contentWrapperElement;
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#setLayout
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	setLayout: function(layout) {
+
+		if (this._layout === layout)
 			return this;
 
-		if (this.element.contains(content) === false) {
-			if (this.contentElement) {
-				this.contentElement.grab(content, 'after');
-				this.contentElement.destroy();
-			} else {
-				this.element.grab(content);
-			}
-		}
-
-		this.contentElement = content;
-		this.contentElement.addClass('view-content');
+		this.willChangeLayout(layout);
+		if (this._layout) this.removeClass('view-layout-' + this._layout);
+		this._layout = layout;
+		if (this._layout) this.addClass('view-layout-' + this._layout);
+		this.didChangeLayout(layout);
 
 		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#getContentElement
+	 * @see    http://moobilejs.com/doc/latest/View/View#setLayout
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.2.0
 	 */
-	getContentElement: function() {
-		return this.contentElement;
+	getLayout: function() {
+		return this._layout;
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#willChangeLayout
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	willChangeLayout: function(layout) {
+
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/View/View#didChangeLayout
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	didChangeLayout: function(layout) {
+
 	}
 
 });
@@ -179,9 +245,9 @@ Class.refactor(Moobile.Component, {
 	_parentView: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#setParentView
+	 * @see    http://moobilejs.com/doc/latest/View/View#setParentView
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setParentView: function(parentView) {
 
@@ -205,27 +271,27 @@ Class.refactor(Moobile.Component, {
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#getParentView
+	 * @see    http://moobilejs.com/doc/latest/View/View#getParentView
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getParentView: function() {
 		return this._parentView;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#parentViewDidChange
+	 * @see    http://moobilejs.com/doc/latest/View/View#parentViewDidChange
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	parentViewWillChange: function(parentView) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/View/View#parentViewDidChange
+	 * @see    http://moobilejs.com/doc/latest/View/View#parentViewDidChange
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	parentViewDidChange: function(parentView) {
 
@@ -234,7 +300,7 @@ Class.refactor(Moobile.Component, {
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willAddChildComponent: function(component) {
 		this.previous(component);
@@ -244,7 +310,7 @@ Class.refactor(Moobile.Component, {
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willRemoveChildComponent: function(component) {
 		this.previous(component);
@@ -254,32 +320,62 @@ Class.refactor(Moobile.Component, {
 });
 
 /**
- * @see    http://moobilejs.com/doc/0.1/View/View#MoobileViewAt
+ * @see    http://moobilejs.com/doc/latest/View/View#MoobileViewAt
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
-Moobile.View.at = function(path) {
+Moobile.View.at = function(path, options, name) {
 
 	var element = Element.at(path);
 	if (element) {
-		return Moobile.Component.create(Moobile.View, element, 'data-view');
+		return Moobile.Component.create(Moobile.View, element, 'data-view', options, name);
 	}
 
 	return null;
 };
 
-//<pre-0.1-compat>
-Moobile.View.prototype.addChild = Moobile.View.prototype.addChildComponent;
-//</pre-0.1-compat>
-
 //------------------------------------------------------------------------------
 // Roles
 //------------------------------------------------------------------------------
 
-Moobile.Component.defineRole('view', null, function(element) {
+Moobile.Component.defineRole('view', null, null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.View, element, 'data-view'));
 });
 
-Moobile.Component.defineRole('view-content', Moobile.View, {traversable: true,	behavior: function(element) {
-	this.setContentElement(element);
-}});
+Moobile.Component.defineRole('content', Moobile.View, {traversable: true}, function(element) {
+	this.contentElement = element;
+	this.contentElement.addClass('view-content');
+});
+
+Moobile.Component.defineRole('content-wrapper', Moobile.View, {traversable: true}, function(element) {
+	this.contentWrapperElement = element
+	this.contentWrapperElement.addClass('view-content-wrapper');
+});
+
+// <0.1-compat>
+/**
+ * @deprecated
+ */
+Moobile.Component.defineRole('view-content', Moobile.View, {traversable: true}, function(element) {
+	console.log('[DEPRECATION NOTICE] The role "view-content" will be removed in 0.4, use the role "content" instead');
+	this.contentElement = element;
+	this.contentElement.addClass('view-content');
+});
+// </0.1-compat>
+
+//------------------------------------------------------------------------------
+// Styles
+//------------------------------------------------------------------------------
+
+/* Dark Style - iOS Android */
+Moobile.Component.defineStyle('dark', Moobile.View, {
+	attach: function(element) { element.addClass('style-dark'); },
+	detach: function(element) { element.removeClass('style-dark'); }
+});
+
+/* Light Style - iOS Android */
+Moobile.Component.defineStyle('light', Moobile.View, {
+	attach: function(element) { element.addClass('style-light'); },
+	detach: function(element) { element.removeClass('style-light'); }
+});

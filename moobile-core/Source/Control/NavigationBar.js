@@ -20,9 +20,9 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Control/NavigationBar
+ * @see    http://moobilejs.com/doc/latest/Control/NavigationBar
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @since  0.1.0
  */
 Moobile.NavigationBar = new Class({
 
@@ -31,11 +31,11 @@ Moobile.NavigationBar = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 		this.parent();
-		this.element.addClass('navigation-bar');
+		this.addClass('navigation-bar');
 	}
 
 });
@@ -44,7 +44,6 @@ Moobile.NavigationBar = new Class({
 // Roles
 //------------------------------------------------------------------------------
 
-Moobile.Component.defineRole('navigation-bar', null, function(element) {
+Moobile.Component.defineRole('navigation-bar', null, null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.NavigationBar, element, 'data-navigation-bar'));
 });
-

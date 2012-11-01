@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ViewController | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ViewController | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -173,7 +175,7 @@
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller to add to the hierarchy.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
@@ -195,10 +197,10 @@ viewControllerOne.addChildViewController(viewControllerTwo);
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller to add to the hierarchy.</td>
 </tr><tr><td><code>after</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller used as a context to put the specified view controller after.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
@@ -222,10 +224,10 @@ viewControllerOne.addChildViewControllerAfter(viewControllerThree, viewControlle
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller to add to the hierarchy.</td>
 </tr><tr><td><code>before</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller used as a context to put the child view controller before.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
@@ -250,7 +252,7 @@ viewControllerOne.addChildViewControllerBefore(viewControllerThree, viewControll
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>name</code></td>
   <td>String</td>
-  <td>The child view controller name.</td>
+  <td>The child view controller name to search form.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ViewController</code> The child view controller or <code>null</code> if no child view controllers were found.</li>
@@ -295,8 +297,8 @@ viewControllerOne.getChildViewControllerAt(0); // returns viewControllerTwo
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
-  <td>The view controller to look up.</td>
+  <td>Moobile.ViewController</td>
+  <td>The view controller to search for.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><em>Number</em> The child view controller index or <code>-1</code> if the given child view controller is not in this view controller's hierarchy.</li>
@@ -335,8 +337,8 @@ viewControllerOne.getChildViewControllers(); // returns [viewControllerTwo, view
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
-  <td>The view controller to look up.</td>
+  <td>Moobile.ViewController</td>
+  <td>The view controller to search for.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><em>Boolean</em> Whether the given view controller is a child of this view controller.</li>
@@ -358,11 +360,11 @@ viewControllerOne.hasChildViewController(viewControllerTwo); // returns true
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller to remove.</td>
 </tr><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the view controller upon removal.</td>
+  <td>Whether to destroy the view controller upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
@@ -385,7 +387,7 @@ viewControllerOne.removeChildViewController(viewControllerTwo); // removes viewC
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the view controller upon removal.</td>
+  <td>Whether to destroy the view controller upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
@@ -410,7 +412,7 @@ viewControllerOne.removeChildViewControllers(); // viewControllerTwo and viewCon
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the view controller upon removal.</td>
+  <td>Whether to destroy the view controller upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
@@ -432,7 +434,7 @@ viewControllerTwo.removeFromParentViewController(); // viewControllerTwo is remo
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller.</td>
 </tr><tr><td><code>viewTransition</code> <em>Optional</em></td>
   <td><a href="../ViewTransition/ViewTransition.html">Moobile.ViewTransition</a></td>
@@ -637,7 +639,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>parentViewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The parent view controller.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
@@ -659,7 +661,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The view controller to be added.</td>
 </tr></tbody></table><hr><h3 id="didAddChildViewController">didAddChildViewController(viewController)</h3>
 
@@ -671,7 +673,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The added child view controller.</td>
 </tr></tbody></table><hr><h3 id="willRemoveChildViewController">willRemoveChildViewController(viewController)</h3>
 
@@ -683,7 +685,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The child view controller about to be removed.</td>
 </tr></tbody></table><hr><h3 id="didRemoveChildViewController">didRemoveChildViewController(viewController)</h3>
 
@@ -695,7 +697,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>The removed child view controller.</td>
 </tr></tbody></table><hr><h3 id="parentViewControllerWillChange">parentViewControllerWillChange(viewController)</h3>
 
@@ -707,7 +709,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>This view controller's parent view controller.</td>
 </tr></tbody></table><hr><h3 id="parentViewControllerDidChange">parentViewControllerDidChange(viewController)</h3>
 
@@ -719,7 +721,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>viewController</code></td>
-  <td><code>Moobile.ViewController</code></td>
+  <td>Moobile.ViewController</td>
   <td>This view controller's parent view controller.</td>
 </tr></tbody></table><hr><h3 id="willPresentModalViewController">willPresentModalViewController()</h3>
 
@@ -737,7 +739,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
 
 <p>Tells this view controller it has dismissed the current modal view controller. Override this method to provide your own implementation.</p>
 
-<hr><h3 id="didRotate">didRotate(orientation)</h3>
+<hr><h3 id="viewDidRotate">viewDidRotate(orientation)</h3>
 
 <p>Tells this view controller the device orientation changed. Override this method to provide your own implementation.</p>
 
@@ -781,7 +783,7 @@ viewController.getImage(); // returns a Moobile.Image instance.
 
 <ul><li><code>Moobile.ViewController</code> This Moobile.ViewController instance.</li>
 </ul></div>
-	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#view">view</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#loadView">loadView</a></li><li><a href="#addChildViewController">addChildViewController</a></li><li><a href="#addChildViewControllerAfter">addChildViewControllerAfter</a></li><li><a href="#addChildViewControllerBefore">addChildViewControllerBefore</a></li><li><a href="#getChildViewController">getChildViewController</a></li><li><a href="#getChildViewControllerAt">getChildViewControllerAt</a></li><li><a href="#getChildViewControllerIndex">getChildViewControllerIndex</a></li><li><a href="#getChildViewControllers">getChildViewControllers</a></li><li><a href="#hasChildViewController">hasChildViewController</a></li><li><a href="#removeChildViewController">removeChildViewController</a></li><li><a href="#removeChildViewControllers">removeChildViewControllers</a></li><li><a href="#removeFromParentViewController">removeFromParentViewController</a></li><li><a href="#presentModalViewController">presentModalViewController</a></li><li><a href="#dismissModalViewController">dismissModalViewController</a></li><li><a href="#getName">getName</a></li><li><a href="#setTitle">setTitle</a></li><li><a href="#getTitle">getTitle</a></li><li><a href="#setImage">setImage</a></li><li><a href="#getImage">getImage</a></li><li><a href="#setModal">setModal</a></li><li><a href="#isModal">isModal</a></li><li><a href="#isViewReady">isViewReady</a></li><li><a href="#getView">getView</a></li><li><a href="#setViewTransition">setViewTransition</a></li><li><a href="#getViewTransition">getViewTransition</a></li><li><a href="#setViewControllerPanel">setViewControllerPanel</a></li><li><a href="#getViewControllerPanel">getViewControllerPanel</a></li><li><a href="#setParentViewController">setParentViewController</a></li><li><a href="#getParentViewController">getParentViewController</a></li><li><a href="#willAddChildViewController">willAddChildViewController</a></li><li><a href="#didAddChildViewController">didAddChildViewController</a></li><li><a href="#willRemoveChildViewController">willRemoveChildViewController</a></li><li><a href="#didRemoveChildViewController">didRemoveChildViewController</a></li><li><a href="#parentViewControllerWillChange">parentViewControllerWillChange</a></li><li><a href="#parentViewControllerDidChange">parentViewControllerDidChange</a></li><li><a href="#willPresentModalViewController">willPresentModalViewController</a></li><li><a href="#didPresentModalViewController">didPresentModalViewController</a></li><li><a href="#willDismissModalViewController">willDismissModalViewController</a></li><li><a href="#didDismissModalViewController">didDismissModalViewController</a></li><li><a href="#didRotate">didRotate</a></li><li><a href="#viewDidLoad">viewDidLoad</a></li><li><a href="#viewDidBecomeReady">viewDidBecomeReady</a></li><li><a href="#viewWillEnter">viewWillEnter</a></li><li><a href="#viewDidEnter">viewDidEnter</a></li><li><a href="#viewWillLeave">viewWillLeave</a></li><li><a href="#viewDidLeave">viewDidLeave</a></li><li><a href="#destroy">destroy</a></li></ul></li></ul></div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#view">view</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#loadView">loadView</a></li><li><a href="#addChildViewController">addChildViewController</a></li><li><a href="#addChildViewControllerAfter">addChildViewControllerAfter</a></li><li><a href="#addChildViewControllerBefore">addChildViewControllerBefore</a></li><li><a href="#getChildViewController">getChildViewController</a></li><li><a href="#getChildViewControllerAt">getChildViewControllerAt</a></li><li><a href="#getChildViewControllerIndex">getChildViewControllerIndex</a></li><li><a href="#getChildViewControllers">getChildViewControllers</a></li><li><a href="#hasChildViewController">hasChildViewController</a></li><li><a href="#removeChildViewController">removeChildViewController</a></li><li><a href="#removeChildViewControllers">removeChildViewControllers</a></li><li><a href="#removeFromParentViewController">removeFromParentViewController</a></li><li><a href="#presentModalViewController">presentModalViewController</a></li><li><a href="#dismissModalViewController">dismissModalViewController</a></li><li><a href="#getName">getName</a></li><li><a href="#setTitle">setTitle</a></li><li><a href="#getTitle">getTitle</a></li><li><a href="#setImage">setImage</a></li><li><a href="#getImage">getImage</a></li><li><a href="#setModal">setModal</a></li><li><a href="#isModal">isModal</a></li><li><a href="#isViewReady">isViewReady</a></li><li><a href="#getView">getView</a></li><li><a href="#setViewTransition">setViewTransition</a></li><li><a href="#getViewTransition">getViewTransition</a></li><li><a href="#setViewControllerPanel">setViewControllerPanel</a></li><li><a href="#getViewControllerPanel">getViewControllerPanel</a></li><li><a href="#setParentViewController">setParentViewController</a></li><li><a href="#getParentViewController">getParentViewController</a></li><li><a href="#willAddChildViewController">willAddChildViewController</a></li><li><a href="#didAddChildViewController">didAddChildViewController</a></li><li><a href="#willRemoveChildViewController">willRemoveChildViewController</a></li><li><a href="#didRemoveChildViewController">didRemoveChildViewController</a></li><li><a href="#parentViewControllerWillChange">parentViewControllerWillChange</a></li><li><a href="#parentViewControllerDidChange">parentViewControllerDidChange</a></li><li><a href="#willPresentModalViewController">willPresentModalViewController</a></li><li><a href="#didPresentModalViewController">didPresentModalViewController</a></li><li><a href="#willDismissModalViewController">willDismissModalViewController</a></li><li><a href="#didDismissModalViewController">didDismissModalViewController</a></li><li><a href="#viewDidRotate">viewDidRotate</a></li><li><a href="#viewDidLoad">viewDidLoad</a></li><li><a href="#viewDidBecomeReady">viewDidBecomeReady</a></li><li><a href="#viewWillEnter">viewWillEnter</a></li><li><a href="#viewDidEnter">viewDidEnter</a></li><li><a href="#viewWillLeave">viewWillLeave</a></li><li><a href="#viewDidLeave">viewDidLeave</a></li><li><a href="#destroy">destroy</a></li></ul></li></ul></div>
 
 	<script type="text/javascript">
 		if (document.location.protocol !== 'file:') {

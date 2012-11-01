@@ -20,9 +20,10 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Control/Image
+ * @see    http://moobilejs.com/doc/latest/Control/Image
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
 Moobile.Image = new Class({
 
@@ -31,28 +32,28 @@ Moobile.Image = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_image: null,
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_source: null,
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_loaded: false,
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_originalSize: {
 		x: 0,
@@ -62,7 +63,7 @@ Moobile.Image = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	options: {
 		tagName: 'img',
@@ -72,18 +73,15 @@ Moobile.Image = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 
 		this.parent();
 
-		if (this.element.get('tag') !== 'img')
-			throw new Error('Moobile.Image requires an <img> element.');
-
-		this.element.addClass('image');
-
 		this.hide();
+		this.addClass('image');
 
 		var source = this.element.get('src');
 		if (source) {
@@ -94,21 +92,30 @@ Moobile.Image = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	destroy: function() {
-		this._image = null;
+
+		if (this._image) {
+			this._image.removeEvent('load', this.bound('_onLoad'));
+			this._image.src = 'data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+			this._image = null;
+		}
+
+		this.element.set('src', 'data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+
 		this.parent();
 	},
 
+
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Image#setSource
+	 * @see    http://moobilejs.com/doc/latest/Control/Image#setSource
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setSource: function(source) {
 
-		this._source = source;
+		this._source = source || '';
 
 		if (this._image) {
 			this._image.removeEvent('load', this.bound('_onLoad'));
@@ -132,45 +139,63 @@ Moobile.Image = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Image#getSource
+	 * @see    http://moobilejs.com/doc/latest/Control/Image#getSource
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getSource: function() {
 		return this._source;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Image#getImage
+	 * @see    http://moobilejs.com/doc/latest/Control/Image#getImage
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getImage: function() {
 		return this._image;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Image#getOriginalSize
+	 * @see    http://moobilejs.com/doc/latest/Control/Image#getOriginalSize
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getOriginalSize: function() {
 		return this._originalSize;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/Image#isLoaded
+	 * @see    http://moobilejs.com/doc/latest/Control/Image#isLoaded
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	isLoaded: function() {
 		return this._loaded;
 	},
 
 	/**
+	 * @see    http://moobilejs.com/doc/latest/Control/Image#isEmpty
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	isEmpty: function() {
+		return !this.getSource();
+	},
+
+	/**
+	 * @overridden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	show: function() {
+		return this.isEmpty() ? this : this.parent();
+	},
+
+	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_load: function() {
 
@@ -182,14 +207,13 @@ Moobile.Image = new Class({
 		}
 
 		this.element.set('src', this._source);
-		this.fireEvent('load');
 		this.show();
 	},
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_unload: function() {
 
@@ -208,18 +232,31 @@ Moobile.Image = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onLoad: function() {
+		this.fireEvent('preload');
 		this._load();
 	}
 
 });
 
+/**
+ * @see    http://moobilejs.com/doc/latest/Control/Image#from
+ * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+ * @since  0.2.0
+ */
+Moobile.Image.from = function(source) {
+	if (source instanceof Moobile.Image) return source;
+	var image = new Moobile.Image();
+	image.setSource(source);
+	return image;
+};
+
 //------------------------------------------------------------------------------
 // Roles
 //------------------------------------------------------------------------------
 
-Moobile.Component.defineRole('image', null, function(element) {
+Moobile.Component.defineRole('image', null, null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.Image, element, 'data-image'));
 });

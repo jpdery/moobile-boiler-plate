@@ -12,50 +12,80 @@
 
 	<link rel="stylesheet" href="css/style.css">
 
-	<script src="js/libs/mootools-core-1.4.5.min.js"></script>
-	<script src="js/libs/mootools-more-1.4.0.1.min.js"></script>
-	<script src="js/libs/powertools-1.1.1.js"></script>
-	<script src="js/libs/company-1.1.js"></script>
-	<script src="js/libs/moobile-simulator.js"></script>
-	<script src="js/app.js"></script>
-
+	<script type="text/javascript" src="js/libs/mootools-core-1.4.5.js"></script>
+	<script type="text/javascript" src="js/libs/mootools-more-1.4.0.1.js"></script>
+	<script type="text/javascript" src="js/libs/moobile-simulator.js"></script>
+	<script type="text/javascript" src="js/libs/powertools-1.1.1.js"></script>
+	<script type="text/javascript" src="js/libs/company-1.1.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript">
-		LocalStorage.set('file', '../www/index.html');
+		Moobile.Simulator.setResourcePath('resources')
+		LocalStorage.set('application', '../www/index.html');
 	</script>
 
 </head>
 <body>
 
 	<div class="toolbar">
-		<div class="tool device">
-			<div class="title">Device</div>
-			<div class="option" data-value="iPhone">iPhone</div>
-			<div class="option" data-value="iPad">iPad</div>
+
+		<div class="toolbar-left">
+			<div class="toolbar-item toolbar-item-open expand">
+				<div class="items">
+					<div class="item" data-value="open">Open</div>
+				</div>
+			</div>
+			<div class="toolbar-item toolbar-item-device">
+				<div class="title">Device</div>
+				<div class="items">
+					<div class="item" data-value="iPhone4">iPhone 4</div>
+					<div class="item" data-value="iPhone5">iPhone 5</div>
+					<div class="item" data-value="iPad">iPad</div>
+					<div class="item" data-value="GalaxyS3">Samsung Galaxy S3</div>
+				</div>
+			</div>
+			<div class="toolbar-item toolbar-item-option">
+				<div class="title">Options</div>
+				<div class="items">
+				</div>
+			</div>
 		</div>
-		<div class="tool orientation">
-			<div class="title">Orientation</div>
-			<div class="option" data-value="portrait">Portrait</div>
-			<div class="option" data-value="landscape">Landscape</div>
+
+		<div class="toolbar-right">
+			<div class="toolbar-item toolbar-item-orientation expand">
+				<div class="items">
+					<div class="item" data-value="portrait"></div>
+					<div class="item" data-value="landscape"></div>
+				</div>
+			</div>
+			<div class="toolbar-item toolbar-item-scale">
+				<div class="title"></div>
+				<div class="items">
+					<div class="item" data-value="scale">
+						<div class="track">
+							<div class="thumb"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="toolbar-item toolbar-item-detach expand">
+				<div class="items">
+					<div class="item" data-value="fullscreen"></div>
+				</div>
+			</div>
 		</div>
-		<div class="tool static open">
-			<div class="title">Open</div>
-		</div>
-		<div class="tool static open-external">
-			<div class="title">Open in external window</div>
-		</div>
-		<div class="clear"></div>
+
 	</div>
 
 	<div class="content">
-		<div class="reflection">
-			<div class="open-dialog">
-				<div class="open-dialog-content">
-					<label for="fe-uri">Open file or URL:</label>
-					<input id="fe-uri" type="text" placeholder="file:// or http://"/>
-				</div>
-				<div class="button close"></div>
-				<duv class="button open">Open</div>
-			</div>
+		<div class="reflection"></div>
+	</div>
+
+	<div class="open-dialog">
+		<div class="open-dialog-content">
+			<label>Open file or URL:</label>
+			<input type="text" placeholder="file:// or http://" />
+			<input type="button" class="accept-button" value="Open" />
+			<input type="button" class="cancel-button" value="Cancel" />
 		</div>
 	</div>
 

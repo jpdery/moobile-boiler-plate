@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ViewStack | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ViewStack | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -88,8 +90,10 @@
   <td>The view's element tag name, defaults to <code>div</code>.</td>
 </tr></tbody></table><h4>Generates:</h4>
 
-<pre class="prettyprint"><code>&lt;div class="view view-stack"&gt;
-    &lt;div data-role="view-content" class="view-content view-stack-content"&gt;&lt;/div&gt;
+<pre class="prettyprint"><code>&lt;div class="view view-stack view-layout-vertical"&gt;
+    &lt;div data-role="content-wrapper" class="view-content-wrapper"&gt;
+        &lt;div data-role="content" class="view-content view-stack-content"&gt;&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
@@ -99,8 +103,8 @@
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>view</code></td>
   <td>Defines an element acting as a view. Use the <code>data-view</code> attribute to specify a subclass instead</td>
-</tr><tr><td><code>view-content</code></td>
-  <td>Defines an element acting as a view's content. If unspecified, the contents of the content's element will act as its view content.</td>
+</tr><tr><td><code>content</code></td>
+  <td>Defines an element acting as a view's content. If omitted, the contents of the view's element will act as its view content.</td>
 </tr></tbody></table><h4>Note:</h4>
 
 <p>Upon initialization, this view will use the CSS class name either provided as either an option or directly in the element to generate the view content's class name. The view content CSS class name will be made from the view's CSS class appended with <code>content</code>.</p>

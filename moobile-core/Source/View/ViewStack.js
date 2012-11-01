@@ -21,9 +21,9 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/View/ViewStack
+ * @see    http://moobilejs.com/doc/latest/View/ViewStack
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @since  0.1.0
  */
 Moobile.ViewStack = new Class({
 
@@ -32,21 +32,11 @@ Moobile.ViewStack = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 		this.parent();
-		this.element.addClass('view-stack');
-	},
-
-	/**
-	 * @overridden
-	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
-	 */
-	didBuild: function() {
-		this.parent();
-		this.contentElement.addClass('view-stack-content');
+		this.addClass('view-stack');
 	}
 
 });
@@ -55,6 +45,6 @@ Moobile.ViewStack = new Class({
 // Roles
 //------------------------------------------------------------------------------
 
-Moobile.Component.defineRole('view-stack', null, function(element) {
+Moobile.Component.defineRole('view-stack', null, null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.ViewStack, element, 'data-view-stack'));
 });

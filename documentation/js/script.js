@@ -10,7 +10,10 @@ window.addEvent('domready', function() {
 
 	document.getElements('[data-simulator-app]').each(function(el) {
 		el.addClass('simulator-wrapper');
-		Moobile.Simulator.create('iPhone', el.get('data-simulator-app'), { container: el });
+		var simulator = new Moobile.Simulator({container: el});
+		simulator.setDevice(el.get('data-device') || 'iPhone5');
+		simulator.setDeviceOrientation(el.get('data-orientation') || 'portrait');
+		simulator.setApplication(el.get('data-simulator-app'));
 	});
 
 	document.getElements('.sidebar a').each(function(el) {

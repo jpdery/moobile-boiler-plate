@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Control | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Control | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -90,12 +92,12 @@
 
 <p>This class overrides the following method:</p>
 
-<ul><li><code>shouldFireEvent</code>: Returns <code>false</code> if the control is disabled.</li>
+<ul><li><code>shouldFireEvent</code>: Returns <code>false</code> if this control is disabled.</li>
 </ul><h2 id="methods">Methods</h2>
 
 <h3 id="setDisabled">setDisabled(value)</h3>
 
-<p>Sets whether this control is disabled. The CSS class <code>is-disabled</code> is added to the control element upon being disabled.</p>
+<p>Sets whether this control is disabled. The CSS class <code>is-disabled</code> is added to this control's element upon being disabled.</p>
 
 <p>Events won't be fired when a control is disabled.</p>
 
@@ -119,7 +121,7 @@
 <ul><li><code>Boolean</code> Whether this control is disabled.</li>
 </ul><hr><h3 id="setSelected">setSelected(value)</h3>
 
-<p>Sets whether this control is selected. The CSS class <code>is-selected</code> is added to the control element upon being disabled.</p>
+<p>Sets whether this control is selected. The CSS class <code>is-selected</code> is added to this control's element upon being disabled.</p>
 
 <h4>Parameters:</h4>
 
@@ -141,7 +143,7 @@
 <ul><li><code>Boolean</code> Whether this control is selected.</li>
 </ul><hr><h3 id="setHighlighted">setHighlighted(value)</h3>
 
-<p>Sets whether this control is selected. The CSS class <code>is-highlighted</code> is added to the control element upon being highlighted.</p>
+<p>Sets whether this control is selected. The CSS class <code>is-highlighted</code> is added to this control's element upon being highlighted.</p>
 
 <h4>Parameters:</h4>
 

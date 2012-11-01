@@ -21,10 +21,14 @@ provides:
 
 if (!window.$moobile) window.$moobile = {};
 
+(function() {
+
+var instance = null;
+
 /**
- * @see    http://moobilejs.com/doc/0.1/Window/Window
+ * @see    http://moobilejs.com/doc/latest/Window/Window
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @since  0.1.0
  */
 Moobile.Window = new Class({
 
@@ -33,7 +37,17 @@ Moobile.Window = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.2.0
+	 */
+	initialize: function(element, options, name) {
+		instance = this;
+		return this.parent(element, options, name);
+	},
+
+	/**
+	 * @overridden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 		this.parent();
@@ -45,17 +59,18 @@ Moobile.Window = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didBuild: function() {
 		this.parent();
 		this.contentElement.addClass('window-content');
+		this.contentWrapperElement.addClass('window-content-wrapper');
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	destroy: function() {
 		window.removeEvent('load', this.bound('_onWindowLoad'));
@@ -66,7 +81,7 @@ Moobile.Window = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didAddChildComponent: function(component) {
 		this.parent(component);
@@ -76,7 +91,7 @@ Moobile.Window = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didRemoveChildComponent: function(component) {
 		this.parent(component);
@@ -86,7 +101,7 @@ Moobile.Window = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onWindowLoad: function(e) {
 		(function() { window.scrollTo(0, 1) }).delay(250);
@@ -95,10 +110,16 @@ Moobile.Window = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onWindowRotate: function(e) {
 		(function() { window.scrollTo(0, 1) }).delay(250);
 	}
 
 });
+
+Moobile.Window.getCurrentInstance = function() {
+	return instance;
+};
+
+})()

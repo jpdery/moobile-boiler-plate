@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.View | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.View | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -86,14 +88,27 @@
 </tr><tr><td><code>tagName</code></td>
   <td>String</td>
   <td>The view's element tag name, defaults to <code>div</code>.</td>
+</tr><tr><td><code>layout</code></td>
+  <td>String</td>
+  <td>The view's layout, either <code>horizontal</code> or <code>vertical</code>, defaults to <code>vertical</code>.</td>
 </tr></tbody></table><h4>Generates:</h4>
 
-<pre class="prettyprint"><code>&lt;div class="view"&gt;
-    &lt;div data-role="view-content" class="view-content"&gt;&lt;/div&gt;
+<pre class="prettyprint"><code>&lt;div class="view view-layout-vertical"&gt;
+    &lt;div data-role="content-wrapper" class="view-content-wrapper"&gt;
+        &lt;div data-role="content" class="view-content"&gt;&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<h4>Note:</h4>
+<h4>Defined roles:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>view</code></td>
+  <td>Defines an element acting as a view. Use the <code>data-view</code> attribute to specify a subclass instead</td>
+</tr><tr><td><code>content</code></td>
+  <td>Defines an element acting as a view's content. If omitted, the contents of the view's element will act as its view content.</td>
+</tr></tbody></table><h4>Note:</h4>
 
 <p>Upon initialization, the view creates its content element using the view element's content. For instance, if you create a view like this:</p>
 
@@ -105,19 +120,21 @@
 
 <p>The result will be:</p>
 
-<pre class="prettyprint"><code>&lt;div data-role="view" class="view"&gt;
-    &lt;div data-role="view-content" class="view-content"&gt;
-        &lt;div class="element-one"&gt;&lt;/div&gt;
-        &lt;div class="element-two"&gt;&lt;/div&gt;
+<pre class="prettyprint"><code>&lt;div data-role="view" class="view view-layout-vertical"&gt;
+    &lt;div data-role="content-wrapper" class="view-content-wrapper"&gt;
+        &lt;div data-role="content" class="view-content"&gt;
+            &lt;div class="element-one"&gt;&lt;/div&gt;
+            &lt;div class="element-two"&gt;&lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
 <p>If you wish to put elements outside of the view's content element, you will have to specify which element has the <code>view-content</code> role:</p>
 
-<pre class="prettyprint"><code>&lt;div data-role="button"&gt;
+<pre class="prettyprint"><code>&lt;div data-role="view"&gt;
     &lt;div class="element-one"&gt;&lt;/div&gt;
-    &lt;div data-role="view-content"&gt;&lt;/div&gt;
+    &lt;div data-role="content"&gt;&lt;/div&gt;
     &lt;div class="element-two"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -130,8 +147,9 @@
 
 <p>The result will be:</p>
 
-<pre class="prettyprint"><code>&lt;div data-role="view" class="view"&gt;
-    &lt;div data-role="view-content" class="view-content my-view-content"&gt;
+<pre class="prettyprint"><code>&lt;div data-role="view" class="view view-layout-vertical my-view"&gt;
+    &lt;div data-role="content-wrapper" class="view-content-wrapper"&gt;
+        &lt;div data-role="content" class="view-content my-view-content"&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -154,6 +172,13 @@
 <h4>Type</h4>
 
 <ul><li><code>Element</code></li>
+</ul><h3 id="contentWrapperElement">contentWrapperElement</h3>
+
+<p>The element that wraps the content element of the view.</p>
+
+<h4>Type</h4>
+
+<ul><li><code>Element</code></li>
 </ul><h2 id="methods">Methods</h2>
 
 <h3 id="enableTouch">enableTouch()</h3>
@@ -170,23 +195,6 @@
 <h4>Returns:</h4>
 
 <ul><li><code>Moobile.View</code> This Moobile.View instance.</li>
-</ul><hr><h3 id="setContentElement">setContentElement(content)</h3>
-
-<p>Sets the element that wraps the content of this view.</p>
-
-<p>This method is handled by the <code>Moobile.View</code> class and should not be called manually.</p>
-
-<h4>Parameters:</h4>
-
-<table><thead><tr><th>Name</th>
-  <th>Type</th>
-  <th>Description</th>
-</tr></thead><tbody><tr><td><code>content</code></td>
-  <td>Element</td>
-  <td>The view content element.</td>
-</tr></tbody></table><h4>Returns:</h4>
-
-<ul><li><code>Moobile.View</code> This Moobile.View instance.</li>
 </ul><hr><h3 id="getContentElement">getContentElement()</h3>
 
 <p>Returns the element that wraps the content of this view.</p>
@@ -194,7 +202,64 @@
 <h4>Returns:</h4>
 
 <ul><li><code>Element</code> The view content element.</li>
-</ul><h2 id="other">Other</h2>
+</ul><hr><h3 id="getContentWrapperElement">getContentWrapperElement()</h3>
+
+<p>Returns the element that wraps the content element of this view.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Element</code> The view content element.</li>
+</ul><hr><h3 id="setLayout">setLayout(layout)</h3>
+
+<p>Sets this view's layout to either <code>horizontal</code> or <code>vertical</code>.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>layout</code></td>
+  <td>String</td>
+  <td>The view's layout, either <code>horizontal</code> or <code>vertical</code>.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.View</code> This Moobile.View instance.</li>
+</ul><hr><h3 id="getLayout">getLayout()</h3>
+
+<p>Returns the view's layout, either <code>horizontal</code> or <code>vertical</code>.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>String</code> The view's layout, either <code>horizontal</code> or <code>vertical</code>.</li>
+</ul><hr><h3 id="willChangeLayout">willChangeLayout(layout)</h3>
+
+<p>Tell the view its layout is about to change.</p>
+
+<p>Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>layout</code></td>
+  <td>String</td>
+  <td>The view's layout.</td>
+</tr></tbody></table><hr><h3 id="didChangeLayout">didChangeLayout(layout)</h3>
+
+<p>Tell the view its layout changed.</p>
+
+<p>Override this method to provide your own implementation.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>layout</code></td>
+  <td>String</td>
+  <td>The view's layout.</td>
+</tr></tbody></table><h2 id="other">Other</h2>
 
 <p><span class="important">These methods are added to the <a href="../Component/Component.html">Moobile.Component</a> class:</span></p>
 
@@ -234,7 +299,7 @@
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>parentView</code></td>
-  <td><code>Moobile.View</code></td>
+  <td>Moobile.View</td>
   <td>The view that is about to become the parent view of this view.</td>
 </tr></tbody></table><hr><h3 id="parentViewDidChange">parentViewDidChange(parentView)</h3>
 
@@ -248,10 +313,15 @@
   <th>Type</th>
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>parentView</code></td>
-  <td><code>Moobile.View</code></td>
+  <td>Moobile.View</td>
   <td>The view that is about to become the parent view of this view.</td>
-</tr></tbody></table></div>
-	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#contentElement">contentElement</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#enableTouch">enableTouch</a></li><li><a href="#disableTouch">disableTouch</a></li><li><a href="#setContentElement">setContentElement</a></li><li><a href="#getContentElement">getContentElement</a></li></ul></li><li><a href="#other">Other</a><ul><li><a href="#setParentView">setParentView</a></li><li><a href="#getParentView">getParentView</a></li><li><a href="#parentViewWillChange">parentViewWillChange</a></li><li><a href="#parentViewDidChange">parentViewDidChange</a></li></ul></li></ul></div>
+</tr></tbody></table><h2 id="styles">Styles</h2>
+
+<h3 id="dark-style">dark</h3>
+
+<h3 id="light-style">light</h3>
+</div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#contentElement">contentElement</a></li><li><a href="#contentWrapperElement">contentWrapperElement</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#enableTouch">enableTouch</a></li><li><a href="#disableTouch">disableTouch</a></li><li><a href="#getContentElement">getContentElement</a></li><li><a href="#getContentWrapperElement">getContentWrapperElement</a></li><li><a href="#setLayout">setLayout</a></li><li><a href="#getLayout">getLayout</a></li><li><a href="#willChangeLayout">willChangeLayout</a></li><li><a href="#didChangeLayout">didChangeLayout</a></li></ul></li><li><a href="#other">Other</a><ul><li><a href="#setParentView">setParentView</a></li><li><a href="#getParentView">getParentView</a></li><li><a href="#parentViewWillChange">parentViewWillChange</a></li><li><a href="#parentViewDidChange">parentViewDidChange</a></li></ul></li><li><a href="#styles">Styles</a><ul><li><a href="#dark-style">dark</a></li><li><a href="#light-style">light</a></li></ul></li></ul></div>
 
 	<script type="text/javascript">
 		if (document.location.protocol !== 'file:') {

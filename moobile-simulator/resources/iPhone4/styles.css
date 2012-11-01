@@ -1,0 +1,108 @@
+/* Device
+-----------------------------------------------------------------------------*/
+
+.simulator {
+	background: url(iphone.png) no-repeat;
+	background-size: 382px 744px;
+	height: 744px;
+	padding-top: 132px;
+	padding-bottom: 132px;
+	padding-left: 31px;
+	padding-right: 31px;
+	width: 382px;
+}
+
+.simulator .simulator-glare {
+	background: url(iphone-glare.png)  no-repeat;
+	background-size: 382px 744px;
+	height: 744px;
+	width: 382px;
+}
+
+.simulator .simulator-facade {
+	height: 480px;
+	width: 320px;
+}
+
+.simulator.portrait .simulator-screen {
+	height: 480px;
+	width: 320px;
+}
+
+.simulator.landscape .simulator-screen {
+	height: 320px;
+	margin-top: 80px;
+	margin-left: -80px;
+	width: 480px;
+}
+
+.simulator.portrait .simulator-screen iframe {
+	height: 460px;
+	width: 320px;
+}
+
+.simulator.landscape .simulator-screen iframe {
+	height: 300px;
+	width: 480px;
+}
+
+/* Portrait With Safari Bar, With Button Bar */
+
+.simulator.portrait.with-button-bar .simulator-screen iframe { height: 416px; }
+.simulator.portrait.with-safari-bar .simulator-screen iframe {	height: 400px; }
+.simulator.portrait.with-button-bar.with-safari-bar .simulator-screen iframe { height: 356px; }
+
+/* Landscape With Safari Bar, With Button Bar */
+
+.simulator.landscape.with-button-bar .simulator-screen iframe { height: 268px; }
+.simulator.landscape.with-safari-bar .simulator-screen iframe { height: 240px; }
+.simulator.landscape.with-button-bar.with-safari-bar .simulator-screen iframe { height: 208px; }
+
+/* Safari Bar
+-----------------------------------------------------------------------------*/
+
+.simulator .simulator-safari-bar {
+	display: none;
+	width: 100%;
+}
+
+.simulator.portrait .simulator-safari-bar {
+	background: url(safari-bar-portrait.png);
+    background-size: 320px 60px;
+    height: 60px;
+}
+
+.simulator.landscape .simulator-safari-bar {
+	background: url(safari-bar-landscape.png);
+    background-size: 480px 60px;
+    height: 60px;
+}
+
+.simulator.with-safari-bar .simulator-safari-bar {
+	display: block;
+}
+
+/* Button Bar
+-----------------------------------------------------------------------------*/
+
+.simulator .simulator-button-bar {
+	display: none;
+	margin-top: -2px;
+	width: 100%;
+}
+
+.simulator.portrait .simulator-button-bar {
+	background: url(button-bar-portrait.png);
+    background-size: 320px 44px;
+    height: 44px;
+}
+
+.simulator.landscape .simulator-button-bar {
+	background: url(button-bar-landscape.png);
+    background-size: 480px 32px;
+    height: 32px;
+}
+
+.simulator.with-button-bar .simulator-button-bar {
+	display: block;
+}

@@ -20,9 +20,9 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Control/ActivityIndicator
+ * @see    http://moobilejs.com/doc/latest/Control/ActivityIndicator
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @since  0.1.0
  */
 Moobile.ActivityIndicator = new Class({
 
@@ -31,29 +31,29 @@ Moobile.ActivityIndicator = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 		this.parent();
-		this.element.addClass('activity-indicator');
+		this.addClass('activity-indicator');
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ActivityIndicator#start
+	 * @see    http://moobilejs.com/doc/latest/Control/ActivityIndicator#start
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	start: function() {
-		return this.addClass('activity');
+		return this.addClass('active');
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ActivityIndicator#stop
+	 * @see    http://moobilejs.com/doc/latest/Control/ActivityIndicator#stop
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	stop: function() {
-		return this.removeClass('activity');
+		return this.removeClass('active');
 	}
 
 });
@@ -62,6 +62,6 @@ Moobile.ActivityIndicator = new Class({
 // Roles
 //------------------------------------------------------------------------------
 
-Moobile.Component.defineRole('activity-indicator', null, function(element) {
+Moobile.Component.defineRole('activity-indicator', null, null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.ActivityIndicator, element, 'data-activity-indicator'));
 });

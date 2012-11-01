@@ -20,9 +20,9 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/ViewTransition/ViewTransition.Cover
+ * @see    http://moobilejs.com/doc/latest/ViewTransition/ViewTransition.Cover
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @since  0.1.0
  */
 Moobile.ViewTransition.Cover = new Class({
 
@@ -31,7 +31,7 @@ Moobile.ViewTransition.Cover = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	firstAnimation: function(viewToShow, parentView) {
 
@@ -58,20 +58,18 @@ Moobile.ViewTransition.Cover = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	enterAnimation: function(viewToShow, viewToHide, parentView) {
 
 		var parentElem = parentView.getContentElement();
 
 		var onStart = function() {
-			parentView.addClass('transition-cover-perspective');
 			parentElem.addClass('transition-cover-enter');
 			viewToHide.addClass('transition-view-to-hide');
 		}.bind(this);
 
 		var onEnd = function() {
-			parentView.removeClass('transition-cover-perspective');
 			parentElem.removeClass('transition-cover-enter');
 			viewToHide.removeClass('transition-view-to-hide');
 			this.didEnter(viewToShow, viewToHide, parentView);
@@ -87,7 +85,7 @@ Moobile.ViewTransition.Cover = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	leaveAnimation: function(viewToShow, viewToHide, parentView) {
 

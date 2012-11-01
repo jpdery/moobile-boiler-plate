@@ -1,0 +1,67 @@
+/* Glare
+-----------------------------------------------------------------------------*/
+
+.simulator.without-glare .simulator-glare {
+	display: none;
+}
+
+/* Status Bar
+-----------------------------------------------------------------------------*/
+
+.simulator .simulator-status-bar {
+	background: url(status-bar.png) repeat-x;
+    background-size: 320px 20px;
+	color: #000000;
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	height: 20px;
+	line-height: 19px;
+	top: 0px;
+	text-shadow: 0px 1px 1px #ffffff;
+	text-transform: uppercase;
+	width: 100%;
+	z-index: 10;
+}
+
+.simulator .simulator-status-bar.dark {
+	background: url(status-bar-dark.png) repeat-x;
+	color: #ffffff;
+	text-shadow: 0px 1px 0px #000000;
+}
+
+.simulator .simulator-status-bar-network,
+.simulator .simulator-status-bar-battery,
+.simulator .simulator-status-bar-time {
+	-webkit-font-smoothing: antialiased;
+	height: 20px;
+	left: 0px;
+	position: absolute;
+	right: 0px;
+}
+
+.simulator .simulator-status-bar-network {
+	background: url(status-bar-network.png) no-repeat center left;
+    background-size: 50px 20px;
+	font-size: 13px;
+	left: 4px;
+	padding-left: 21px;
+}
+
+.simulator .simulator-status-bar.dark .simulator-status-bar-network {
+	background: url(status-bar-network-dark.png) no-repeat center left;
+}
+
+.simulator .simulator-status-bar-battery {
+	background: url(status-bar-battery.png) no-repeat center right;
+    background-size: 38px 20px;
+	right: 3px;
+}
+
+.simulator .simulator-status-bar.dark .simulator-status-bar-battery {
+	background: url(status-bar-battery-dark.png) no-repeat center right;
+}
+
+.simulator .simulator-status-bar-time {
+	text-align: center;
+}

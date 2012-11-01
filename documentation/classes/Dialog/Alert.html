@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Alert | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Alert | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -86,23 +88,23 @@
 </tr><tr><td><code>tagName</code></td>
   <td>String</td>
   <td>The alert's element tag name, defaults to <code>div</code>.</td>
-</tr><tr><td><code>buttonLayout</code></td>
+</tr><tr><td><code>layout</code></td>
   <td>String</td>
-  <td>The alert's button layout, either <code>vertical</code> or <code>horizontal</code>, defaults to <code>vertical</code>.</td>
+  <td>The alert's button layout, either <code>vertical</code> or <code>horizontal</code>, defaults to <code>horizontal</code>.</td>
 </tr></tbody></table><h4>Generates:</h4>
 
-<pre class="prettyprint"><code>&lt;div class="alert button-layout-vertical "&gt;
-    &lt;div class="overlay "&gt;&lt;/div&gt;
-    &lt;div class="alert-wrapper"&gt;
+<pre class="prettyprint"><code>&lt;div class="alert"&gt;
+    &lt;div class="overlay"&gt;&lt;/div&gt;
+    &lt;div class="alert-box"&gt;
         &lt;div class="alert-header"&gt;
-            &lt;span class="text title"&gt;Title&lt;/span&gt;
+            &lt;span class="text alert-title"&gt;Lorem&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class="alert-content"&gt;
-            &lt;span class="text message"&gt;Test&lt;/span&gt;
+            &lt;span class="text alert-message"&gt;Lorem ipsum dolor sit amet&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class="alert-footer"&gt;
-            &lt;div class="button default"&gt;
-                &lt;span class="text button-label"&gt;Test&lt;/span&gt;
+            &lt;div class="button is-default"&gt;
+                &lt;span class="text button-label"&gt;OK&lt;/span&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -124,38 +126,41 @@
 <h5>Creating an alert inside a <code>Moobile.ViewController</code></h5>
 
 <pre class="prettyprint"><code>var alert = new Moobile.Alert();
-this.view.addChildComponent(alert);
 alert.setTitle('Title');
 alert.setMessage('Message');
 alert.showAnimated();
 </code></pre>
 
+<h4>Note:</h4>
+
+<p>You don't need to manually add this component to another component to show it. It will be automatically added to the window if it has no parent.</p>
+
 <hr><h2 id="members">Members</h2>
 
-<h3 id="wrapperElement">wrapperElement</h3>
+<h3 id="boxElement">boxElement</h3>
 
-<p>The element that wraps the alert's header, content and footer elements.</p>
+<p>The element that wraps this alert's header, content and footer elements.</p>
 
 <h4>Type:</h4>
 
 <ul><li><code>Element</code></li>
 </ul><hr><h3 id="contentElement">contentElement</h3>
 
-<p>The element that contains the alert's message.</p>
+<p>The element that contains this alert's message.</p>
 
 <h4>Type:</h4>
 
 <ul><li><code>Element</code></li>
 </ul><hr><h3 id="headerElement">headerElement</h3>
 
-<p>The element that contains the alert's title.</p>
+<p>The element that contains this alert's title.</p>
 
 <h4>Type:</h4>
 
 <ul><li><code>Element</code></li>
 </ul><hr><h3 id="footerElement">footerElement</h3>
 
-<p>The element that contains the alert's buttons.</p>
+<p>The element that contains this alert's buttons.</p>
 
 <h4>Type:</h4>
 
@@ -197,6 +202,10 @@ alert.setTitle('Moo');
 <pre class="prettyprint"><code>var alert = new Moobile.Alert();
 alert.setTitle(new Moobile.Text().setText('Moo'));
 </code></pre>
+
+<h4>Note:</h4>
+
+<p>The CSS class <code>alert-title-empty</code> is added to the root element when the title is empty.</p>
 
 <hr><h3 id="getTitle">getTitle()</h3>
 
@@ -241,6 +250,10 @@ alert.setMessage('Moo');
 alert.setMessage(new Moobile.Text().setText('Moo'));
 </code></pre>
 
+<h4>Note:</h4>
+
+<p>The CSS class <code>alert-message-empty</code> is added to the root element when the message is empty.</p>
+
 <hr><h3 id="getMessage">getMessage()</h3>
 
 <p>Returns the message.</p>
@@ -255,9 +268,152 @@ alert.setMessage('Moo');
 alert.getMessage(); // returns a Moobile.Text instance
 </code></pre>
 
-<hr><h3 id="addButton">addButton(button)</h3>
+<hr><h3 id="addButton">addButton(button, [where])</h3>
 
-<p>Adds the given button at the bottom of the button list.</p>
+<p>Adds the specified button at the <code>top</code> or <code>bottom</code> of this alert's footer. The button may be a string. In this case, this method will create a <a href="../Control/Button.html">Moobile.Button</a> instance and set the specified string as its label.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>button</code></td>
+  <td>Mixed</td>
+  <td>The button as a string or a <a href="../Control/Button.html">Moobile.Button</a> instance.</td>
+</tr><tr><td><code>where</code> <em>Optional</em></td>
+  <td>String</td>
+  <td>The button's location, either <code>top</code> or <code>bottom</code>, defaults to <code>bottom</code>.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
+</ul><h4>Examples:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.Alert();
+alert.addButton(new Moobile.Button().setLabel('OK'));
+</code></pre>
+
+<hr><h3 id="addButtonAfter">addButtonAfter(button, after)</h3>
+
+<p>Adds the specified button after a button from this alert. The button may be a string. In this case, this method will create a <a href="../Control/Button.html">Moobile.Button</a> instance and set the specified string as its label.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>button</code></td>
+  <td>Mixed</td>
+  <td>The button as a string or a <a href="../Control/Button.html">Moobile.Button</a> instance.</td>
+</tr><tr><td><code>after</code></td>
+  <td><a href="../Control/Button.html">Moobile.Button</a></td>
+  <td>The button will be placed after this button.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.Alert();
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+alert.addButton(buttonOne);
+alert.addButtonAfter(buttonTwo, buttonOne); // buttonTwo is after buttonOne
+</code></pre>
+
+<hr><h3 id="addButtonBefore">addButtonBefore(button, before)</h3>
+
+<p>Adds the specified button before a button from this alert. The button may be a string. In this case, this method will create a <a href="../Control/Button.html">Moobile.Button</a> instance and set the specified string as its label.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>button</code></td>
+  <td>Mixed</td>
+  <td>The button as a string or a <a href="../Control/Button.html">Moobile.Button</a> instance.</td>
+</tr><tr><td><code>after</code></td>
+  <td><a href="../Control/Button.html">Moobile.Button</a></td>
+  <td>The button will be placed before this button.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.Alert();
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+alert.addButton(buttonOne);
+alert.addButtonBefore(buttonTwo, buttonOne); // buttonTwo is before buttonOne
+</code></pre>
+
+<hr><h3 id="getButtons">getButtons()</h3>
+
+<p>Returns all the buttons in this alert.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Array</code> An array of all the buttons in this alert.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.ButtonGroup();
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+alert.addButton(buttonOne);
+alert.addButton(buttonTwo);
+alert.getButtons(); // returns [buttonOne, buttonTwo]
+</code></pre>
+
+<hr><h3 id="getButton">getButton(name)</h3>
+
+<p>Returns a button that matches the specified name.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>name</code></td>
+  <td>String</td>
+  <td>The name of the button to search for.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><a href="../Control/Button.html">Moobile.Button</a> The button or <code>null</code> if no buttons were found with the name.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.Alert();
+var buttonOne = new Moobile.Button(null, null, 'me');
+alert.addButton(buttonOne);
+alert.getButton('me'); // returns buttonOne
+</code></pre>
+
+<hr><h3 id="getButtonAt">getButtonAt(index)</h3>
+
+<p>Return a button at a specified index.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>index</code></td>
+  <td>Number</td>
+  <td>The index location of the button.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><a href="../Control/Button.html">Moobile.Button</a> The button or <code>null</code> if no buttons were found at the index.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.ButtonGroup();
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+alert.addButton(buttonOne);
+alert.addButton(buttonTwo);
+alert.getButtonAt(0); // returns buttonOne
+</code></pre>
+
+<hr><h3 id="removeButton">removeButton(button, [destroy])</h3>
+
+<p>Removes a button.</p>
 
 <h4>Parameters:</h4>
 
@@ -266,14 +422,46 @@ alert.getMessage(); // returns a Moobile.Text instance
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>button</code></td>
   <td><a href="../Control/Button.html">Moobile.Button</a></td>
-  <td>The button.</td>
+  <td>The button to remove.</td>
+</tr><tr><td><code>destroy</code> <em>Optional</em></td>
+  <td>Boolean</td>
+  <td>Whether to destroy the button upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
-</ul><h4>Examples:</h4>
+</ul><h4>Example:</h4>
 
 <pre class="prettyprint"><code>var alert = new Moobile.Alert();
-alert.addButton(new Moobile.Button().setLabel('OK'));
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+alert.addButton(buttonOne);
+alert.addButton(buttonTwo);
+alert.removeButton(buttonOne); // the button group contains only buttonTwo
+</code></pre>
+
+<hr><h3 id="removeAllButtons">removeAllButtons()</h3>
+
+<p>Removes all buttons.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
+  <td>Boolean</td>
+  <td>Whether to destroy the button upon removal.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
+</ul><h4>Example:</h4>
+
+<pre class="prettyprint"><code>var alert = new Moobile.Alert();
+var buttonOne = new Moobile.Button();
+var buttonTwo = new Moobile.Button();
+alert.addButton(buttonOne);
+alert.addButton(buttonTwo);
+alert.removeAllButtons(); // no buttons remains
 </code></pre>
 
 <hr><h3 id="setDefaultButton">setDefaultButton(button)</h3>
@@ -326,20 +514,20 @@ alert.setDefaultButtonIndex(0);
 
 <hr><h3 id="showAnimated">showAnimated()</h3>
 
-<p>Shows the alert with an animation by adding the <code>show-animated</code> CSS class to the element. Update the properties of this CSS class to customize the animation.</p>
+<p>Shows this alert with an animation by adding the <code>show-animated</code> CSS class to the element. Update the properties of this CSS class to customize the animation.</p>
 
 <h4>Returns:</h4>
 
 <ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
 </ul><hr><h3 id="hideAnimated">hideAnimated()</h3>
 
-<p>Hides the alert with an animation by adding the <code>hide-animated</code> CSS class to the element. Update the properties of this CSS class to customize the animation.</p>
+<p>Hides this alert with an animation by adding the <code>hide-animated</code> CSS class to the element. Update the properties of this CSS class to customize the animation.</p>
 
 <h4>Returns:</h4>
 
 <ul><li><code>Moobile.Alert</code> This Moobile.Alert instance.</li>
 </ul></div>
-	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#wrapperElement">wrapperElement</a></li><li><a href="#contentElement">contentElement</a></li><li><a href="#headerElement">headerElement</a></li><li><a href="#footerElement">footerElement</a></li><li><a href="#overlay">overlay</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#setTitle">setTitle</a></li><li><a href="#getTitle">getTitle</a></li><li><a href="#setMessage">setMessage</a></li><li><a href="#getMessage">getMessage</a></li><li><a href="#addButton">addButton</a></li><li><a href="#setDefaultButton">setDefaultButton</a></li><li><a href="#setDefaultButtonIndex">setDefaultButtonIndex</a></li><li><a href="#showAnimated">showAnimated</a></li><li><a href="#hideAnimated">hideAnimated</a></li></ul></li></ul></div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#members">Members</a><ul><li><a href="#boxElement">boxElement</a></li><li><a href="#contentElement">contentElement</a></li><li><a href="#headerElement">headerElement</a></li><li><a href="#footerElement">footerElement</a></li><li><a href="#overlay">overlay</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#setTitle">setTitle</a></li><li><a href="#getTitle">getTitle</a></li><li><a href="#setMessage">setMessage</a></li><li><a href="#getMessage">getMessage</a></li><li><a href="#addButton">addButton</a></li><li><a href="#addButtonAfter">addButtonAfter</a></li><li><a href="#addButtonBefore">addButtonBefore</a></li><li><a href="#getButtons">getButtons</a></li><li><a href="#getButton">getButton</a></li><li><a href="#getButtonAt">getButtonAt</a></li><li><a href="#removeButton">removeButton</a></li><li><a href="#removeAllButtons">removeAllButtons</a></li><li><a href="#setDefaultButton">setDefaultButton</a></li><li><a href="#setDefaultButtonIndex">setDefaultButtonIndex</a></li><li><a href="#showAnimated">showAnimated</a></li><li><a href="#hideAnimated">hideAnimated</a></li></ul></li></ul></div>
 
 	<script type="text/javascript">
 		if (document.location.protocol !== 'file:') {

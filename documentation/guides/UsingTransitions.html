@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.UsingTransitions | Moobile 0.1.1</title><link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/style.css"><script src="../js/libs/modernizr-2.5.3.min.js"></script><script src="../js/libs/prettify.js"></script><script src="../js/libs/mootools-core-1.4.5.min.js"></script><script src="../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../js/libs/moobile-simulator.js"></script><script src="../js/plugins.js"></script><script src="../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.UsingTransitions | Moobile 0.2.0</title><link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/style.css"><script src="../js/libs/modernizr-2.5.3.min.js"></script><script src="../js/libs/prettify.js"></script><script src="../js/libs/mootools-core-1.4.5.min.js"></script><script src="../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../js/libs/moobile-simulator.js"></script><script src="../js/plugins.js"></script><script src="../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../assets/shared/resources');
 	</script></head><body>
 
@@ -63,6 +63,8 @@
 			<li><a href="../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -73,7 +75,7 @@
 
 <h3>Requirements</h3>
 
-<p>To use this guide you must download and extract the <a href="https://moobilejs.com/donwload/moobile-boiler-plate-0.1.1.zip">Moobile Boiler Plate</a>.</p>
+<p>To use this guide you must download and extract the <a href="https://moobilejs.com/donwload/moobile-boiler-plate-0.2.zip">Moobile Boiler Plate</a>.</p>
 
 <h3>Note</h3>
 
@@ -98,7 +100,7 @@
         this.nextButton = new Moobile.Button();
         this.nextButton.setLabel('Next view');
         this.nextButton.addEvent('tap', this.bound('onNextButtonTap'));
-        this.view.addChild(this.nextButton);
+        this.view.addChildComponent(this.nextButton);
     },
 
     destroy: function() {
@@ -124,7 +126,7 @@ var ViewControllerTwo = new Class({
         this.prevButton = new Moobile.Button();
         this.prevButton.setLabel('Previous view');
         this.prevButton.addEvent('tap', this.bound('onPrevButtonTap'));
-        this.view.addChild(this.prevButton);
+        this.view.addChildComponent(this.prevButton);
     },
 
     destroy: function() {
@@ -184,7 +186,7 @@ var ViewControllerTwo = new Class({
         this.nextButton = new Moobile.Button();
         this.nextButton.setLabel('Next view');
         this.nextButton.addEvent('tap', this.bound('onNextButtonTap'));
-        this.view.addChild(this.nextButton);
+        this.view.addChildComponent(this.nextButton);
     },
 
     destroy: function() {
@@ -210,7 +212,7 @@ var ViewControllerTwo = new Class({
         this.prevButton = new Moobile.Button();
         this.prevButton.setLabel('Previous view');
         this.prevButton.addEvent('tap', this.bound('onPrevButtonTap'));
-        this.view.addChild(this.prevButton);
+        this.view.addChildComponent(this.prevButton);
     },
 
     destroy: function() {

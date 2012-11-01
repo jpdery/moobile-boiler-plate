@@ -22,13 +22,21 @@ provides:
 if (!window.Moobile) window.Moobile = {};
 
 /**
- * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController
+ * @see    http://moobilejs.com/doc/latest/ViewController/ViewController
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
 Moobile.ViewController = new Class({
 
 	Extends: Moobile.EventFirer,
+
+	/**
+	 * @hidden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	_id: null,
 
 	/**
 	 * @hidden
@@ -80,30 +88,30 @@ Moobile.ViewController = new Class({
 	_children: [],
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#modal
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#modal
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_modal: false,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#modalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#modalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_modalViewController: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#view
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#view
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	view: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#initialize
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#initialize
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	initialize: function(options, name) {
 
@@ -117,15 +125,15 @@ Moobile.ViewController = new Class({
 			this.viewDidLoad();
 		}
 
-		window.addEvent('rotate', this.bound('_onWindowRotate'));
+		window.addEvent('orientationchange', this.bound('_onWindowOrientationChange'));
 
 		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#loadView
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#loadView
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	loadView: function() {
 		if (this.view === null) {
@@ -134,9 +142,29 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#addChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#showView
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.3.0
+	 */
+	showView: function() {
+		this.view.show();
+		return this;
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#hideView
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.3.0
+	 */
+	hideView: function() {
+		this.view.hide();
+		return this;
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#addChildViewController
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	addChildViewController: function(viewController) {
 
@@ -151,9 +179,9 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#addChildViewControllerAfter
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#addChildViewControllerAfter
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	addChildViewControllerAfter: function(viewController, after) {
 
@@ -175,9 +203,9 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#addChildViewControllerBefore
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#addChildViewControllerBefore
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	addChildViewControllerBefore: function(viewController, before) {
 
@@ -224,54 +252,54 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getChildViewController: function(name) {
 		return this._children.find(function(viewController) { return viewController.getName() === name; });
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getChildViewControllerAt
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getChildViewControllerAt
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getChildViewControllerAt: function(index) {
 		return this._children[index] || null;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getChildViewControllerIndex
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getChildViewControllerIndex
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getChildViewControllerIndex: function(viewController) {
 		return this._children.indexOf(viewController);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getChildViewControllers
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getChildViewControllers
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getChildViewControllers: function() {
 		return this._children;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#hasChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#hasChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	hasChildViewController: function(viewController) {
 		return this._children.contains(viewController);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#removeChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#removeChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	removeChildViewController: function(viewController, destroy) {
 
@@ -297,20 +325,20 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#removeFromParentViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#removeFromParentViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	removeFromParentViewController: function(destroy) {
-		return this._parent
-			 ? this._parent.removeChildViewController(this, destroy)
-			 : false;
+		if (this._parent) this._parent.removeChildViewController(this, destroy);
+		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#removeAllChildViewControllers
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#removeAllChildViewControllers
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	removeAllChildViewControllers: function(destroy) {
 
@@ -322,25 +350,28 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#presentModalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#presentModalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	presentModalViewController: function(viewController, viewTransition) {
 
 		if (this._modalViewController)
 			return this;
 
+		var parentView = this.view.getWindow();
+		if (parentView === null)
+			throw new Error('The view to present is not ready');
+
 		this.willPresentModalViewController(viewController);
 
-		viewController.setParentViewController(this);
-		viewController.setModal(true);
-
 		this._modalViewController = viewController;
+		this._modalViewController.setParentViewController(this);
+		this._modalViewController.setModal(true);
 
-		var viewToShow = viewController.getView();
-		var viewToHide = this.view;
-		var parentView = this.view.getParentView();
+		var viewToShow = this._modalViewController.getView();
+		var viewToHide = parentView.getChildComponentsOfType(Moobile.View).getLastItemAtOffset(0);
 
 		parentView.addChildComponent(viewToShow);
 
@@ -361,7 +392,7 @@ Moobile.ViewController = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onPresentTransitionStart: function() {
 		this._modalViewController.viewWillEnter();
@@ -370,7 +401,7 @@ Moobile.ViewController = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onPresentTransitionCompleted: function() {
 		this._modalViewController.viewDidEnter();
@@ -378,20 +409,24 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#dismissModalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#dismissModalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	dismissModalViewController: function() {
 
 		if (this._modalViewController === null)
 			return this;
 
+		var parentView = this.view.getWindow();
+		if (parentView === null)
+			throw new Error('The view to dismiss is not ready');
+
 		this.willDismissModalViewController()
 
-		var viewToShow = this.view;
+		var viewToShow = parentView.getChildComponentsOfType(Moobile.View).getLastItemAtOffset(1);
 		var viewToHide = this._modalViewController.getView();
-		var parentView = this.view.getParentView();
 
 		var viewTransition = this._modalViewController.getViewTransition();
 		viewTransition.addEvent('start:once', this.bound('_onDismissTransitionStart'));
@@ -408,7 +443,7 @@ Moobile.ViewController = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onDismissTransitionStart: function() {
 		this._modalViewController.viewWillLeave();
@@ -417,28 +452,50 @@ Moobile.ViewController = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	_onDismissTransitionCompleted: function() {
 		this._modalViewController.viewDidLeave();
+		this._modalViewController.setParentViewController(this);
+		this._modalViewController.setModal(false);
 		this._modalViewController.destroy();
 		this._modalViewController = null;
 		this.didDismissModalViewController();
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getName
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getName
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getName: function() {
 		return this._name;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#setTitle
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getId
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.2.0
+	 */
+	getId: function() {
+
+		var name = this.getName();
+		if (name) {
+			return name;
+		}
+
+		if (this._id === null) {
+			this._id = String.uniqueID();
+		}
+
+		return this._id;
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#setTitle
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	setTitle: function(title) {
 
@@ -464,18 +521,18 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getTitle
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getTitle
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getTitle: function() {
 		return this._title;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#setImage
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#setImage
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setImage: function(image) {
 
@@ -500,54 +557,54 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getImage
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getImage
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getImage: function() {
 		return this._image;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#setModal
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#setModal
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setModal: function(modal) {
 		this._modal = modal;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#isModal
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#isModal
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	isModal: function() {
 		return this._modal;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#isViewReady
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#isViewReady
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	isViewReady: function() {
 		return this._viewReady;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getView
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getView
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getView: function() {
 		return this.view;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#setViewTransition
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#setViewTransition
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setViewTransition: function(viewTransition) {
 		this._viewTransition = viewTransition;
@@ -555,18 +612,18 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getViewTransition
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getViewTransition
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getViewTransition: function() {
 		return this._viewTransition;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#setParentViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#setParentViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setParentViewController: function(viewController) {
 		this.parentViewControllerWillChange(viewController);
@@ -576,175 +633,175 @@ Moobile.ViewController = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#getParentViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#getParentViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getParentViewController: function() {
 		return this._parent;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#willAddChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#willAddChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willAddChildViewController: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#didAddChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#didAddChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didAddChildViewController: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#willRemoveChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#willRemoveChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willRemoveChildViewController: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#didRemoveChildViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#didRemoveChildViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didRemoveChildViewController: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#parentViewControllerWillChange
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#parentViewControllerWillChange
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	parentViewControllerWillChange: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#parentViewControllerDidChange
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#parentViewControllerDidChange
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	parentViewControllerDidChange: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#willPresentModalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#willPresentModalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willPresentModalViewController: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#didPresentModalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#didPresentModalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didPresentModalViewController: function(viewController) {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#willDismissModalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#willDismissModalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	willDismissModalViewController: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#didDismissModalViewController
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#didDismissModalViewController
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didDismissModalViewController: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#didRotate
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewDidLoad
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
-	 */
-	didRotate: function(orientation) {
-
-	},
-
-	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#viewDidLoad
-	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	viewDidLoad: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#viewDidBecomeReady
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewDidBecomeReady
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	viewDidBecomeReady: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#viewWillEnter
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewWillEnter
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	viewWillEnter: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#viewDidEnter
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewDidEnter
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	viewDidEnter: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#viewWillLeave
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewWillLeave
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	viewWillLeave: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#viewDidLeave
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewDidLeave
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	viewDidLeave: function() {
 
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/ViewController/ViewController#destroy
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#viewDidRotate
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.2.0
+	 */
+	viewDidRotate: function(orientation) {
+
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/ViewController/ViewController#destroy
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	destroy: function() {
 
-		window.removeEvent('rotate', this.bound('_onWindowRotate'));
+		window.removeEvent('orientationchange', this.bound('_onWindowOrientationChange'));
 
 		this.removeAllChildViewControllers(true);
 
@@ -773,15 +830,35 @@ Moobile.ViewController = new Class({
 		this._viewTransition = null;
 	},
 
-	_onWindowRotate: function(e) {
-		this.didRotate(window.orientationName);
-	},
-
+	/**
+	 * @hidden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
+	 */
 	_onViewReady: function() {
 		if (this._viewReady === false) {
 			this._viewReady = true;
 			this.viewDidBecomeReady();
 		}
+	},
+
+	/**
+	 * @hidden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	_onWindowOrientationChange: function(e) {
+
+		var name = Math.abs(window.orientation) === 90 ? 'landscape' : 'portrait';
+
+		// <0.1-compat>
+		if (this.didRotate) {
+			this.didRotate(name);
+			console.log('[DEPRECATION NOTICE] The method "didRotate" will be removed in 0.4, use the method "viewDidRotate" instead');
+		}
+		// </0.1-compat>
+
+		this.viewDidRotate(name);
 	}
 
 });

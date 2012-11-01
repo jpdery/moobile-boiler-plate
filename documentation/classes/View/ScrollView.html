@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ScrollView | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.ScrollView | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -83,69 +85,125 @@
 </tr><tr><td><code>styleName</code></td>
   <td>String</td>
   <td>The view's default style, defaults to <code>null</code>.</td>
-</tr><tr><td><code>tagName</code></td>
+</tr><tr><td><code>scroller</code></td>
+  <td>Mixed</td>
+  <td>The view's scrolling engine, either <code>IScroll</code> or <code>Native</code>, defaults to the <code>Native</code> when available otherwise <code>IScroll</code>.</td>
+</tr><tr><td><code>scroll</code></td>
   <td>String</td>
-  <td>The view's element tag name, defaults to <code>div</code>.</td>
+  <td>The view's scrolling directions, either <code>vertical</code>, <code>horizontal</code> or <code>both</code>, defaults to <code>vertical</code>. This options is only available using the <code>IScroll</code> engine.</td>
+</tr><tr><td><code>scrollbar</code></td>
+  <td>String</td>
+  <td>The view's scrollbars to display, either <code>vertical</code>, <code>horizontal</code> or <code>both</code>, defaults to <code>vertical</code>. This options is only available using the <code>IScroll</code> engine.</td>
 </tr><tr><td><code>momentum</code></td>
   <td>Boolean</td>
   <td>Whether the view scrolls with momentum, defaults to <code>true</code>.</td>
-</tr><tr><td><code>scrollX</code></td>
-  <td>Boolean</td>
-  <td>Whether to scroll on the x axis, defaults to <code>true</code>.</td>
-</tr><tr><td><code>scrollY</code></td>
-  <td>Boolean</td>
-  <td>Whether to scroll on the y axis, defaults to <code>true</code>.</td>
 </tr><tr><td><code>snapToPage</code></td>
   <td>Boolean</td>
   <td>Whether to snap to the current page upon release, defaults to <code>false</code>.</td>
 </tr><tr><td><code>snapToPageAt</code></td>
   <td>Number</td>
-  <td>The percentage moved to snap to the next page, defaults to <code>35</code>.</td>
+  <td>The percentage moved to snap to the next page, defaults to <code>20</code>.</td>
+</tr><tr><td><code>snapToPageSizeX</code></td>
+  <td>Number</td>
+  <td>The width of a page, defaults to <code>null</code> which calculate the page's width automatically.</td>
+</tr><tr><td><code>snapToPageSizeY</code></td>
+  <td>Number</td>
+  <td>The height of a page, defaults to <code>null</code> which calculate the page's height automatically.</td>
 </tr><tr><td><code>snapToPageDuration</code></td>
   <td>Number</td>
   <td>The time in milliseconds for the snap animation, defaults to <code>150</code>.</td>
 </tr><tr><td><code>snapToPageDelay</code></td>
   <td>Number</td>
   <td>The view will automatically snap to the next page if the user scrolls for less than this time in milliseconds, defaults to <code>150</code>.</td>
+</tr><tr><td><code>initialPageX</code></td>
+  <td>Number</td>
+  <td>The initial horizontal page to scroll to, defaults to <code>0</code>.</td>
+</tr><tr><td><code>initialPageY</code></td>
+  <td>Number</td>
+  <td>The initial vertical page to scroll to, defaults to <code>0</code>.</td>
+</tr><tr><td><code>initialScrollX</code></td>
+  <td>Number</td>
+  <td>The initial horizontal scroll, defaults to <code>0</code>.</td>
+</tr><tr><td><code>initialScrollY</code></td>
+  <td>Number</td>
+  <td>The initial vertical scroll, defaults to <code>0</code>.</td>
 </tr></tbody></table><h4>Generates:</h4>
 
-<pre class="prettyprint"><code>&lt;div class="view scroll-view"&gt;
-    &lt;div class="view-content-wrapper scroll-view-content-wrapper scroll"&gt;
-        &lt;div data-role="view-content" class="view-content scroll-view-content" &gt;&lt;/div&gt;
+<pre class="prettyprint"><code>&lt;div class="view scroll-view view-layout-vertical (iscroll|native)-engine"&gt;
+    &lt;div class="view-content-wrapper scrollable"&gt;
+        &lt;div data-role="content" class="view-content scroll-view-content"&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<h4>Note:</h4>
+<h4>Defined roles:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>view</code></td>
+  <td>Defines an element acting as a view. Use the <code>data-view</code> attribute to specify a subclass instead</td>
+</tr><tr><td><code>content</code></td>
+  <td>Defines an element acting as a view's content. If omitted, the contents of the view's element will act as its view content.</td>
+</tr></tbody></table><h4>Note:</h4>
 
 <p>Upon initialization, this view will use the CSS class name either provided as either an option or directly in the element to generate the view content's class name. The view content CSS class name will be made from the view's CSS class appended with <code>content</code>.</p>
 
 <h2 id="events">Events</h2>
 
-<h3 id="dragstart-event">dragstart</h3>
+<h3 id="dragstart-event">scrollstart</h3>
 
-<p>Fired when the user starts scrolling with a touch event.</p>
+<p>Fired when the user starts scrolling with a touch event. This event is only fired with the <code>IScroll</code> engine.</p>
 
-<h3 id="dragend-event">dragend</h3>
+<h3 id="dragend-event">scrollend</h3>
 
-<p>Fired when the users finishes the touch event.</p>
+<p>Fired when the users finishes the touch event. This event is only fired with the <code>IScroll</code> engine.</p>
 
 <h3 id="scroll-event">scroll</h3>
 
 <p>Fired when the content is being scrolled. However, this event is not called when the scrolling occurs from its own momentum. In this case the event will still be called once the momentum stops.</p>
 
-<h2 id="members">Members</h2>
+<h2 id="methods">Methods</h2>
 
-<h3 id="wrapperElement">wrapperElement</h3>
+<h3 id="setContentSize">setContentSize(x, y)</h3>
 
-<p>The element that wraps the content and make it scrollable.</p>
+<p>Sets this view's content size including the scrollable area.</p>
 
-<h4>Type</h4>
+<h4>Parameters:</h4>
 
-<ul><li><code>Element</code></li>
-</ul><h2 id="methods">Methods</h2>
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>x</code></td>
+  <td>Number</td>
+  <td>This view content's width.</td>
+</tr><tr><td><code>y</code></td>
+  <td>Number</td>
+  <td>This view content's height.</td>
+</tr></tbody></table><h4>Returns:</h4>
 
-<h3 id="scrollTo">scrollTo(x, y, time)</h3>
+<ul><li><code>Moobile.ScrollView</code> This Moobile.ScrollView instance.</li>
+</ul><hr><h3 id="getContentSize">getContentSize()</h3>
+
+<p>Returns this view's content size including the scrollable area.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Object</code> An object containing the <code>x</code> and <code>y</code> dimensions of this view's content including the scrollable area.</li>
+</ul><hr><h3 id="getContentWrapperSize">getContentWrapperSize()</h3>
+
+<p>Returns this view's content size excluding the scrollable area.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Object</code> An object containing the <code>x</code> and <code>y</code> dimensions of this view's content excluding the scrollable area.</li>
+</ul><hr><h3 id="getContentScroll">getContentScroll()</h3>
+
+<p>Returns this view's scroll position.</p>
+
+<h4>Returns:</h4>
+
+<ul><li><code>Object</code> An object containing the <code>x</code> and <code>y</code> scroll positions.</li>
+</ul><hr><h3 id="scrollTo">scrollTo(x, y, time)</h3>
 
 <p>Scrolls to a set of coordinate.</p>
 
@@ -160,6 +218,24 @@
 </tr><tr><td><code>y</code></td>
   <td>Number</td>
   <td>The y coordinate.</td>
+</tr><tr><td><code>time</code> <em>Optional</em></td>
+  <td>Number</td>
+  <td>The duration of the scroll.</td>
+</tr></tbody></table><h4>Returns:</h4>
+
+<ul><li><code>Moobile.ScrollView</code> This Moobile.ScrollView instance.</li>
+</ul><hr><h3 id="scrollToElement">scrollToElement(element, time)</h3>
+
+<p>Scrolls to an element.</p>
+
+<h4>Parameters:</h4>
+
+<table><thead><tr><th>Name</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr></thead><tbody><tr><td><code>element</code></td>
+  <td>Element</td>
+  <td>The element to scroll to.</td>
 </tr><tr><td><code>time</code> <em>Optional</em></td>
   <td>Number</td>
   <td>The duration of the scroll.</td>
@@ -187,40 +263,15 @@
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.ScrollView</code> This Moobile.ScrollView instance.</li>
-</ul><hr><h3 id="scrollToElement">scrollToElement(element, time)</h3>
+</ul><hr><h3 id="getPage">getPage()</h3>
 
-<p>Scrolls to an element.</p>
-
-<h4>Parameters:</h4>
-
-<table><thead><tr><th>Name</th>
-  <th>Type</th>
-  <th>Description</th>
-</tr></thead><tbody><tr><td><code>element</code></td>
-  <td>Element</td>
-  <td>The element to scroll to.</td>
-</tr><tr><td><code>time</code> <em>Optional</em></td>
-  <td>Number</td>
-  <td>The duration of the scroll.</td>
-</tr></tbody></table><h4>Returns:</h4>
-
-<ul><li><code>Moobile.ScrollView</code> This Moobile.ScrollView instance.</li>
-</ul><hr><h3 id="getScroll">getScroll()</h3>
-
-<p>Returns the current scroll position as an object with two keys, <code>x</code> which indicates the horizontal scroll and <code>y</code> which indicates the vertical scroll of this view.</p>
+<p>Return this view's current page. The current page based on the page visible at the top left area of this view's content.</p>
 
 <h4>Returns:</h4>
 
-<ul><li><code>Object</code> The scroll position.</li>
-</ul><hr><h3 id="getScrollSize">getScrollSize()</h3>
-
-<p>Returns the content size including the scrolling area as an object with two keys, <code>x</code> which indicates the width and <code>y</code> which indicates the height.</p>
-
-<h4>Returns:</h4>
-
-<ul><li><code>Object</code> The size including the scrolling area.</li>
+<ul><li><code>Object</code> An object containing the <code>x</code> and <code>y</code> pages.</li>
 </ul></div>
-	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#events">Events</a><ul><li><a href="#dragstart-event">dragstart</a></li><li><a href="#dragend-event">dragend</a></li><li><a href="#scroll-event">scroll</a></li></ul></li><li><a href="#members">Members</a><ul><li><a href="#wrapperElement">wrapperElement</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#scrollTo">scrollTo</a></li><li><a href="#scrollToPage">scrollToPage</a></li><li><a href="#scrollToElement">scrollToElement</a></li><li><a href="#getScroll">getScroll</a></li><li><a href="#getScrollSize">getScrollSize</a></li></ul></li></ul></div>
+	<div id="table-of-contents" class="table-of-contents"><h2>Table of Contents</h2><ul><li><a href="#initialize">Initialization</a></li><li><a href="#events">Events</a><ul><li><a href="#dragstart-event">scrollstart</a></li><li><a href="#dragend-event">scrollend</a></li><li><a href="#scroll-event">scroll</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#setContentSize">setContentSize</a></li><li><a href="#getContentSize">getContentSize</a></li><li><a href="#getContentWrapperSize">getContentWrapperSize</a></li><li><a href="#getContentScroll">getContentScroll</a></li><li><a href="#scrollTo">scrollTo</a></li><li><a href="#scrollToElement">scrollToElement</a></li><li><a href="#scrollToPage">scrollToPage</a></li><li><a href="#getPage">getPage</a></li></ul></li></ul></div>
 
 	<script type="text/javascript">
 		if (document.location.protocol !== 'file:') {

@@ -1,0 +1,198 @@
+/* Simulator
+-----------------------------------------------------------------------------*/
+
+.simulator {
+	-webkit-transform-origin: center center;
+	   -moz-transform-origin: center center;
+	    -ms-transform-origin: center center;
+	     -o-transform-origin: center center;
+	        transform-origin: center center;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
+	font-family: "Helvetica Neue", "Helvetica", Sans-Serif;
+	font-weight: normal;
+	height: 0px;
+	position: relative;
+	width: 0px;
+}
+
+.simulator .simulator-glare {
+	left: 0px;
+	position: absolute;
+	pointer-events: none;
+	top: 0px;
+	z-index: 100;
+}
+
+.simulator .simulator-facade {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+}
+
+.simulator .simulator-screen {
+	-webkit-transform-origin: center center;
+	   -moz-transform-origin: center center;
+	    -ms-transform-origin: center center;
+	     -o-transform-origin: center center;
+	        transform-origin: center center;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	    -ms-box-sizing: border-box;
+	     -o-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #222a2d;
+	position: relative;
+}
+
+.simulator iframe {
+	border: none;
+	margin: 0px;
+	overflow: hidden;
+	padding: 0px;
+}
+
+/* Animations */
+
+@-webkit-keyframes hide-device {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@-moz-keyframes hide-device {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@-ms-keyframes hide-device {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@-o-keyframes hide-device {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+@keyframes hide-device {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+
+@-webkit-keyframes show-device {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+@-moz-keyframes show-device {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+@-ms-keyframes show-device {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+@-o-keyframes show-device {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+@keyframes show-device {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+.simulator.hide-device {
+	-webkit-animation: hide-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	   -moz-animation: hide-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	    -ms-animation: hide-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	     -o-animation: hide-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	        animation: hide-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}
+
+.simulator.show-device {
+	-webkit-animation: show-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	   -moz-animation: show-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	    -ms-animation: show-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	     -o-animation: show-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+	        animation: show-device 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}
+
+/* Orientation
+-----------------------------------------------------------------------------*/
+
+/* Portrait */
+
+.simulator.portrait {
+	-webkit-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	        transform: rotate(0deg);
+}
+
+.simulator.portrait .simulator-screen {
+	-webkit-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	        transform: rotate(0deg);
+}
+
+/* Landscape */
+
+.simulator.landscape {
+	-webkit-transform: rotate(90deg);
+	   -moz-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	     -o-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+.simulator.landscape .simulator-screen {
+	-webkit-transform: rotate(-90deg);
+	   -moz-transform: rotate(-90deg);
+	    -ms-transform: rotate(-90deg);
+	     -o-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+}
+
+/* Orientation Change
+-----------------------------------------------------------------------------*/
+
+@-webkit-keyframes rotate-device-portrait {
+	from { -webkit-transform: rotate(90deg); }
+	to   { -webkit-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes rotate-device-landscape {
+	from { -webkit-transform: rotate(0deg); }
+	to   { -webkit-transform: rotate(90deg); }
+}
+
+@-webkit-keyframes rotate-screen-portrait {
+	from { -webkit-transform: rotate(-90deg); }
+	to   { -webkit-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes rotate-screen-landscape {
+	from { -webkit-transform: rotate(0deg); }
+	to   { -webkit-transform: rotate(-90deg); }
+}
+
+.simulator.rotate-device-portrait {
+	-webkit-animation: rotate-device-portrait 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}
+
+.simulator.rotate-device-landscape {
+	-webkit-animation: rotate-device-landscape 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}
+
+.simulator .simulator-screen.rotate-screen-portrait {
+	-webkit-animation: rotate-screen-portrait 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}
+
+.simulator .simulator-screen.rotate-screen-landscape {
+	-webkit-animation: rotate-screen-landscape 350ms cubic-bezier(0.5, 0.1, 0.5, 1);
+}

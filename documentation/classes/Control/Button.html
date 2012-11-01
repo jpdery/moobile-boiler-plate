@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Button | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.Button | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -95,7 +97,7 @@
 
 <h4>Notes:</h4>
 
-<p>Upon initialization, this control creates its label with a <a href="../Control/Text.html">Moobile.Text</a> instance using the button element's content. For instance, if you create a button like this:</p>
+<p>Upon initialization, this control creates its label with a <a href="../Control/Text.html">Moobile.Text</a> instance using this button element's content. For instance, if you create a button like this:</p>
 
 <pre class="prettyprint"><code>&lt;div data-role="button"&gt;
     &lt;div class="element-one"&gt;&lt;/div&gt;
@@ -140,8 +142,8 @@
   <td>Use the <code>data-button</code> attribute to specify a subclass instead</td>
 </tr><tr><td><code>label</code></td>
   <td>Defines the element acting as the button's label</td>
-  <td><code>Moobile.Button</code> controls</td>
-  <td>If unspecified, the contents of the button's element will become its label.</td>
+  <td>Moobile.Button controls</td>
+  <td>If omitted, the contents of this button's element will become its label.</td>
 </tr></tbody></table><h4>Examples:</h4>
 
 <h5>Specifying an element that acts a button control using the <code>data-role</code> attribute:</h5>
@@ -174,7 +176,7 @@
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>label</code></td>
   <td>Mixed</td>
-  <td>The label as a string or a <code>Moobile.Text</code> instance.</td>
+  <td>The label as a string or a <a href="../Control/Text.html">Moobile.Text</a> instance.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.Button</code> This Moobile.Button instance.</li>
@@ -191,6 +193,10 @@ button.setLabel('Moo');
 <pre class="prettyprint"><code>var button = new Moobile.Button();
 button.setLabel(new Moobile.Text().setText('Moo'));
 </code></pre>
+
+<h4>Note:</h4>
+
+<p>The CSS class <code>button-label-empty</code> is added to the root element when the label is empty.</p>
 
 <hr><h3 id="getLabel">getLabel()</h3>
 

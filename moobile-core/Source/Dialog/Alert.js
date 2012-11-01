@@ -19,10 +19,13 @@ provides:
 ...
 */
 
+// TODO: Unit tests for buttons methods
+
 /**
- * @see    http://moobilejs.com/doc/0.1/Dialog/Alert
+ * @see    http://moobilejs.com/doc/latest/Dialog/Alert
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
 Moobile.Alert = new Class({
 
@@ -31,121 +34,132 @@ Moobile.Alert = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_title: null,
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_message: null,
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_buttons: [],
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#wrapperElement
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#boxElement
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
-	wrapperElement: null,
+	boxElement: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#contentElement
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#contentElement
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	contentElement: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#headerElement
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#headerElement
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	headerElement: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#footerElement
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#footerElement
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	footerElement: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#contentElement
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#overlay
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
-	 */
-	contentElement: null,
-
-	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#overlay
-	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	overlay: null,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#options
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#options
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	options: {
-		buttonLayout: 'vertical'
+		layout: 'horizontal'
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
 
 		this.parent();
 
-		this.element.addClass('alert');
-		this.element.addEvent('animationend', this.bound('_onAnimationEnd'));
+		this.addClass('alert');
+		this.addEvent('animationend', this.bound('_onAnimationEnd'));
 
 		this.overlay = new Moobile.Overlay();
 		this.overlay.setStyle('radial');
 		this.addChildComponent(this.overlay);
 
-		this.headerElement  = new Element('div.alert-header');
-		this.footerElement  = new Element('div.alert-footer');
-		this.contentElement = new Element('div.alert-content');
+		this.headerElement = document.createElement('div');
+		this.headerElement.addClass('alert-header');
 
-		this.wrapperElement = new Element('div.alert-wrapper');
-		this.wrapperElement.grab(this.headerElement);
-		this.wrapperElement.grab(this.contentElement);
-		this.wrapperElement.grab(this.footerElement);
+		this.footerElement = document.createElement('div');
+		this.footerElement.addClass('alert-footer');
 
-		this.element.grab(this.wrapperElement);
+		this.contentElement = document.createElement('div');
+		this.contentElement.addClass('alert-content');
 
-		var buttonLayout = this.options.buttonLayout;
-		if (buttonLayout) {
-			this.element.addClass('button-layout-' + buttonLayout);
+		this.boxElement = document.createElement('div');
+		this.boxElement.addClass('alert-box');
+		this.boxElement.grab(this.headerElement);
+		this.boxElement.grab(this.contentElement);
+		this.boxElement.grab(this.footerElement);
+
+		this.element.grab(this.boxElement);
+
+		var layout = this.options.layout;
+		if (layout) {
+			this.addClass('alert-layout-' + layout);
 		}
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
+	 */
+	didBuild: function() {
+		this.parent();
+		this.setTitle('');
+		this.setMessage('');
+	},
+
+	/**
+	 * @overridden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	destroy: function() {
 
-		this.element.addEvent('animationend', this.bound('_onAnimationEnd'));
+		this.removeEvent('animationend', this.bound('_onAnimationEnd'));
 
 		this._title = null;
 		this._message = null;
 
-		this.wrapperElement = null;
+		this.boxElement = null;
 		this.headerElement = null;
 		this.footerElement = null;
 		this.contentElement = null;
@@ -157,18 +171,16 @@ Moobile.Alert = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#setTitle
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#setTitle
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setTitle: function(title) {
 
 		if (this._title === title)
 			return this;
 
-		if (typeof title === 'string') {
-			title = new Moobile.Text().setText(title);
-		}
+		title = Moobile.Text.from(title);
 
 		if (this._title) {
 			this._title.replaceWithComponent(title, true);
@@ -177,33 +189,32 @@ Moobile.Alert = new Class({
 		}
 
 		this._title = title;
-		this._title.addClass('title');
+		this._title.addClass('alert-title');
+		this.toggleClass('alert-title-empty', this._title.isEmpty());
 
 		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#getTitle
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#getTitle
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getTitle: function() {
 		return this._title;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#setMessage
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#setMessage
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setMessage: function(message) {
 
 		if (this._message === message)
 			return this;
 
-		if (typeof message === 'string') {
-			message = new Moobile.Text().setText(message);
-		}
+		message = Moobile.Text.from(message);
 
 		if (this._message) {
 			this._message.replaceWithComponent(message, true);
@@ -212,57 +223,116 @@ Moobile.Alert = new Class({
 		}
 
 		this._message = message;
-		this._message.addClass('message');
+		this._message.addClass('alert-message');
+		this.toggleClass('alert-message-empty', this._message.isEmpty());
 
 		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#getMessage
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#getMessage
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getMessage: function() {
 		return this._message;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#addButton
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#addButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
-	addButton: function(button) {
-
-		if (typeof button === 'string') {
-			button = new Moobile.Button().setLabel(button);
-		}
-
-		return this.addChildComponentInside(button, this.footerElement);
+	addButton: function(button, where) {
+		return this.addChildComponentInside(Moobile.Button.from(button), this.footerElement, where);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#setDefaultButton
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#addButtonAfter
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
+	 */
+	addButtonAfter: function(button, after) {
+		return this.addChildComponentAfter(Moobile.Button.from(button), after);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#addButtonBefore
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
+	 */
+	addButtonBefore: function(button, before) {
+		return this.addChildComponentBefore(Moobile.Button.from(button), before);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#getButtons
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	getButtons: function() {
+		return this.getChildComponentsOfType(Moobile.Button);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#getButton
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	getButton: function(name) {
+		return this.getChildComponentOfType(Moobile.Button, name);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#getButtonAt
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	getButtonAt: function(index) {
+		return this.getChildComponentOfTypeAt(Moobile.Button, index);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#removeButton
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	removeButton: function(button, destroy) {
+		return this.removeChildComponent(button, destroy);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#removeAllButtons
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	removeAllButtons: function(destroy) {
+		return this.removeAllChildComponentsOfType(Moobile.Button, destroy);
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#setDefaultButton
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	setDefaultButton: function(button) {
-		if (this.hasChildComponent(button)) button.addClass('default');
+		if (this.hasChildComponent(button)) button.addClass('is-default');
 		return this;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#setDefaultButtons
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#setDefaultButtons
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setDefaultButtonIndex: function(index) {
 		return this.setDefaultButton(this.getChildComponentOfTypeAt(Moobile.Button, index));
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#showAnimated
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#showAnimated
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	showAnimated: function() {
 		this.willShow();
@@ -273,9 +343,9 @@ Moobile.Alert = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Dialog/Alert#hideAnimated
+	 * @see    http://moobilejs.com/doc/latest/Dialog/Alert#hideAnimated
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	hideAnimated: function() {
 		this.willHide();
@@ -287,57 +357,63 @@ Moobile.Alert = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
-	didAddChildComponent: function(child) {
-		this.parent(child);
-		if (child instanceof Moobile.Button) {
-			child.addEvent('tap', this.bound('_onButtonTap'));
-			this._buttons.include(child);
+	didAddChildComponent: function(component) {
+		this.parent(component);
+		if (component instanceof Moobile.Button) {
+			component.addEvent('tap', this.bound('_onButtonTap'));
+			this._buttons.include(component);
 		}
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
-	didRemoveChildComponent: function(child) {
-		this.parent(child);
-		if (child instanceof Moobile.Button) {
-			child.removeEvent('tap', this.bound('_onButtonTap'));
-			this._buttons.erase(child);
+	didRemoveChildComponent: function(component) {
+		this.parent(component);
+		if (component instanceof Moobile.Button) {
+			component.removeEvent('tap', this.bound('_onButtonTap'));
+			this._buttons.erase(component);
 		}
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	willShow: function() {
+
 		this.parent();
-		if (this._buttons.length === 0) {
-			var button = new Moobile.Button();
-			button.setLabel('OK');
-			this.addButton(button);
+
+		if (this.getParentView() === null) {
+			var instance = Moobile.Window.getCurrentInstance();
+			if (instance) {
+				instance.addChildComponent(this);
+			}
 		}
+
+		if (this._buttons.length === 0) this.addButton('OK');
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didHide: function() {
 		this.parent();
-		this.destroy();
+		this.removeFromParentComponent();
 	},
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onButtonTap: function(e, sender) {
 
@@ -352,19 +428,19 @@ Moobile.Alert = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_onAnimationEnd: function(e) {
 
 		e.stop();
 
-		if (this.element.hasClass('show-animated')) {
-			this.element.removeClass('show-animated');
+		if (this.hasClass('show-animated')) {
+			this.removeClass('show-animated');
 			this.didShow();
 		}
 
-		if (this.element.hasClass('hide-animated')) {
-			this.element.removeClass('hide-animated');
+		if (this.hasClass('hide-animated')) {
+			this.removeClass('hide-animated');
 			this.element.hide();
 			this.didHide();
 		}

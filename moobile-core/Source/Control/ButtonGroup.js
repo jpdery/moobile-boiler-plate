@@ -20,9 +20,10 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup
+ * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @edited 0.2.0
+ * @since  0.1.0
  */
 Moobile.ButtonGroup = new Class({
 
@@ -31,51 +32,63 @@ Moobile.ButtonGroup = new Class({
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_selectedButton: null,
 
 	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	_selectedButtonIndex: -1,
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#options
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#options
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	options: {
-		deselectable: false,
+		layout: 'horizontal',
+		selectable: true,
 		selectedButtonIndex: -1
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	willBuild: function() {
+
 		this.parent();
-		this.element.addClass('button-group');
+
+		this.addClass('button-group');
+
+		var layout = this.options.layout;
+		if (layout) {
+			this.addClass('button-group-layout-' + layout);
+		}
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	didBuild: function() {
 		this.parent();
+		this.setSelectable(this.options.selectable);
 		this.setSelectedButtonIndex(this.options.selectedButtonIndex);
 	},
 
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	destroy: function() {
 		this._selectedButton = null;
@@ -84,19 +97,18 @@ Moobile.ButtonGroup = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#setSelectedButton
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#setSelectedButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @edited 0.2.0
+	 * @since  0.1.0
 	 */
 	setSelectedButton: function(selectedButton) {
 
-		if (this._selectedButton === selectedButton) {
-			if (selectedButton && this.options.deselectable) {
-				selectedButton = null;
-			} else {
-				return this;
-			}
-		}
+		if (this._selectable === false)
+			return this;
+
+		if (this._selectedButton === selectedButton)
+			return this;
 
 		if (this._selectedButton) {
 			this._selectedButton.setSelected(false);
@@ -116,18 +128,18 @@ Moobile.ButtonGroup = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#getSelectedButton
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#getSelectedButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getSelectedButton: function() {
 		return this._selectedButton;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#setSelectedButtonIndex
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#setSelectedButtonIndex
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	setSelectedButtonIndex: function(index) {
 
@@ -140,18 +152,18 @@ Moobile.ButtonGroup = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#getSelectedButtonIndex
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#getSelectedButtonIndex
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getSelectedButtonIndex: function() {
 		return this._selectedButtonIndex;
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#clearSelectedButton
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#clearSelectedButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	clearSelectedButton: function() {
 		this.setSelectedButton(null);
@@ -159,81 +171,112 @@ Moobile.ButtonGroup = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#addButton
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#addButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	addButton: function(button, where) {
-		return this.addChildComponent(button, where);
+		return this.addChildComponent(Moobile.Button.from(button), where);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#addButtonAfter
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#addButtonAfter
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	addButtonAfter: function(button, after) {
-		return this.addChildComponentAfter(button, after);
+		return this.addChildComponentAfter(Moobile.Button.from(button), after);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#addButtonBefore
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#addButtonBefore
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	addButtonBefore: function(button, before) {
-		return this.addChildComponentBefore(button, before);
+		return this.addChildComponentBefore(Moobile.Button.from(button), before);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#getButtons
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#getButtons
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getButtons: function() {
 		return this.getChildComponentsOfType(Moobile.Button);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#getButton
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#getButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getButton: function(name) {
 		return this.getChildComponentOfType(Moobile.Button, name);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#getButtonAt
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#getButtonAt
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	getButtonAt: function(index) {
 		return this.getChildComponentOfTypeAt(Moobile.Button, index);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#removeButton
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#removeButton
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	removeButton: function(button, destroy) {
 		return this.removeChildComponent(button, destroy);
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Control/ButtonGroup#removeAllButtons
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#removeAllButtons
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	removeAllButtons: function(destroy) {
 		return this.removeAllChildComponentsOfType(Moobile.Button, destroy);
 	},
 
 	/**
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#setSelectable
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	setSelectable: function(selectable) {
+		this._selectable = selectable;
+		return this;
+	},
+
+	/**
+	 * @see    http://moobilejs.com/doc/latest/Control/ButtonGroup#isSelectable
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	isSelectable: function() {
+		return this._selectable;
+	},
+
+	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.2.0
+	 */
+	willRemoveChildComponent: function(component) {
+		this.parent(component);
+		if (this._selectedButton === component) {
+			this.clearSelectedButton();
+		}
+	},
+
+	/**
+	 * @overridden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.1.0
 	 */
 	didAddChildComponent: function(child) {
 		this.parent(child);
@@ -245,7 +288,7 @@ Moobile.ButtonGroup = new Class({
 	/**
 	 * @overridden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	didRemoveChildComponent: function(child) {
 		this.parent(child);
@@ -255,9 +298,21 @@ Moobile.ButtonGroup = new Class({
 	},
 
 	/**
+	 * @overridden
+	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+	 * @since  0.2.0
+	 */
+	didChangeState: function(state) {
+		this.parent(state)
+		if (state === 'disabled' || state == null) {
+			this.getChildComponents().invoke('setDisabled', state);
+		}
+	},
+
+	/**
 	 * @hidden
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	onButtonTap: function(e, sender) {
 		this.setSelectedButton(sender);
@@ -273,11 +328,3 @@ Moobile.Component.defineRole('button-group', null, function(element) {
 	this.addChildComponent(Moobile.Component.create(Moobile.ButtonGroup, element, 'data-button-group'));
 });
 
-//------------------------------------------------------------------------------
-// Styles
-//------------------------------------------------------------------------------
-
-Moobile.Component.defineStyle('vertical', Moobile.ButtonGroup, {
-	attach: function(element) { element.addClass('style-vertical'); },
-	detach: function(element) { element.removeClass('style-vertical'); }
-});

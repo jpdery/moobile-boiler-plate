@@ -18,16 +18,16 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Class/Class
+ * @see    http://moobilejs.com/doc/latest/Class/Class
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
- * @since  0.1
+ * @since  0.1.0
  */
 Class.extend({
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Class/Class.Instantiate#parse
+	 * @see    http://moobilejs.com/doc/latest/Class/Class.Instantiate#parse
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	parse: function(name) {
 		name = name.trim();
@@ -38,9 +38,9 @@ Class.extend({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Class/Class.Instantiate#instantiate
+	 * @see    http://moobilejs.com/doc/latest/Class/Class.Instantiate#instantiate
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
-	 * @since  0.1
+	 * @since  0.1.0
 	 */
 	instantiate: function(klass) {
 		if (typeof klass === 'string') klass = Class.parse(klass);

@@ -20,8 +20,9 @@ provides:
 */
 
 /**
- * @see    http://moobilejs.com/doc/0.1/Util/Overlay
+ * @see    http://moobilejs.com/doc/latest/Util/Overlay
  * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
+ * @edited 0.2.0
  * @since  0.1.0
  */
 Moobile.Overlay = new Class({
@@ -35,8 +36,8 @@ Moobile.Overlay = new Class({
 	 */
 	willBuild: function() {
 		this.parent();
-		this.element.addClass('overlay');
-		this.element.addEvent('animationend', this.bound('_onAnimationEnd'));
+		this.addClass('overlay');
+		this.addEvent('animationend', this.bound('_onAnimationEnd'));
 	},
 
 	/**
@@ -45,12 +46,12 @@ Moobile.Overlay = new Class({
 	 * @since  0.1.0
 	 */
 	destroy: function() {
-		this.element.removeEvent('animationend', this.bound('_onAnimationEnd'));
+		this.removeEvent('animationend', this.bound('_onAnimationEnd'));
 		this.parent();
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Util/Overlay#showAnimated
+	 * @see    http://moobilejs.com/doc/latest/Util/Overlay#showAnimated
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
 	 * @since  0.1.0
 	 */
@@ -62,7 +63,7 @@ Moobile.Overlay = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Util/Overlay#hideAnimated
+	 * @see    http://moobilejs.com/doc/latest/Util/Overlay#hideAnimated
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
 	 * @since  0.1.0
 	 */
@@ -73,7 +74,7 @@ Moobile.Overlay = new Class({
 	},
 
 	/**
-	 * @see    http://moobilejs.com/doc/0.1/Util/Overlay#_onAnimationEnd
+	 * @see    http://moobilejs.com/doc/latest/Util/Overlay#_onAnimationEnd
 	 * @author Jean-Philippe Dery (jeanphilippe.dery@gmail.com)
 	 * @since  0.1.0
 	 */
@@ -81,25 +82,16 @@ Moobile.Overlay = new Class({
 
 		e.stop();
 
-		if (this.element.hasClass('show-animated')) {
-			this.element.removeClass('show-animated');
+		if (this.hasClass('show-animated')) {
+			this.removeClass('show-animated');
 			this.didShow();
 		}
 
-		if (this.element.hasClass('hide-animated')) {
-			this.element.removeClass('hide-animated');
+		if (this.hasClass('hide-animated')) {
 			this.element.hide();
+			this.removeClass('hide-animated');
 			this.didHide();
 		}
 	}
 
-});
-
-//------------------------------------------------------------------------------
-// Styles
-//------------------------------------------------------------------------------
-
-Moobile.Component.defineStyle('radial', Moobile.Bar, {
-	attach: function(element) { element.addClass('style-radial'); },
-	detach: function(element) { element.removeClass('style-radial'); }
 });

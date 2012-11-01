@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.NavigationBarItem | Moobile 0.1.1</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width"><title>Moobile.NavigationBarItem | Moobile 0.2.0</title><link rel="stylesheet" href="../../css/reset.css"><link rel="stylesheet" href="../../css/style.css"><script src="../../js/libs/modernizr-2.5.3.min.js"></script><script src="../../js/libs/prettify.js"></script><script src="../../js/libs/mootools-core-1.4.5.min.js"></script><script src="../../js/libs/mootools-more-1.4.0.1.min.js"></script><script src="../../js/libs/moobile-simulator.js"></script><script src="../../js/plugins.js"></script><script src="../../js/script.js"></script><script type="text/javascript">
 		Moobile.Simulator.setResourcePath('../../assets/shared/resources');
 	</script></head><body>
 
@@ -41,6 +41,8 @@
 		<ul class="file-list"><li><a href="../../classes/ViewTransition/ViewTransition.Slide.html"><span>Moobile.</span>ViewTransition.Slide</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cubic.html"><span>Moobile.</span>ViewTransition.Cubic</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.html"><span>Moobile.</span>ViewTransition.Cover</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Box.html"><span>Moobile.</span>ViewTransition.Cover.Box</a></li>
+			<li><a href="../../classes/ViewTransition/ViewTransition.Cover.Page.html"><span>Moobile.</span>ViewTransition.Cover.Page</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Flip.html"><span>Moobile.</span>ViewTransition.Flip</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.Fade.html"><span>Moobile.</span>ViewTransition.Fade</a></li>
 			<li><a href="../../classes/ViewTransition/ViewTransition.None.html"><span>Moobile.</span>ViewTransition.None</a></li>
@@ -143,13 +145,13 @@
   <th>Applies to</th>
   <th>Note</th>
 </tr></thead><tbody><tr><td><code>item</code></td>
-  <td>Defines an element actins as the <code>Moobile.NavigationBarItem</code> control</td>
+  <td>Defines an element actins as the <a href="../Control/NavigationBarItem.html">Moobile.NavigationBarItem</a> control</td>
   <td><a href="../Control/NavigationBar.html">Moobile.NavigationBar</a> controls</td>
-  <td>Use the <code>data-item</code> attribute to specify a subclass instead</td>
+  <td>Use the <code>data-item</code> attribute to specify a subclass instead.</td>
 </tr><tr><td><code>title</code></td>
   <td>Defines the element acting as the navigation bar item title.</td>
-  <td><code>Moobile.NavigationBarItem</code> controls</td>
-  <td>If unspecified, the contents of the navigation bar item's element will act as its title.</td>
+  <td>Moobile.NavigationBarItem controls</td>
+  <td>If omitted, the contents of the navigation bar item's element will act as its title.</td>
 </tr></tbody></table><h4>Examples:</h4>
 
 <h5>Specifying an element that acts a navigation bar item control using the <code>data-role</code> attribute:</h5>
@@ -198,6 +200,10 @@ navigationBarItem.setTitle('Moo');
 var navigationBarItem = navigationBar.getItem();
 navigationBarItem.setTitle(new Moobile.Text().setText('Moo'));
 </code></pre>
+
+<h4>Note:</h4>
+
+<p>The CSS class <code>bar-title-empty</code> is added to the root element when the title is empty.</p>
 
 <hr><h3 id="getTitle">getTitle()</h3>
 
@@ -298,7 +304,7 @@ navigationBarItem.getButton('me'); // returns buttonOne
   <td>The button to remove.</td>
 </tr><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the button upon removal.</td>
+  <td>Whether to destroy the button upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.NavigationBarItem</code> This Moobile.NavigationBarItem instance.</li>
@@ -324,7 +330,7 @@ navigationBarItem.removeButton(buttoOne); // the navigation bar item contains on
   <th>Description</th>
 </tr></thead><tbody><tr><td><code>destroy</code> <em>Optional</em></td>
   <td>Boolean</td>
-  <td>Whether or not to destroy the button upon removal.</td>
+  <td>Whether to destroy the buttons upon removal.</td>
 </tr></tbody></table><h4>Returns:</h4>
 
 <ul><li><code>Moobile.NavigationBarItem</code> This Moobile.NavigationBarItem instance.</li>
