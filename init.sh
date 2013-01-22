@@ -26,7 +26,7 @@ cp -R moobile-core/Styles/ios/images/ios ./www/images
 
 echo "Building moobile"
 moobile-core/build > ./www/js/libs/moobile.js
-java -jar yuicompressor-2.4.7.jar ../www/js/libs/moobile.js -o ../www/js/libs/moobile.min.js
+java -jar tools/yuicompressor-2.4.7.jar www/js/libs/moobile.js -o www/js/libs/moobile.min.js
 
 # install moobile moobile-simulator
 echo "Installing moobile-simulator"
