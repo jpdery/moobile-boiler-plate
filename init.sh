@@ -31,7 +31,9 @@ java -jar yuicompressor-2.4.7.jar ../www/js/libs/moobile.js -o ../www/js/libs/mo
 # install moobile moobile-simulator
 echo "Installing moobile-simulator"
 git clone --recursive https://github.com/jpdery/moobile-simulator-2.git moobile-simulator
-sed -i -e "s/\(</head>\)\(<script type=\"text/javascript\">Moobile.Simulator.setResourcePath\('resources'\); LocalStorage.set\('application', '../www/index.html'\);</script>)/g" moobile-simulator/index.html
+head_find="Moobile.Simulator.setResourcePath('resources')"
+head_repl="Moobile.Simulator.setResourcePath('resources');LocalStorage.set('application', '..\/www\/index.html');"
+sed -i "" "s/$head_find/$head_repl/g" moobile-simulator/index.html
 
 # install psd
 echo "Installing moobile-psd"
@@ -42,5 +44,8 @@ echo "Installing documentaiton"
 git clone --recursive https://github.com/jpdery/moobile-core-doc.git
 cd moobile-core-doc
 phing
-cp -R output/latest ../documentation
 cd ..
+cp -R  moobile-core-doc/output/latest ./documentation
+rm -rf moobile-core-doc
+
+echo "Done"
